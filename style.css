@@ -27,8 +27,12 @@ body {
   z-index: 5;
   background: linear-gradient(90deg, var(--navy), #1e293b);
   color: #fff;
-  padding: 14px 18px;
+  padding: 8px 18px;
   border-bottom: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .brand {
@@ -42,9 +46,16 @@ body {
   line-height: 1;
 }
 
+.logo {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
 h1 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
 }
 
 .subtitle {
@@ -54,7 +65,7 @@ h1 {
 }
 
 .actions {
-  margin-top: 12px;
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -72,7 +83,7 @@ h1 {
 }
 
 .legend {
-  margin-top: 12px;
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
