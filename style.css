@@ -47,7 +47,7 @@ body {
 }
 
 .hero-title {
-  margin: 0;
+  margin: 16px 0 0;
   font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -57,6 +57,59 @@ body {
   margin: 6px 0 20px;
   font-size: 1.1rem;
   color: #94a3b8;
+}
+
+/* Player Cards */
+.player-cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-card img {
+  width: 130px;
+  height: 160px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 14px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.player-photo-placeholder {
+  width: 130px;
+  height: 160px;
+  border-radius: 14px;
+  border: 3px dashed var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: rgba(255,255,255,0.05);
+}
+
+.player-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.player-teams {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+  max-width: 130px;
 }
 
 /* Month nav buttons */
