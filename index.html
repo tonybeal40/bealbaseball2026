@@ -1,93 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beal Family Baseball 2026 ⚾</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
-  <script defer src="calendar-data.js"></script>
-  <script defer src="calendar.js"></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beal Family Baseball 2026</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at top,#0f2044 0%,#080e1a 70%);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-bottom:40px}
+    .top-logos{display:flex;justify-content:center;gap:24px;padding:28px 20px 10px}
+    .top-logos img{height:72px;width:72px;object-fit:contain;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.6)}
+    h1{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:900;letter-spacing:.04em;text-align:center;margin-top:10px}
+    .sub{font-size:.9rem;color:#fbbf24;letter-spacing:.18em;text-transform:uppercase;margin:6px 0 22px}
+    .players{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:0 16px;margin-bottom:22px}
+    .player{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .player img{width:clamp(110px,28vw,155px);height:clamp(140px,35vw,195px);object-fit:cover;object-position:top;border-radius:14px;border:3px solid #fbbf24;box-shadow:0 8px 28px rgba(0,0,0,.7);transition:transform .2s}
+    .player img:hover{transform:scale(1.04)}
+    .player-name{font-size:1rem;font-weight:800;color:#fbbf24;letter-spacing:.08em;text-transform:uppercase}
+    .player-team{font-size:.68rem;color:#94a3b8;text-align:center;max-width:155px;line-height:1.4}
+    .divider{width:70%;height:1px;background:linear-gradient(90deg,transparent,#fbbf24,transparent);margin:6px 0 18px}
+    .legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px;padding:0 16px}
+    .chip{padding:5px 13px;border-radius:999px;font-size:.78rem;font-weight:700}
+    .chip.bv{background:#111827;color:#fff;border:1px solid #555}
+    .chip.bj{background:#fbbf24;color:#111827}
+    .chip.be{background:#2563eb;color:#fff}
+    .chip.sa{background:#c026d3;color:#fff}
+    .month-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;width:100%;max-width:600px;padding:0 16px;margin-bottom:22px}
+    .btn-month{background:linear-gradient(135deg,#1a3a6b,#0f2547);color:#fff;border:2px solid #fbbf24;border-radius:12px;padding:16px 10px;font-size:1rem;font-weight:800;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:background .15s,transform .15s;display:block}
+    .btn-month:hover,.btn-month:active{background:#fbbf24;color:#0b1220;transform:translateY(-2px)}
+    .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 16px}
+    .btn{border:0;border-radius:10px;padding:12px 20px;font-weight:700;font-size:.9rem;text-decoration:none;cursor:pointer;display:inline-block}
+    .btn-g{background:#4285f4;color:#fff}
+    .btn-o{background:#0078d4;color:#fff}
+  </style>
 </head>
 <body>
-
-  <!-- HERO HEADER -->
-  <header class="hero">
-    <div class="hero-logos">
-      <img src="baseball-logo.png" alt="Midland logo" class="hero-logo" />
-      <img src="fhc-logo.png" alt="FHC logo" class="hero-logo" />
-    </div>
-    <div class="player-cards">
-    <div class="player-card breyer-card">
-      <img src="breyer.png" alt="Breyer" />
+  <div class="top-logos">
+    <img src="baseball-logo.png" alt="Midland"/>
+    <img src="fhc-logo.png" alt="FHC"/>
+  </div>
+  <h1>Beal Family Baseball</h1>
+  <p class="sub">⚾ 2026 Season ⚾</p>
+  <div class="players">
+    <div class="player">
+      <img src="breyer.png" alt="Breyer"/>
       <div class="player-name">Breyer</div>
-      <div class="player-teams">FHC Varsity · FHC JV · Midland Scout</div>
+      <div class="player-team">FHC Varsity · JV<br>Midland Scout</div>
     </div>
-    <div class="player-card beckham-card">
-      <img src="beckham.png" alt="Beckham" />
+    <div class="player">
+      <img src="beckham.png" alt="Beckham"/>
       <div class="player-name">Beckham</div>
-      <div class="player-teams">Midland 13U Culberson</div>
+      <div class="player-team">Midland 13U</div>
     </div>
-    <div class="player-card saylor-card">
-      <img src="saylor.png" alt="Saylor" />
+    <div class="player">
+      <img src="saylor.png" alt="Saylor"/>
       <div class="player-name">Saylor</div>
-      <div class="player-teams">Midland 2033 Brown 10U</div>
+      <div class="player-team">Midland 10U</div>
     </div>
   </div>
-
-  <h1 class="hero-title">Beal Family Baseball</h1>
-    <p class="hero-sub">2026 Season Schedule</p>
-
-    <div class="legend">
-      <span class="chip breyer-varsity">Breyer Varsity</span>
-      <span class="chip breyer-jv">Breyer JV</span>
-      <span class="chip beckham">Beckham</span>
-      <span class="chip saylor">Saylor</span>
-    </div>
-
-    <!-- Month jump buttons -->
-    <nav class="month-nav">
-      <a class="btn btn-month" href="#month-march">March</a>
-      <a class="btn btn-month" href="#month-april">April</a>
-      <a class="btn btn-month" href="#month-may">May</a>
-      <a class="btn btn-month" href="#month-june">June</a>
-      <a class="btn btn-month" href="#month-july">July</a>
-    </nav>
-
-    <!-- Action buttons -->
-    <div class="actions">
-      <a class="btn btn-google" href="calendar.ics" download>⬇ Add to Google Calendar</a>
-      <a class="btn btn-outlook" href="calendar.ics" download="beal-baseball-2026.ics">⬇ Add to Outlook</a>
-      <button class="btn btn-print" onclick="window.print()">🖨 Print / Save PDF</button>
-    </div>
-  </header>
-
-  <!-- ADD EVENT FORM -->
-  <section id="add-event-section">
-    <form id="add-event-form">
-      <h2>➕ Add a Game or Practice</h2>
-      <div class="form-row">
-        <select id="ae-kid">
-          <option value="Breyer">Breyer</option>
-          <option value="Beckham">Beckham</option>
-          <option value="Saylor">Saylor</option>
-        </select>
-        <select id="ae-type">
-          <option value="Game">Game</option>
-          <option value="Practice">Practice</option>
-          <option value="Tournament">Tournament</option>
-        </select>
-        <input type="text" id="ae-title" placeholder="Description (e.g. vs Mavericks)" required />
-      </div>
-      <div class="form-row">
-        <input type="date" id="ae-date" required />
-        <input type="time" id="ae-time" />
-        <input type="text" id="ae-location" placeholder="Location (optional)" />
-      </div>
-      <button type="submit">Add to Calendar</button>
-    </form>
-  </section>
-
-  <main id="calendar-container"></main>
+  <div class="divider"></div>
+  <div class="legend">
+    <span class="chip bv">Breyer Varsity</span>
+    <span class="chip bj">Breyer JV</span>
+    <span class="chip be">Beckham</span>
+    <span class="chip sa">Saylor</span>
+  </div>
+  <nav class="month-nav">
+    <a class="btn-month" href="march.html">March</a>
+    <a class="btn-month" href="april.html">April</a>
+    <a class="btn-month" href="may.html">May</a>
+    <a class="btn-month" href="june.html">June</a>
+    <a class="btn-month" href="july.html">July</a>
+  </nav>
+  <div class="actions">
+    <a class="btn btn-g" href="calendar.ics" download>⬇ Google Calendar</a>
+    <a class="btn btn-o" href="calendar.ics" download="beal-baseball-2026.ics">⬇ Outlook</a>
+  </div>
 </body>
 </html>

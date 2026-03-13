@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>May - Beal Family Baseball 2026</title>
+  <style>
+    @page{size:landscape;margin:.3in}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f7fb;color:#0f172a}
+    :root{--breyer:#111827;--bj:#fbbf24;--beckham:#2563eb;--saylor:#c026d3;--line:#dbe2ea;--navy:#0b1220;--gold:#fbbf24}
+    /* TOP BAR */
+    .topbar{background:linear-gradient(90deg,var(--navy),#1e293b);color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:10}
+    .topbar-left{display:flex;align-items:center;gap:10px}
+    .topbar img{height:38px;width:38px;object-fit:contain;border-radius:6px}
+    .topbar h1{font-size:1.1rem;font-weight:800}
+    .topbar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .btn{border:0;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.82rem;text-decoration:none;cursor:pointer;white-space:nowrap}
+    .btn-home{background:#fff;color:#0b1220}
+    .btn-print{background:var(--gold);color:#111827}
+    /* MONTH NAV */
+    .month-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:#eaf1fb;border-bottom:1px solid var(--line)}
+    .month-nav a{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:.8rem;font-weight:700;text-decoration:none;color:#0f172a}
+    .month-nav a.active,.month-nav a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+    /* LEGEND */
+    .legend{display:flex;flex-wrap:wrap;gap:7px;padding:8px 12px;background:#f8fbff;border-bottom:1px solid var(--line)}
+    .chip{padding:4px 11px;border-radius:999px;font-size:.75rem;font-weight:700}
+    .chip.bv{background:var(--breyer);color:#fff}
+    .chip.bj{background:var(--bj);color:#111827}
+    .chip.be{background:var(--beckham);color:#fff}
+    .chip.sa{background:var(--saylor);color:#fff}
+    /* CALENDAR */
+    #calendar-container{padding:10px 10px 30px}
+    .month{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .month h2{margin:0;padding:10px 14px;background:#eaf1fb;border-bottom:2px solid var(--line);font-size:1.15rem}
+    .grid{width:100%;border-collapse:collapse;table-layout:fixed}
+    .grid th,.grid td{border:1px solid var(--line);vertical-align:top}
+    .grid th{background:#f8fbff;color:#334155;padding:6px;font-size:.78rem;text-align:center}
+    .grid td{height:130px;padding:4px}
+    .date{font-weight:700;font-size:.82rem;margin-bottom:3px;color:#334155}
+    .event{border-radius:6px;color:#fff;padding:4px 5px;margin:3px 0;font-size:.7rem;line-height:1.2;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+    .event .title{display:block;font-weight:700}
+    .event .meta{display:block;opacity:.95;font-size:.65rem}
+    .event .meta a{color:inherit;text-decoration:underline}
+    .event.breyer-varsity{background:var(--breyer)}
+    .event.breyer-jv{background:var(--bj);color:#111827}
+    .event.beckham{background:var(--beckham)}
+    .event.saylor{background:var(--saylor)}
+    /* ADD EVENT */
+    #add-event-section{padding:12px 10px 0}
+    #add-event-form{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+    #add-event-form h3{margin:0 0 12px;font-size:.95rem;color:#0f172a}
+    .form-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+    .form-row select,.form-row input{flex:1;min-width:120px;padding:8px;border:1px solid var(--line);border-radius:7px;font-size:.85rem;background:#f8fbff;color:#0f172a}
+    #add-event-form button{background:var(--gold);color:#111827;border:0;border-radius:8px;padding:9px 20px;font-weight:700;cursor:pointer;font-size:.9rem}
+    /* MOBILE */
+    @media(max-width:700px){
+      .grid td{height:90px}
+      .event{font-size:.62rem;padding:2px 4px}
+      .topbar h1{font-size:.95rem}
+    }
+    /* PRINT */
+    @media print{
+      .topbar{position:static;padding:6px 10px}
+      .topbar-right,.month-nav,#add-event-section{display:none!important}
+      .topbar img{height:28px;width:28px}
+      .legend{padding:4px 8px}
+      #calendar-container{padding:6px}
+      .grid td{height:100px;padding:2px}
+      .event{font-size:.58rem;padding:2px 3px;margin:1px 0;box-shadow:none}
+      .month{page-break-inside:avoid;break-inside:avoid}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="baseball-logo.png" alt="Midland"/>
+      <img src="fhc-logo.png" alt="FHC"/>
+      <h1>Beal Family Baseball · May</h1>
+    </div>
+    <div class="topbar-right">
+      <a class="btn btn-home" href="index.html">⬅ Home</a>
+      <button class="btn btn-print" onclick="window.print()">🖨 Print</button>
+    </div>
+  </header>
+  <nav class="month-nav">
+    <a href="march.html" >March</a>
+    <a href="april.html" >April</a>
+    <a href="may.html"   class="active">May</a>
+    <a href="june.html"  >June</a>
+    <a href="july.html"  >July</a>
+  </nav>
+  <div class="legend">
+    <span class="chip bv">Breyer Varsity</span>
+    <span class="chip bj">Breyer JV</span>
+    <span class="chip be">Beckham</span>
+    <span class="chip sa">Saylor</span>
+  </div>
+  <section id="add-event-section">
+    <form id="add-event-form">
+      <h3>➕ Add a Game or Practice</h3>
+      <div class="form-row">
+        <select id="ae-kid"><option>Breyer</option><option>Beckham</option><option>Saylor</option></select>
+        <select id="ae-type"><option>Game</option><option>Practice</option><option>Tournament</option></select>
+        <input type="text" id="ae-title" placeholder="Description" required/>
+      </div>
+      <div class="form-row">
+        <input type="date" id="ae-date" required/>
+        <input type="time" id="ae-time"/>
+        <input type="text" id="ae-location" placeholder="Location (optional)"/>
+      </div>
+      <button type="submit">Add to Calendar</button>
+    </form>
+  </section>
+  <main id="calendar-container"></main>
+  <script src="calendar-data.js"></script>
+  <script>
+  (() => {
+    const MONTH_INDEX = 2;
+    const MONTH_YEAR = 2026;
+    const MONTHS_META = [
+      {m:2,name:"March 2026"},{m:3,name:"April 2026"},{m:4,name:"May 2026"},
+      {m:5,name:"June 2026"},{m:6,name:"July 2026"}
+    ];
+    const meta = MONTHS_META[MONTH_INDEX];
+    const pad = n => String(n).padStart(2,"0");
+    const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const esc = (s="") => s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function inRange(d,s,e){return d>=s&&d<=e}
+    function occursOn(ev,dateISO){
+      if(ev.date) return ev.date===dateISO;
+      if(ev.startDate&&ev.endDate) return inRange(dateISO,ev.startDate,ev.endDate);
+      return false;
+    }
+    function evClass(ev){
+      if(ev.kid==="Breyer") return (ev.team||"").toLowerCase().includes("jv")?"breyer-jv":"breyer-varsity";
+      return ev.kid.toLowerCase();
+    }
+    function mapLink(loc){
+      if(!loc||loc==="TBD") return "";
+      return ` <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc)}">map</a>`;
+    }
+    function evHtml(ev){
+      const loc=ev.location||"TBD";
+      return `<div class="event ${evClass(ev)}">
+        <span class="title">${esc(ev.kid)}${ev.team?` (${esc(ev.team)})`:""} - ${esc(ev.title)}</span>
+        <span class="meta">${esc(ev.time||"All Day")}</span>
+        <span class="meta">${esc(loc)}${mapLink(loc)}</span>
+      </div>`;
+    }
+    function render(){
+      const {m,name} = meta;
+      const first=new Date(MONTH_YEAR,m,1), last=new Date(MONTH_YEAR,m+1,0);
+      const days=last.getDate(), startWD=first.getDay();
+      let html=`<section class="month"><h2>${name}</h2><table class="grid"><thead><tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+      </tr></thead><tbody><tr>`;
+      let cell=0;
+      for(;cell<startWD;cell++) html+="<td></td>";
+      for(let day=1;day<=days;day++,cell++){
+        if(cell%7===0&&cell!==0) html+="</tr><tr>";
+        const dateISO=iso(new Date(MONTH_YEAR,m,day));
+        const evs=(window.BEAL_EVENTS||[]).filter(ev=>occursOn(ev,dateISO))
+          .sort((a,b)=>(a.time||"").localeCompare(b.time||""));
+        html+=`<td><div class="date">${day}</div>${evs.map(evHtml).join("")}</td>`;
+      }
+      while(cell%7!==0){html+="<td></td>";cell++}
+      html+="</tr></tbody></table></section>";
+      document.getElementById("calendar-container").innerHTML=html;
+    }
+    render();
+    document.getElementById("add-event-form").addEventListener("submit",function(e){
+      e.preventDefault();
+      const kid=document.getElementById("ae-kid").value;
+      const type=document.getElementById("ae-type").value;
+      const title=document.getElementById("ae-title").value.trim();
+      const date=document.getElementById("ae-date").value;
+      const rawTime=document.getElementById("ae-time").value;
+      const location=document.getElementById("ae-location").value.trim()||"TBD";
+      if(!title||!date) return;
+      let time="TBD";
+      if(rawTime){const[h,mn]=rawTime.split(":").map(Number);const ap=h>=12?"PM":"AM";const h12=h%12||12;time=`${h12}:${String(mn).padStart(2,"0")} ${ap}`;}
+      window.BEAL_EVENTS.push({kid,team:"",date,title:`${type}: ${title}`,time,location});
+      render();
+      e.target.reset();
+    });
+  })();
+  </script>
+</body>
+</html>
