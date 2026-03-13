@@ -125,13 +125,9 @@ const BEAL_EVENTS = [
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-04-16", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-04-22", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-04-23", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
-  { kid: "Beckham", team: "Midland 13U Culberson", startDate: "2026-04-24", endDate: "2026-04-26", title: "Local Tournament", time: "8:00 AM", location: "St. Louis area" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-04-29", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-04-30", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
 
-  { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-05-06", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
-  { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-05-07", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
-  { kid: "Beckham", team: "Midland 13U Culberson", startDate: "2026-05-08", endDate: "2026-05-10", title: "Local Tournament", time: "8:00 AM", location: "St. Louis area" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-05-13", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-05-14", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
   { kid: "Beckham", team: "Midland 13U Culberson", startDate: "2026-05-15", endDate: "2026-05-17", title: "Local Tournament", time: "8:00 AM", location: "St. Louis area" },
