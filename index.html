@@ -3,32 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beal Family Baseball System ⚾</title>
+  <title>Beal Family Baseball 2026 ⚾</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="print.css" media="print" />
   <script defer src="calendar-data.js"></script>
   <script defer src="calendar.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="baseball-logo.png" alt="Midland logo" class="logo" />
-      <img src="fhc-logo.png" alt="FHC logo" class="logo" />
-      <h1>Beal Family Baseball System</h1>
+
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="hero-logos">
+      <img src="baseball-logo.png" alt="Midland logo" class="hero-logo" />
+      <img src="fhc-logo.png" alt="FHC logo" class="hero-logo" />
     </div>
-    <div class="actions">
-      <a class="btn btn-google" href="calendar.ics" download>⬇ Add to Google Calendar</a>
-      <a class="btn btn-outlook" href="calendar.ics" download="beal-baseball-2026.ics">⬇ Add to Outlook</a>
-      <button class="btn" onclick="window.print()">Print / Save PDF</button>
-    </div>
+    <h1 class="hero-title">Beal Family Baseball</h1>
+    <p class="hero-sub">2026 Season Schedule</p>
+
     <div class="legend">
       <span class="chip breyer-varsity">Breyer Varsity</span>
       <span class="chip breyer-jv">Breyer JV</span>
       <span class="chip beckham">Beckham</span>
       <span class="chip saylor">Saylor</span>
     </div>
+
+    <!-- Month jump buttons -->
+    <nav class="month-nav">
+      <a class="btn btn-month" href="#month-march">March</a>
+      <a class="btn btn-month" href="#month-april">April</a>
+      <a class="btn btn-month" href="#month-may">May</a>
+      <a class="btn btn-month" href="#month-june">June</a>
+      <a class="btn btn-month" href="#month-july">July</a>
+    </nav>
+
+    <!-- Action buttons -->
+    <div class="actions">
+      <a class="btn btn-google" href="calendar.ics" download>⬇ Add to Google Calendar</a>
+      <a class="btn btn-outlook" href="calendar.ics" download="beal-baseball-2026.ics">⬇ Add to Outlook</a>
+      <button class="btn btn-print" onclick="window.print()">🖨 Print / Save PDF</button>
+    </div>
   </header>
 
+  <!-- ADD EVENT FORM -->
   <section id="add-event-section">
     <form id="add-event-form">
       <h2>➕ Add a Game or Practice</h2>
@@ -47,7 +63,7 @@
       </div>
       <div class="form-row">
         <input type="date" id="ae-date" required />
-        <input type="time" id="ae-time" placeholder="Time (optional)" />
+        <input type="time" id="ae-time" />
         <input type="text" id="ae-location" placeholder="Location (optional)" />
       </div>
       <button type="submit">Add to Calendar</button>

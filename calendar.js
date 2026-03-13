@@ -1,11 +1,11 @@
 // ...existing code...
 (() => {
   const MONTHS = [
-    { y: 2026, m: 2, name: "March 2026" },
-    { y: 2026, m: 3, name: "April 2026" },
-    { y: 2026, m: 4, name: "May 2026" },
-    { y: 2026, m: 5, name: "June 2026" },
-    { y: 2026, m: 6, name: "July 2026" }
+    { y: 2026, m: 2, name: "March 2026",  id: "month-march" },
+    { y: 2026, m: 3, name: "April 2026",  id: "month-april" },
+    { y: 2026, m: 4, name: "May 2026",    id: "month-may"   },
+    { y: 2026, m: 5, name: "June 2026",   id: "month-june"  },
+    { y: 2026, m: 6, name: "July 2026",   id: "month-july"  }
   ];
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -46,13 +46,13 @@
     `;
   }
 
-  function renderMonth({ y, m, name }){
+  function renderMonth({ y, m, name, id }){
     const first = new Date(y, m, 1);
     const last = new Date(y, m + 1, 0);
     const days = last.getDate();
     const startWeekday = first.getDay();
 
-    let html = `<section class="month"><h2>${name}</h2><table class="grid"><thead><tr>
+    let html = `<section class="month" id="${id}"><h2>${name}</h2><table class="grid"><thead><tr>
       <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
     </tr></thead><tbody><tr>`;
 

@@ -1,12 +1,12 @@
+@page {
+  size: landscape;
+  margin: 0.35in;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-
-  @page {
-    size: landscape;
-    margin: 0.35in;
   }
 
   body {
@@ -19,18 +19,23 @@
     padding: 6px 10px;
   }
 
-  .actions,
-  #add-event-section {
+  .hero {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #999;
+  }
+
+  .hero-logo {
+    height: 36px;
+    width: 36px;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-sub, .month-nav, .actions, #add-event-section {
     display: none !important;
-  }
-
-  .logo {
-    height: 30px;
-    width: 30px;
-  }
-
-  h1 {
-    font-size: 1rem;
   }
 
   #calendar-container {
