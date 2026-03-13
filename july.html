@@ -5,222 +5,210 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>July - Beal Family Baseball 2026</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f7fb;color:#0f172a}
-    :root{--breyer:#111827;--bj:#fbbf24;--beckham:#2563eb;--saylor:#c026d3;--line:#dbe2ea;--navy:#0b1220;--gold:#fbbf24}
-    /* TOP BAR */
-    .topbar{background:linear-gradient(90deg,var(--navy),#1e293b);color:#fff;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:10;min-height:52px}
-    .topbar-left{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
-    .topbar img{height:38px;width:38px;object-fit:contain;border-radius:6px}
-    .topbar h1{font-size:clamp(.78rem,2.2vw,1rem);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .topbar-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
-    .btn{border:0;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.82rem;text-decoration:none;cursor:pointer;white-space:nowrap}
-    .btn-home{background:#fff;color:#0b1220;white-space:nowrap}
-    .btn-print{background:var(--gold);color:#111827;white-space:nowrap}
-    /* MONTH NAV */
-    .month-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:#eaf1fb;border-bottom:1px solid var(--line)}
-    .month-nav a{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:.8rem;font-weight:700;text-decoration:none;color:#0f172a}
-    .month-nav a.active,.month-nav a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-    /* LEGEND */
-    .legend{display:flex;flex-wrap:wrap;gap:7px;padding:8px 12px;background:#f8fbff;border-bottom:1px solid var(--line)}
-    .chip{padding:4px 11px;border-radius:999px;font-size:.75rem;font-weight:700}
-    .chip.bv{background:var(--breyer);color:#fff}
-    .chip.bj{background:var(--bj);color:#111827}
-    .chip.be{background:var(--beckham);color:#fff}
-    .chip.sa{background:var(--saylor);color:#fff}
-    /* CALENDAR */
-    #calendar-container{padding:10px 10px 30px}
-    .month{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-    .month h2{margin:0;padding:10px 14px;background:#eaf1fb;border-bottom:2px solid var(--line);font-size:1.15rem}
-    .grid{width:100%;border-collapse:collapse;table-layout:fixed}
-    .grid th,.grid td{border:1px solid var(--line);vertical-align:top}
-    .grid th{background:#f8fbff;color:#334155;padding:6px;font-size:.78rem;text-align:center}
-    .grid td{height:130px;padding:4px}
-    .date{font-weight:700;font-size:.82rem;margin-bottom:3px;color:#334155}
-    .event{border-radius:6px;color:#fff;padding:4px 5px;margin:3px 0;font-size:.7rem;line-height:1.2;box-shadow:0 1px 2px rgba(0,0,0,.15)}
-    .event .title{display:block;font-weight:700}
-    .event .meta{display:block;opacity:.95;font-size:.65rem}
-    .event .meta a{color:inherit;text-decoration:underline}
-    .event.breyer-varsity{background:var(--breyer)}
-    .event.breyer-jv{background:var(--bj);color:#111827}
-    .event.beckham{background:var(--beckham)}
-    .event.saylor{background:var(--saylor)}
-    /* ADD EVENT */
-    #add-event-section{padding:12px 10px 0}
-    #add-event-form{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
-    #add-event-form h3{margin:0 0 12px;font-size:.95rem;color:#0f172a}
-    .form-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
-    .form-row select,.form-row input{flex:1;min-width:120px;padding:8px;border:1px solid var(--line);border-radius:7px;font-size:.85rem;background:#f8fbff;color:#0f172a}
-    #add-event-form button{background:var(--gold);color:#111827;border:0;border-radius:8px;padding:9px 20px;font-weight:700;cursor:pointer;font-size:.9rem}
-    /* MOBILE */
-    @media(max-width:700px){
-      .grid td{height:90px}
-      .event{font-size:.62rem;padding:2px 4px}
-      .topbar h1{font-size:clamp(.78rem,2.2vw,1rem);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    @page { size: landscape; margin: 0.2in; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1220; --gold: #fbbf24;
+      --breyer: #1e293b; --bj: #fbbf24;
+      --beckham: #2563eb; --saylor: #c026d3;
+      --line: #e2e8f0; --bg: #f1f5f9;
     }
-    /* PRINT */
-    
-      body{background:#fff;font-size:8px}
-      .topbar{background:linear-gradient(90deg,var(--navy),#1e293b);color:#fff;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:10;min-height:52px}
-      .topbar-right,.month-nav,#add-event-section{display:none!important}
-      .topbar img{height:26px;width:26px}
-      .topbar h1{font-size:clamp(.78rem,2.2vw,1rem);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .legend{padding:3px 8px}
-      .chip{font-size:.62rem;padding:2px 8px}
-      #calendar-container{padding:4px}
-      .grid th{padding:3px;font-size:.7rem}
-      .grid td{height:88px;padding:2px}
-      .date{font-size:.72rem}
-      .event{font-size:.56rem;padding:2px 3px;margin:1px 0;box-shadow:none;line-height:1.15}
-      .month{border:1px solid #ccc}
+    body { font-family: "Segoe UI", Arial, sans-serif; background: var(--bg); color: #0f172a; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: linear-gradient(90deg, var(--navy), #1e293b);
+      color: #fff; padding: 8px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; border-bottom: 3px solid var(--gold);
+      position: sticky; top: 0; z-index: 10;
     }
-  
-    /* ====== PRINT ====== */
-    @page { size: landscape; margin: 0 }
+    .tl { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+    .tl img { height: 34px; width: 34px; object-fit: contain; border-radius: 6px; flex-shrink: 0; }
+    .tl h1 { font-size: clamp(.75rem, 2vw, .98rem); font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tr { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .btn { border: 0; border-radius: 8px; padding: 7px 13px; font-weight: 700; font-size: .8rem; text-decoration: none; cursor: pointer; white-space: nowrap; display: inline-block; }
+    .btn-home { background: #fff; color: #0b1220; }
+    .btn-print { background: var(--gold); color: #111; }
+
+    /* ── MONTH NAV ── */
+    .mnav { display: flex; flex-wrap: wrap; gap: 5px; padding: 8px 12px; background: #e8f0fc; border-bottom: 1px solid var(--line); }
+    .mnav a { background: #fff; border: 1px solid var(--line); border-radius: 7px; padding: 4px 11px; font-size: .78rem; font-weight: 700; text-decoration: none; color: #0f172a; }
+    .mnav a.active, .mnav a:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    /* ── LEGEND ── */
+    .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 7px 12px; background: #f8fbff; border-bottom: 1px solid var(--line); }
+    .chip { padding: 3px 11px; border-radius: 999px; font-size: .72rem; font-weight: 700; }
+    .chip.bv { background: var(--breyer); color: #fff; }
+    .chip.bj { background: var(--bj); color: #111; }
+    .chip.be { background: var(--beckham); color: #fff; }
+    .chip.sa { background: var(--saylor); color: #fff; }
+
+    /* ── ADD EVENT ── */
+    .add-form { background: #fff; border-bottom: 1px solid var(--line); padding: 10px 14px; }
+    .add-form h3 { font-size: .82rem; color: #475569; margin-bottom: 8px; }
+    .form-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 7px; }
+    .form-row select, .form-row input { flex: 1; min-width: 100px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 7px; font-size: .82rem; background: #f8fbff; color: #0f172a; }
+    .add-form button { background: var(--gold); color: #111; border: 0; border-radius: 7px; padding: 8px 18px; font-weight: 700; cursor: pointer; font-size: .85rem; }
+
+    /* ── CALENDAR GRID ── */
+    #cal { padding: 10px 10px 0; }
+    .month { background: #fff; border-radius: 10px; border: 1px solid var(--line); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .month-hdr { padding: 10px 16px; background: linear-gradient(90deg, #0f2044, #1e3a6e); color: #fff; display: flex; align-items: center; gap: 10px; }
+    .month-hdr h2 { font-size: 1.1rem; font-weight: 800; }
+    .grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .grid thead th { background: #f0f6ff; color: #334155; padding: 6px 2px; font-size: .75rem; font-weight: 700; text-align: center; border: 1px solid var(--line); }
+    .grid td { border: 1px solid var(--line); vertical-align: top; height: 120px; padding: 4px; background: #fff; }
+    .grid td:hover { background: #f8fbff; }
+    .day-num { font-size: .78rem; font-weight: 700; color: #94a3b8; margin-bottom: 3px; }
+    .event { border-radius: 5px; color: #fff; padding: 3px 5px; margin: 2px 0; font-size: .68rem; line-height: 1.25; cursor: default; }
+    .event b { display: block; font-size: .68rem; }
+    .event span { display: block; font-size: .6rem; opacity: .9; }
+    .event a { color: inherit; text-decoration: underline; }
+    .event.breyer-varsity { background: var(--breyer); }
+    .event.breyer-jv { background: var(--bj); color: #111; }
+    .event.beckham { background: var(--beckham); }
+    .event.saylor { background: var(--saylor); }
+
+    /* ── BOTTOM NAV ── */
+    .bottom { text-align: center; padding: 24px 16px 36px; }
+    .btn-back { display: inline-block; background: linear-gradient(135deg,#0f1f3d,#07122a); color: #fff; border: 2px solid var(--gold); border-radius: 12px; padding: 13px 34px; font-size: .95rem; font-weight: 800; text-decoration: none; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .grid td { height: 80px; padding: 2px; }
+      .event { font-size: .58rem; padding: 2px 3px; }
+      .event b { font-size: .58rem; }
+      .event span { display: none; }
+      .tl h1 { max-width: 140px; }
+    }
+
+    /* ── PRINT ── */
     @media print {
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      .topbar, .month-nav, #add-event-section, .legend { display: none !important; }
-      html, body { margin: 0; padding: 0; background: #fff; }
-      #calendar-container {
-        position: absolute;
-        top: 0; left: 0;
-        width: 1100px;
-        transform: scale(0.88);
+      .topbar, .mnav, .add-form, .bottom { display: none !important; }
+      body { background: #fff; }
+      #cal { padding: 0; }
+      .month { border-radius: 0; box-shadow: none; border: 1px solid #ccc; }
+      .month-hdr { padding: 5px 10px; }
+      .month-hdr h2 { font-size: .9rem; }
+      #cal-wrap {
+        width: 1060px;
+        transform: scale(0.9);
         transform-origin: top left;
-        padding: 4px;
       }
-      .month { border: 1px solid #bbb; }
-      .month h2 { font-size: 1rem; padding: 5px 10px; }
-      .grid th { font-size: .72rem; padding: 4px 2px; }
-      .grid td { height: 108px; padding: 3px; }
-      .event { font-size: .6rem; padding: 2px 4px; margin: 1px 0; box-shadow: none; }
-      .event .title { font-size: .6rem; }
-      .event .meta { font-size: .55rem; }
-      .date { font-size: .75rem; }
+      .legend { padding: 4px 10px; }
+      .chip { font-size: .6rem; padding: 2px 7px; }
+      .grid thead th { font-size: .65rem; padding: 3px; }
+      .grid td { height: 92px; padding: 2px; }
+      .day-num { font-size: .68rem; }
+      .event { font-size: .56rem; padding: 2px 3px; margin: 1px 0; }
+      .event b { font-size: .56rem; }
+      .event span { font-size: .52rem; }
     }
-    </style>
+  </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar-left">
-      <img src="baseball-logo.png" alt="Midland"/>
+    <div class="tl">
+      <img src="baseball-logo.png" alt="M"/>
       <img src="fhc-logo.png" alt="FHC"/>
-      <h1>Beal Family Baseball · July</h1>
+      <h1>Beal Baseball · July</h1>
     </div>
-    <div class="topbar-right">
+    <div class="tr">
       <a class="btn btn-home" href="index.html">⬅ Home</a>
       <button class="btn btn-print" onclick="window.print()">🖨 Print</button>
     </div>
   </header>
-  <nav class="month-nav">
+
+  <nav class="mnav">
     <a href="march.html" >March</a>
     <a href="april.html" >April</a>
     <a href="may.html"   >May</a>
     <a href="june.html"  >June</a>
     <a href="july.html"  class="active">July</a>
   </nav>
+
   <div class="legend">
     <span class="chip bv">Breyer Varsity</span>
     <span class="chip bj">Breyer JV</span>
     <span class="chip be">Beckham</span>
     <span class="chip sa">Saylor</span>
   </div>
-  <section id="add-event-section">
-    <form id="add-event-form">
+
+  <div class="add-form">
+    <form id="aef">
       <h3>➕ Add a Game or Practice</h3>
       <div class="form-row">
-        <select id="ae-kid"><option>Breyer</option><option>Beckham</option><option>Saylor</option></select>
-        <select id="ae-type"><option>Game</option><option>Practice</option><option>Tournament</option></select>
-        <input type="text" id="ae-title" placeholder="Description" required/>
+        <select id="ak"><option>Breyer</option><option>Beckham</option><option>Saylor</option></select>
+        <select id="at"><option>Game</option><option>Practice</option><option>Tournament</option></select>
+        <input type="text" id="atitle" placeholder="Description" required/>
       </div>
       <div class="form-row">
-        <input type="date" id="ae-date" required/>
-        <input type="time" id="ae-time"/>
-        <input type="text" id="ae-location" placeholder="Location (optional)"/>
+        <input type="date" id="adate" required/>
+        <input type="time" id="atime"/>
+        <input type="text" id="aloc" placeholder="Location (optional)"/>
       </div>
       <button type="submit">Add to Calendar</button>
     </form>
-  </section>
-  <main id="calendar-container"></main>
+  </div>
+
+  <div id="cal"><div id="cal-wrap"></div></div>
+
+  <div class="bottom">
+    <a class="btn-back" href="index.html">⬅ Back to Home</a>
+  </div>
+
   <script src="calendar-data.js"></script>
   <script>
   (() => {
-    const MONTH_INDEX = 4;
-    const MONTH_YEAR = 2026;
-    const MONTHS_META = [
-      {m:2,name:"March 2026"},{m:3,name:"April 2026"},{m:4,name:"May 2026"},
-      {m:5,name:"June 2026"},{m:6,name:"July 2026"}
-    ];
-    const meta = MONTHS_META[MONTH_INDEX];
+    const MI = 4;
+    const MMETA = [{m:2,name:"March 2026"},{m:3,name:"April 2026"},{m:4,name:"May 2026"},{m:5,name:"June 2026"},{m:6,name:"July 2026"}];
+    const {m, name} = MMETA[MI];
+    const Y = 2026;
     const pad = n => String(n).padStart(2,"0");
     const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-    const esc = (s="") => s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const esc = (s="") => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function inRange(d,s,e){return d>=s&&d<=e}
-    function occursOn(ev,dateISO){
-      if(ev.date) return ev.date===dateISO;
-      if(ev.startDate&&ev.endDate) return inRange(dateISO,ev.startDate,ev.endDate);
-      return false;
-    }
-    function evClass(ev){
-      if(ev.kid==="Breyer") return (ev.team||"").toLowerCase().includes("jv")?"breyer-jv":"breyer-varsity";
-      return ev.kid.toLowerCase();
-    }
-    function mapLink(loc){
-      if(!loc||loc==="TBD") return "";
-      return ` <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc)}">map</a>`;
-    }
+    function occursOn(ev,dt){return ev.date===dt||(ev.startDate&&ev.endDate&&inRange(dt,ev.startDate,ev.endDate))}
+    function cls(ev){if(ev.kid==="Breyer")return(ev.team||"").toLowerCase().includes("jv")?"breyer-jv":"breyer-varsity";return ev.kid.toLowerCase();}
+    function mapLink(loc){if(!loc||loc==="TBD")return "";return `<a target="_blank" href="https://maps.google.com/?q=${encodeURIComponent(loc)}">📍</a>`;}
     function evHtml(ev){
       const loc=ev.location||"TBD";
-      return `<div class="event ${evClass(ev)}">
-        <span class="title">${esc(ev.kid)}${ev.team?` (${esc(ev.team)})`:""} - ${esc(ev.title)}</span>
-        <span class="meta">${esc(ev.time||"All Day")}</span>
-        <span class="meta">${esc(loc)}${mapLink(loc)}</span>
-      </div>`;
+      return `<div class="event ${cls(ev)}"><b>${esc(ev.kid)}${ev.team?` · ${esc(ev.team)}`:""}<br>${esc(ev.title)}</b><span>${esc(ev.time||"All Day")} ${mapLink(loc)}</span></div>`;
     }
     function render(){
-      const {m,name} = meta;
-      const first=new Date(MONTH_YEAR,m,1), last=new Date(MONTH_YEAR,m+1,0);
-      const days=last.getDate(), startWD=first.getDay();
-      let html=`<section class="month"><h2>${name}</h2><table class="grid"><thead><tr>
-        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-      </tr></thead><tbody><tr>`;
+      const first=new Date(Y,m,1), last=new Date(Y,m+1,0);
+      const days=last.getDate(), sw=first.getDay();
+      let html=`<div class="month"><div class="month-hdr"><h2>${name}</h2></div><table class="grid"><thead><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead><tbody><tr>`;
       let cell=0;
-      for(;cell<startWD;cell++) html+="<td></td>";
+      for(;cell<sw;cell++) html+="<td></td>";
       for(let day=1;day<=days;day++,cell++){
         if(cell%7===0&&cell!==0) html+="</tr><tr>";
-        const dateISO=iso(new Date(MONTH_YEAR,m,day));
-        const evs=(window.BEAL_EVENTS||[]).filter(ev=>occursOn(ev,dateISO))
-          .sort((a,b)=>(a.time||"").localeCompare(b.time||""));
-        html+=`<td><div class="date">${day}</div>${evs.map(evHtml).join("")}</td>`;
+        const dt=iso(new Date(Y,m,day));
+        const evs=(window.BEAL_EVENTS||[]).filter(ev=>occursOn(ev,dt)).sort((a,b)=>(a.time||"").localeCompare(b.time||""));
+        html+=`<td><div class="day-num">${day}</div>${evs.map(evHtml).join("")}</td>`;
       }
       while(cell%7!==0){html+="<td></td>";cell++}
-      html+="</tr></tbody></table></section>";
-      document.getElementById("calendar-container").innerHTML=html;
+      html+="</tr></tbody></table></div>";
+      document.getElementById("cal-wrap").innerHTML=html;
     }
     render();
-    document.getElementById("add-event-form").addEventListener("submit",function(e){
+    document.getElementById("aef").addEventListener("submit",function(e){
       e.preventDefault();
-      const kid=document.getElementById("ae-kid").value;
-      const type=document.getElementById("ae-type").value;
-      const title=document.getElementById("ae-title").value.trim();
-      const date=document.getElementById("ae-date").value;
-      const rawTime=document.getElementById("ae-time").value;
-      const location=document.getElementById("ae-location").value.trim()||"TBD";
-      if(!title||!date) return;
+      const kid=document.getElementById("ak").value;
+      const type=document.getElementById("at").value;
+      const title=document.getElementById("atitle").value.trim();
+      const date=document.getElementById("adate").value;
+      const rt=document.getElementById("atime").value;
+      const loc=document.getElementById("aloc").value.trim()||"TBD";
+      if(!title||!date)return;
       let time="TBD";
-      if(rawTime){const[h,mn]=rawTime.split(":").map(Number);const ap=h>=12?"PM":"AM";const h12=h%12||12;time=`${h12}:${String(mn).padStart(2,"0")} ${ap}`;}
-      window.BEAL_EVENTS.push({kid,team:"",date,title:`${type}: ${title}`,time,location});
-      render();
-      e.target.reset();
+      if(rt){const[h,mn]=rt.split(":").map(Number);const ap=h>=12?"PM":"AM";time=`${h%12||12}:${pad(mn)} ${ap}`;}
+      window.BEAL_EVENTS.push({kid,team:"",date,title:`${type}: ${title}`,time,location:loc});
+      render();e.target.reset();
     });
   })();
   </script>
-  <div style="text-align:center;padding:24px 16px 40px;">
-    <a href="index.html" style="display:inline-block;background:linear-gradient(135deg,#0f1f3d,#07122a);color:#fff;border:2px solid #fbbf24;border-radius:12px;padding:14px 36px;font-family:'Segoe UI',Arial,sans-serif;font-size:1rem;font-weight:800;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 4px 14px rgba(0,0,0,.4);">⬅ Back to Home</a>
-  </div>
 </body>
 </html>
-
-
-
-
