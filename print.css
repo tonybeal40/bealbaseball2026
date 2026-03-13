@@ -6,7 +6,7 @@
 
   @page {
     size: landscape;
-    margin: 0.4in;
+    margin: 0.35in;
   }
 
   body {
@@ -19,13 +19,14 @@
     padding: 6px 10px;
   }
 
-  .actions {
+  .actions,
+  #add-event-section {
     display: none !important;
   }
 
   .logo {
-    height: 32px;
-    width: 32px;
+    height: 30px;
+    width: 30px;
   }
 
   h1 {
@@ -38,30 +39,36 @@
     padding: 0;
   }
 
-  /* Each month on its own page */
+  /* Force each month onto its own page */
   .month {
-    page-break-before: always;
-    break-before: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 0;
+    display: block;
+    page-break-after: always;
+    break-after: page;
+    margin: 0;
     border: 1px solid #bbb;
+    width: 100%;
   }
 
-  .month:first-child {
-    page-break-before: auto;
-    break-before: auto;
+  .month:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .grid {
+    width: 100%;
+    table-layout: fixed;
   }
 
   .grid td {
-    height: 100px;
+    height: 110px;
     padding: 2px;
   }
 
   .event {
-    font-size: 0.65rem;
-    padding: 2px 4px;
-    margin: 2px 0;
+    font-size: 0.62rem;
+    padding: 2px 3px;
+    margin: 1px 0;
+    box-shadow: none;
   }
 
   .chip {

@@ -139,7 +139,7 @@ const BEAL_EVENTS = [
 
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-06-03", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-06-04", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
-  { kid: "Beckham", team: "Midland 13U Culberson", startDate: "2026-06-05", endDate: "2026-06-07", title: "Out of Town Tournament Weekend", time: "8:00 AM", location: "Out of Town" },
+  { kid: "Beckham", team: "Midland 13U Culberson", startDate: "2026-06-05", endDate: "2026-06-07", title: "Out of Town Tournament Weekend", time: "8:00 AM", location: "The Ozarks, MO" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-06-10", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-06-11", title: "Play 9 Outdoor Practice", time: "6:30 PM - 8:00 PM", location: "2850 St Peters Howell Rd, St Peters, MO 63376" },
   { kid: "Beckham", team: "Midland 13U Culberson", date: "2026-06-17", title: "Indoor Fieldhouse Practice", time: "6:30 PM - 8:00 PM", location: "106 N Cool Springs Rd, O'Fallon MO 63366" },
