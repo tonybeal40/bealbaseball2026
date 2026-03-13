@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>June - Beal Family Baseball 2026</title>
   <style>
-    @page{size:landscape;margin:.3in}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f7fb;color:#0f172a}
     :root{--breyer:#111827;--bj:#fbbf24;--beckham:#2563eb;--saylor:#c026d3;--line:#dbe2ea;--navy:#0b1220;--gold:#fbbf24}
@@ -60,16 +59,22 @@
       .topbar h1{font-size:.95rem}
     }
     /* PRINT */
+    @page{size:landscape;margin:.28in}
     @media print{
-      .topbar{position:static;padding:6px 10px}
+      *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+      body{background:#fff;font-size:8px}
+      .topbar{position:static;padding:5px 10px}
       .topbar-right,.month-nav,#add-event-section{display:none!important}
-      .topbar img{height:28px;width:28px}
-      .legend{padding:4px 8px}
-      #calendar-container{padding:6px}
-      .grid td{height:100px;padding:2px}
-      .event{font-size:.58rem;padding:2px 3px;margin:1px 0;box-shadow:none}
-      .month{page-break-inside:avoid;break-inside:avoid}
-      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .topbar img{height:26px;width:26px}
+      .topbar h1{font-size:.9rem}
+      .legend{padding:3px 8px}
+      .chip{font-size:.62rem;padding:2px 8px}
+      #calendar-container{padding:4px}
+      .grid th{padding:3px;font-size:.7rem}
+      .grid td{height:88px;padding:2px}
+      .date{font-size:.72rem}
+      .event{font-size:.56rem;padding:2px 3px;margin:1px 0;box-shadow:none;line-height:1.15}
+      .month{border:1px solid #ccc}
     }
   </style>
 </head>
@@ -190,3 +195,4 @@
   </script>
 </body>
 </html>
+
