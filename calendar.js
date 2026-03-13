@@ -79,6 +79,34 @@
   function init(){
     const root = document.getElementById("calendar-container");
     root.innerHTML = MONTHS.map(renderMonth).join("");
+
+    document.getElementById("add-event-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const kid = document.getElementById("ae-kid").value;
+      const type = document.getElementById("ae-type").value;
+      const title = document.getElementById("ae-title").value.trim();
+      const date = document.getElementById("ae-date").value;
+      const rawTime = document.getElementById("ae-time").value;
+      const location = document.getElementById("ae-location").value.trim() || "TBD";
+
+      if (!title || !date) return;
+
+      let time = "TBD";
+      if (rawTime) {
+        const [h, m] = rawTime.split(":").map(Number);
+        const ampm = h >= 12 ? "PM" : "AM";
+        const h12 = h % 12 || 12;
+        time = `${h12}:${pad(m)} ${ampm}`;
+      }
+
+      const newEvent = { kid, team: "", date, title: `${type}: ${title}`, time, location };
+      window.BEAL_EVENTS.push(newEvent);
+      root.innerHTML = MONTHS.map(renderMonth).join("");
+
+      // reset
+      e.target.reset();
+      alert(`✅ Added: ${kid} - ${type}: ${title} on ${date}`);
+    });
   }
 
   window.addEventListener("DOMContentLoaded", init);

@@ -29,6 +29,31 @@
     </div>
   </header>
 
+  <section id="add-event-section">
+    <form id="add-event-form">
+      <h2>➕ Add a Game or Practice</h2>
+      <div class="form-row">
+        <select id="ae-kid">
+          <option value="Breyer">Breyer</option>
+          <option value="Beckham">Beckham</option>
+          <option value="Saylor">Saylor</option>
+        </select>
+        <select id="ae-type">
+          <option value="Game">Game</option>
+          <option value="Practice">Practice</option>
+          <option value="Tournament">Tournament</option>
+        </select>
+        <input type="text" id="ae-title" placeholder="Description (e.g. vs Mavericks)" required />
+      </div>
+      <div class="form-row">
+        <input type="date" id="ae-date" required />
+        <input type="time" id="ae-time" placeholder="Time (optional)" />
+        <input type="text" id="ae-location" placeholder="Location (optional)" />
+      </div>
+      <button type="submit">Add to Calendar</button>
+    </form>
+  </section>
+
   <main id="calendar-container"></main>
 </body>
 </html>

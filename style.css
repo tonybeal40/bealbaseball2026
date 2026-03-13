@@ -142,15 +142,16 @@ button.btn {
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 26px;
+  margin-bottom: 48px;
 }
 
 .month h2 {
   margin: 0;
-  padding: 12px 14px;
+  padding: 14px 16px;
   background: #eaf1fb;
-  border-bottom: 1px solid var(--line);
-  font-size: 1.2rem;
+  border-bottom: 3px solid var(--line);
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
 }
 
 .grid {
@@ -173,8 +174,8 @@ button.btn {
 }
 
 .grid td {
-  height: 150px;
-  padding: 4px;
+  height: 170px;
+  padding: 6px;
 }
 
 .date {
@@ -223,6 +224,60 @@ button.btn {
 
 .event.saylor {
   background: var(--saylor);
+}
+
+/* Add Event Form */
+#add-event-section {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  padding: 0 10px;
+}
+
+#add-event-form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+#add-event-form h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-row select,
+.form-row input {
+  flex: 1;
+  min-width: 140px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #f8fbff;
+  color: var(--ink);
+}
+
+.form-row input[type="date"] { min-width: 160px; }
+.form-row input[type="time"] { min-width: 120px; }
+
+#add-event-form button {
+  background: var(--gold);
+  color: #111827;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 4px;
 }
 
 @media (max-width: 900px) {
