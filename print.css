@@ -1,0 +1,34 @@
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .topbar {
+    position: static;
+  }
+
+  .actions {
+    display: none !important;
+  }
+
+  #calendar-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .month {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+    border: 1px solid #bbb;
+  }
+
+  .grid td {
+    height: 110px;
+  }
+}

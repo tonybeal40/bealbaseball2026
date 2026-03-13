@@ -1,0 +1,211 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --line: #dbe2ea;
+  --gold: #fbbf24;
+  --navy: #0b1220;
+  --breyer: #111827;
+  --breyer-jv: #fbbf24;
+  --beckham: #2563eb;
+  --saylor: #c026d3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Segoe UI, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: linear-gradient(90deg, var(--navy), #1e293b);
+  color: #fff;
+  padding: 14px 18px;
+  border-bottom: 3px solid var(--gold);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  background: var(--gold);
+  color: #111827;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.legend {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.chip.breyer-varsity {
+  background: var(--breyer);
+  color: #fff;
+}
+
+.chip.breyer-jv {
+  background: var(--breyer-jv);
+  color: #111827;
+}
+
+.chip.beckham {
+  background: var(--beckham);
+  color: #fff;
+}
+
+.chip.saylor {
+  background: var(--saylor);
+  color: #fff;
+}
+
+#calendar-container {
+  max-width: 1400px;
+  margin: 18px auto;
+  padding: 0 10px 24px;
+}
+
+.month {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+
+.month h2 {
+  margin: 0;
+  padding: 12px 14px;
+  background: #eaf1fb;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.2rem;
+}
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.grid th,
+.grid td {
+  border: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.grid th {
+  background: #f8fbff;
+  color: #334155;
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+.grid td {
+  height: 150px;
+  padding: 4px;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.event {
+  border-radius: 8px;
+  color: #fff;
+  padding: 5px 6px;
+  margin: 4px 0;
+  font-size: 0.76rem;
+  line-height: 1.22;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.event .title {
+  display: block;
+  font-weight: 700;
+}
+
+.event .meta {
+  display: block;
+  opacity: 0.96;
+}
+
+.event .meta a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.event.breyer-varsity {
+  background: var(--breyer);
+}
+
+.event.breyer-jv {
+  background: var(--breyer-jv);
+  color: #111827;
+}
+
+.event.beckham {
+  background: var(--beckham);
+}
+
+.event.saylor {
+  background: var(--saylor);
+}
+
+@media (max-width: 900px) {
+  .grid td {
+    height: 120px;
+  }
+
+  .event {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beal Family Baseball System ⚾</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <script defer src="calendar-data.js"></script>
+  <script defer src="calendar.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="baseball-logo.png" alt="Baseball logo" class="logo" />
+      <h1>Beal Family Baseball System</h1>
+    </div>
+    <div class="actions">
+      <a class="btn" href="calendar.ics" download>Add to Google/Outlook</a>
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+    <div class="legend">
+      <span class="chip breyer-varsity">Breyer Varsity</span>
+      <span class="chip breyer-jv">Breyer JV</span>
+      <span class="chip beckham">Beckham</span>
+      <span class="chip saylor">Saylor</span>
+    </div>
+  </header>
+
+  <main id="calendar-container"></main>
+</body>
+</html>
