@@ -4,16 +4,32 @@
     print-color-adjust: exact;
   }
 
+  @page {
+    size: landscape;
+    margin: 0.4in;
+  }
+
   body {
     background: #fff;
+    font-size: 9px;
   }
 
   .topbar {
     position: static;
+    padding: 6px 10px;
   }
 
   .actions {
     display: none !important;
+  }
+
+  .logo {
+    height: 32px;
+    width: 32px;
+  }
+
+  h1 {
+    font-size: 1rem;
   }
 
   #calendar-container {
@@ -22,13 +38,34 @@
     padding: 0;
   }
 
+  /* Each month on its own page */
   .month {
+    page-break-before: always;
+    break-before: page;
     page-break-inside: avoid;
-    margin-bottom: 10px;
+    break-inside: avoid;
+    margin-bottom: 0;
     border: 1px solid #bbb;
   }
 
+  .month:first-child {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
   .grid td {
-    height: 110px;
+    height: 100px;
+    padding: 2px;
+  }
+
+  .event {
+    font-size: 0.65rem;
+    padding: 2px 4px;
+    margin: 2px 0;
+  }
+
+  .chip {
+    font-size: 0.7rem;
+    padding: 2px 6px;
   }
 }

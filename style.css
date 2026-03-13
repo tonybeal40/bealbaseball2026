@@ -72,14 +72,28 @@ h1 {
 }
 
 .btn {
-  background: var(--gold);
-  color: #111827;
   border: 0;
   border-radius: 8px;
   padding: 9px 12px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-google {
+  background: #4285f4;
+  color: #fff;
+}
+
+.btn-outlook {
+  background: #0078d4;
+  color: #fff;
+}
+
+button.btn {
+  background: var(--gold);
+  color: #111827;
 }
 
 .legend {
