@@ -13,6 +13,9 @@
       --navy2:  #0f3460;
       --gold:   #f0b429;
       --breyer: #1a56a0;
+      --breyer-varsity: #1a56a0;
+      --breyer-jv:      #6366f1;
+      --breyer-midland: #0d9488;
       --beckham:#2e9cca;
       --saylor: #e05c94;
       --bg:     #f0f4f8;
@@ -248,7 +251,10 @@
       white-space: nowrap;
     }
     .ev-chip:hover { opacity: 0.85; }
-    .ev-chip.breyer  { background: var(--breyer); }
+    .ev-chip.breyer          { background: var(--breyer-varsity); }
+    .ev-chip.breyer-varsity  { background: var(--breyer-varsity); }
+    .ev-chip.breyer-jv       { background: var(--breyer-jv); }
+    .ev-chip.breyer-midland  { background: var(--breyer-midland); }
     .ev-chip.beckham { background: var(--beckham); }
     .ev-chip.saylor  { background: var(--saylor); }
 
@@ -281,7 +287,10 @@
     .upcoming-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
     .upcoming-item.hidden { display: none; }
     .ev-color-bar { width: 4px; height: 44px; border-radius: 4px; flex-shrink: 0; }
-    .ev-color-bar.breyer  { background: var(--breyer); }
+    .ev-color-bar.breyer          { background: var(--breyer-varsity); }
+    .ev-color-bar.breyer-varsity  { background: var(--breyer-varsity); }
+    .ev-color-bar.breyer-jv       { background: var(--breyer-jv); }
+    .ev-color-bar.breyer-midland  { background: var(--breyer-midland); }
     .ev-color-bar.beckham { background: var(--beckham); }
     .ev-color-bar.saylor  { background: var(--saylor); }
     .ev-date-block { text-align: center; min-width: 44px; }
@@ -294,7 +303,10 @@
       padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
       color: #fff; white-space: nowrap;
     }
-    .ev-player-badge.breyer  { background: var(--breyer); }
+    .ev-player-badge.breyer          { background: var(--breyer-varsity); }
+    .ev-player-badge.breyer-varsity  { background: var(--breyer-varsity); }
+    .ev-player-badge.breyer-jv       { background: var(--breyer-jv); }
+    .ev-player-badge.breyer-midland  { background: var(--breyer-midland); }
     .ev-player-badge.beckham { background: var(--beckham); }
     .ev-player-badge.saylor  { background: var(--saylor); }
 
@@ -515,7 +527,9 @@
 
 <!-- LEGEND -->
 <div class="legend-bar">
-  <div class="leg"><div class="leg-dot" style="background:var(--breyer)"></div> Breyer — FHC Varsity + Midland Scout</div>
+  <div class="leg"><div class="leg-dot" style="background:#1a56a0"></div> Breyer — FHC Varsity</div>
+  <div class="leg"><div class="leg-dot" style="background:#6366f1"></div> Breyer — FHC JV</div>
+  <div class="leg"><div class="leg-dot" style="background:#0d9488"></div> Breyer — Midland Scout</div>
   <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Midland 13U Culberson</div>
   <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland 2033 Brown 10U</div>
   <div class="leg"><div class="leg-dot" style="background:var(--gold);border:1px solid #ccc"></div> Today</div>
@@ -542,6 +556,15 @@
 <script src="calendar-data.js"></script>
 <script>
 const events = typeof BEAL_EVENTS !== 'undefined' ? BEAL_EVENTS : [];
+
+// Returns CSS color class for an event (handles Breyer's 3 sub-teams)
+function kidClass(ev) {
+  if (ev.kid.toLowerCase() !== 'breyer') return ev.kid.toLowerCase();
+  const t = (ev.team || '').toLowerCase();
+  if (t.includes('jv'))      return 'breyer-jv';
+  if (t.includes('midland')) return 'breyer-midland';
+  return 'breyer-varsity';
+}
 const months = [
   {year:2026, month:2, name:"March"},
   {year:2026, month:3, name:"April"},
@@ -738,11 +761,14 @@ function buildCalendars() {
       thisWeekHTML += `<div class="week-day-group"><div class="week-day-label">${lbl}</div>`;
       dayEvs.forEach(ev => {
         const kLC = ev.kid.toLowerCase();
+        const kClass = kidClass(ev);
+        const dotColors = {'breyer-varsity':'#1a56a0','breyer-jv':'#6366f1','breyer-midland':'#0d9488','beckham':'#2e9cca','saylor':'#e05c94'};
+        const dotColor = dotColors[kClass] || '#1a56a0';
         thisWeekHTML += `<div class="week-ev-row" data-kid="${kLC}" onclick='openModal(${JSON.stringify(ev)})'>
-          <span class="week-dot" style="background:var(--${kLC})"></span>
+          <span class="week-dot" style="background:${dotColor}"></span>
           <span class="week-time">${ev.time || ''}</span>
           <span class="week-title">${ev.title}</span>
-          <span class="ev-player-badge ${kLC}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</span>
+          <span class="ev-player-badge ${kClass}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)} · ${ev.team||''}</span>
         </div>`;
       });
       thisWeekHTML += `</div>`;
@@ -757,9 +783,10 @@ function buildCalendars() {
   sortedEvents.forEach(ev => {
     const d = ev.d;
     const kidLC = ev.kid.toLowerCase();
+    const kClass = kidClass(ev);
     upcomingHTML += `
       <div class="upcoming-item" data-kid="${kidLC}" onclick='openModal(${JSON.stringify(ev)})'>
-        <div class="ev-color-bar ${kidLC}"></div>
+        <div class="ev-color-bar ${kClass}"></div>
         <div class="ev-date-block">
           <div class="ev-month">${MONTH_SHORT[d.getMonth()]}</div>
           <div class="ev-day">${d.getDate()}</div>
@@ -768,7 +795,7 @@ function buildCalendars() {
           <div class="ev-name">${ev.title}</div>
           <div class="ev-loc">📍 ${ev.location} · ${ev.team || ''}</div>
         </div>
-        <div class="ev-player-badge ${kidLC}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
+        <div class="ev-player-badge ${kClass}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
       </div>`;
   });
   upcomingHTML += `</div></div>`;
@@ -850,7 +877,7 @@ function buildCalendars() {
 
       dayEvents.forEach(ev => {
         const chip = document.createElement('div');
-        chip.className = `ev-chip ${ev.kid.toLowerCase()}${isPastDay ? ' past' : ''}`;
+        chip.className = `ev-chip ${kidClass(ev)}${isPastDay ? ' past' : ''}`;
         chip.title = ev.title;
         chip.textContent = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
         chip.onclick = () => openModal(ev);
