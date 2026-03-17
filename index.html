@@ -421,7 +421,7 @@
       <img src="breyer.png" alt="Breyer" />
       <div class="player-card-info">
         <div class="player-card-name">Breyer</div>
-        <div class="player-card-team">FHC Varsity Baseball</div>
+        <div class="player-card-team">FHC Varsity + Midland Scout</div>
         <div class="player-card-count" id="count-breyer">— events</div>
       </div>
     </div>
@@ -429,7 +429,7 @@
       <img src="beckham.png" alt="Beckham" />
       <div class="player-card-info">
         <div class="player-card-name">Beckham</div>
-        <div class="player-card-team">Indoor / Tournament</div>
+        <div class="player-card-team">Midland 13U Culberson</div>
         <div class="player-card-count" id="count-beckham">— events</div>
       </div>
     </div>
@@ -479,9 +479,9 @@
 
 <!-- LEGEND -->
 <div class="legend-bar">
-  <div class="leg"><div class="leg-dot" style="background:var(--breyer)"></div> Breyer — Francis Howell Central</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Indoor/Tournament</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--breyer)"></div> Breyer — FHC Varsity + Midland Scout</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Midland 13U Culberson</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland 2033 Brown 10U</div>
   <div class="leg"><div class="leg-dot" style="background:var(--gold);border:1px solid #ccc"></div> Today</div>
 </div>
 
@@ -495,8 +495,9 @@
   <div class="modal" id="modal-box">
     <h3 id="modal-title"></h3>
     <div class="modal-row"><span class="icon">📅</span><span id="modal-date"></span></div>
+    <div class="modal-row"><span class="icon">🕐</span><span id="modal-time"></span></div>
     <div class="modal-row"><span class="icon">📍</span><span id="modal-loc"></span></div>
-    <div class="modal-row"><span class="icon">👤</span><span id="modal-kid"></span></div>
+    <div class="modal-row"><span class="icon">👤</span><span id="modal-kid"></span> — <span id="modal-team"></span></div>
     <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Close</button>
   </div>
 </div>
@@ -555,6 +556,8 @@ function openModal(ev) {
   document.getElementById('modal-date').textContent = dateLabel;
   document.getElementById('modal-loc').textContent = ev.location;
   document.getElementById('modal-kid').textContent = ev.kid.charAt(0).toUpperCase() + ev.kid.slice(1);
+  document.getElementById('modal-team').textContent = ev.team || '';
+  document.getElementById('modal-time').textContent = ev.time || '';
   document.getElementById('modal').classList.add('open');
 }
 
@@ -627,7 +630,7 @@ function buildCalendars() {
         </div>
         <div class="ev-info">
           <div class="ev-name">${ev.title}</div>
-          <div class="ev-loc">📍 ${ev.location}</div>
+          <div class="ev-loc">📍 ${ev.location} · ${ev.team || ''}</div>
         </div>
         <div class="ev-player-badge ${kidLC}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
       </div>`;
