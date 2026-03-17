@@ -399,12 +399,28 @@
     .player-card.saylor .player-card-count { color: var(--saylor); filter: brightness(1.4); }
     .player-card-next { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
 
-    @media (max-width: 600px) {
-      .cal-grid { gap: 2px; }
-      .cal-day { min-height: 60px; padding: 4px; }
-      .ev-chip { font-size: 0.6rem; padding: 2px 4px; }
+    @media (max-width: 768px) {
+      main { padding: 12px; }
+      .cal-grid { gap: 1px; }
+      .cal-day { min-height: 52px; padding: 3px; border-radius: 4px; }
+      .ev-chip { font-size: 0.58rem; padding: 1px 3px; margin-bottom: 2px; }
+      .day-num { font-size: 0.7rem; margin-bottom: 2px; }
+      .cal-dow { font-size: 0.6rem; padding: 4px 0; }
       .header-title h1 { font-size: 1.1rem; }
-      .stats-inner { gap: 16px; }
+      .stats-inner { gap: 12px; padding: 10px 16px; }
+      .stat-num { font-size: 1.2rem; }
+      .players-inner { gap: 12px; }
+      .player-card { padding: 14px 16px; min-width: 140px; }
+      .player-card img { width: 48px; height: 48px; }
+      .month-header h2 { font-size: 1.1rem; }
+      .next-card { padding: 14px 16px; }
+    }
+    @media (max-width: 420px) {
+      .cal-day { min-height: 42px; padding: 2px; }
+      .ev-chip { font-size: 0.52rem; padding: 1px 2px; }
+      .day-num { font-size: 0.65rem; }
+      .player-card-name { font-size: 0.95rem; }
+      .player-card-team { font-size: 0.65rem; }
     }
 
     /* ── THIS WEEK ── */
@@ -428,20 +444,34 @@
     .cal-day.all-past { opacity: 0.65; }
 
     /* ── PRINT ── */
-    @page { size: landscape; margin: 0.5in; }
+    @page { size: landscape; margin: 0.4in; }
     @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       .header-btns, .filter-bar, .stats-strip, #next-up, .players-hero,
       .this-week-section, .upcoming-section, .legend-bar, footer { display: none !important; }
-      header { position: static; box-shadow: none; background: none !important; color: #000 !important; padding: 0 0 8px 0; }
-      header .sub, header h1 { color: #000 !important; }
+      header { position: static; box-shadow: none; background: none !important; padding: 0 0 6px 0; }
+      header .sub { color: #888 !important; }
+      header h1 { color: #000 !important; font-size: 1rem; }
       main { padding: 0; max-width: 100%; }
-      .month-section { page-break-after: always; break-after: page; }
+      .month-section { page-break-after: always; break-after: page; margin-bottom: 0; }
+      .month-section:last-child { page-break-after: avoid; break-after: avoid; }
       .cal-grid { gap: 2px; }
-      .cal-day { background: #fff !important; border: 1px solid #aaa !important; min-height: 80px; box-shadow: none !important; opacity: 1 !important; }
-      .ev-chip { font-size: 7px !important; opacity: 1 !important; filter: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cal-dow { font-size: 0.65rem; padding: 3px 0; }
+      .cal-day { background: #fff !important; border: 1px solid #bbb !important; min-height: 72px; padding: 3px; box-shadow: none !important; opacity: 1 !important; border-radius: 3px; }
+      .cal-day.today { border: 2px solid #f0b429 !important; }
+      .cal-day.has-conflict { border-left: 3px solid #f59e0b !important; }
+      .cal-day.all-past { opacity: 1 !important; }
+      .day-num { font-size: 0.7rem; margin-bottom: 2px; }
+      .ev-chip { font-size: 6.5px !important; padding: 1px 3px !important; margin-bottom: 2px; opacity: 1 !important; filter: none !important; border-radius: 3px; }
       .ev-chip.past { opacity: 1 !important; filter: none !important; }
-      .month-header h2 { font-size: 1.1rem; }
-      body::before { content: "⚾ Beal Family Baseball 2026 — " attr(data-print-date); display: block; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 12px; border-bottom: 2px solid #0b2a44; padding-bottom: 8px; }
+      .month-header { margin-bottom: 6px; }
+      .month-header h2 { font-size: 1rem; color: #000; }
+      .month-header .event-count { background: #0b2a44; color: #fff; font-size: 0.65rem; }
+      /* Print legend at bottom */
+      .print-legend { display: flex !important; gap: 14px; flex-wrap: wrap; margin-top: 8px; padding-top: 6px; border-top: 1px solid #ccc; font-size: 8px; }
+      .print-legend span { display: inline-flex; align-items: center; gap: 4px; }
+      .print-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+      body::before { content: "⚾  Beal Family Baseball 2026  ·  " attr(data-print-date); display: block; text-align: center; font-size: 11px; font-weight: bold; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #ccc; letter-spacing: 0.5px; }
     }
   </style>
 </head>
@@ -468,7 +498,10 @@
 <div class="players-hero">
   <div class="players-inner">
     <div class="player-card breyer" onclick="setFilter('breyer', document.querySelector('[data-kid=breyer]'))">
-      <img src="breyer.png" alt="Breyer" />
+      <div style="position:relative;flex-shrink:0">
+        <img src="breyer.png" alt="Breyer" />
+        <img src="fhc-logo.png" alt="FHC" style="position:absolute;bottom:-4px;right:-4px;width:22px;height:22px;border-radius:50%;border:2px solid #fff;object-fit:contain;background:#fff" />
+      </div>
       <div class="player-card-info">
         <div class="player-card-name">Breyer</div>
         <div class="player-card-team">FHC Varsity + Midland Scout</div>
@@ -477,7 +510,10 @@
       </div>
     </div>
     <div class="player-card beckham" onclick="setFilter('beckham', document.querySelector('[data-kid=beckham]'))">
-      <img src="beckham.png" alt="Beckham" />
+      <div style="position:relative;flex-shrink:0">
+        <img src="beckham.png" alt="Beckham" />
+        <img src="baseball-logo.png" alt="Midland" style="position:absolute;bottom:-4px;right:-4px;width:22px;height:22px;border-radius:50%;border:2px solid #fff;object-fit:contain;background:#fff" />
+      </div>
       <div class="player-card-info">
         <div class="player-card-name">Beckham</div>
         <div class="player-card-team">Midland 13U Culberson</div>
@@ -486,7 +522,10 @@
       </div>
     </div>
     <div class="player-card saylor" onclick="setFilter('saylor', document.querySelector('[data-kid=saylor]'))">
-      <img src="saylor.png" alt="Saylor" />
+      <div style="position:relative;flex-shrink:0">
+        <img src="saylor.png" alt="Saylor" />
+        <img src="baseball-logo.png" alt="Midland" style="position:absolute;bottom:-4px;right:-4px;width:22px;height:22px;border-radius:50%;border:2px solid #fff;object-fit:contain;background:#fff" />
+      </div>
       <div class="player-card-info">
         <div class="player-card-name">Saylor</div>
         <div class="player-card-team">Midland 2033 Brown 10U</div>
@@ -535,9 +574,21 @@
   <div class="leg"><div class="leg-dot" style="background:#1a56a0"></div> Breyer — FHC Varsity</div>
   <div class="leg"><div class="leg-dot" style="background:#6366f1"></div> Breyer — FHC JV</div>
   <div class="leg"><div class="leg-dot" style="background:#0d9488"></div> Breyer — Midland Scout</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Midland 13U Culberson</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland 2033 Brown 10U</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Midland 13U</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland 10U</div>
   <div class="leg"><div class="leg-dot" style="background:var(--gold);border:1px solid #ccc"></div> Today</div>
+  <div class="leg"><div class="leg-dot" style="background:#f59e0b;border-radius:2px"></div> ⚠️ Conflict day</div>
+</div>
+
+<!-- PRINT LEGEND (only shows when printing) -->
+<div class="print-legend" style="display:none">
+  <span><span class="dot" style="background:#1a56a0"></span> Breyer FHC Varsity</span>
+  <span><span class="dot" style="background:#6366f1"></span> Breyer FHC JV</span>
+  <span><span class="dot" style="background:#0d9488"></span> Breyer Midland Scout</span>
+  <span><span class="dot" style="background:#2e9cca"></span> Beckham Midland 13U</span>
+  <span><span class="dot" style="background:#e05c94"></span> Saylor Midland 10U</span>
+  <span><span class="dot" style="background:#f0b429;border:1px solid #ccc"></span> Today</span>
+  <span><span class="dot" style="background:#f59e0b;border-radius:2px"></span> ⚠️ Conflict</span>
 </div>
 
 <!-- FOOTER -->
