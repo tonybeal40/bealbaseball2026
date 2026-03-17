@@ -351,7 +351,42 @@
       font-weight: 700; cursor: pointer; font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
+    /* Player Cards Hero */
+    .players-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      padding: 28px 20px;
+    }
+    .players-inner {
+      max-width: 800px; margin: 0 auto;
+      display: flex; gap: 20px; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .player-card {
+      background: rgba(255,255,255,0.07);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex; align-items: center; gap: 14px;
+      cursor: pointer; transition: transform 0.2s, background 0.2s;
+      min-width: 180px;
+    }
+    .player-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); }
+    .player-card img {
+      width: 60px; height: 60px; border-radius: 50%;
+      object-fit: cover; border: 3px solid;
+    }
+    .player-card.breyer img { border-color: var(--breyer); }
+    .player-card.beckham img { border-color: var(--beckham); }
+    .player-card.saylor img { border-color: var(--saylor); }
+    .player-card-info { color: #fff; }
+    .player-card-name { font-size: 1.1rem; font-weight: 800; }
+    .player-card-team { font-size: 0.72rem; opacity: 0.75; margin-top: 2px; line-height: 1.3; }
+    .player-card-count { font-size: 1.4rem; font-weight: 900; margin-top: 4px; }
+    .player-card.breyer .player-card-count { color: var(--breyer); filter: brightness(1.6); }
+    .player-card.beckham .player-card-count { color: var(--beckham); filter: brightness(1.4); }
+    .player-card.saylor .player-card-count { color: var(--saylor); filter: brightness(1.4); }
+
+
       .cal-grid { gap: 2px; }
       .cal-day { min-height: 60px; padding: 4px; }
       .ev-chip { font-size: 0.6rem; padding: 2px 4px; }
@@ -378,6 +413,36 @@
     </div>
   </div>
 </header>
+
+<!-- PLAYER HEROES -->
+<div class="players-hero">
+  <div class="players-inner">
+    <div class="player-card breyer" onclick="setFilter('breyer', document.querySelector('[data-kid=breyer]'))">
+      <img src="breyer.png" alt="Breyer" />
+      <div class="player-card-info">
+        <div class="player-card-name">Breyer</div>
+        <div class="player-card-team">FHC Varsity Baseball</div>
+        <div class="player-card-count" id="count-breyer">— events</div>
+      </div>
+    </div>
+    <div class="player-card beckham" onclick="setFilter('beckham', document.querySelector('[data-kid=beckham]'))">
+      <img src="beckham.png" alt="Beckham" />
+      <div class="player-card-info">
+        <div class="player-card-name">Beckham</div>
+        <div class="player-card-team">Indoor / Tournament</div>
+        <div class="player-card-count" id="count-beckham">— events</div>
+      </div>
+    </div>
+    <div class="player-card saylor" onclick="setFilter('saylor', document.querySelector('[data-kid=saylor]'))">
+      <img src="saylor.png" alt="Saylor" />
+      <div class="player-card-info">
+        <div class="player-card-name">Saylor</div>
+        <div class="player-card-team">Midland 2033 Brown 10U</div>
+        <div class="player-card-count" id="count-saylor">— events</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- FILTER TABS -->
 <div class="filter-bar">
@@ -438,6 +503,7 @@
 
 <script src="calendar-data.js"></script>
 <script>
+const events = typeof BEAL_EVENTS !== 'undefined' ? BEAL_EVENTS : [];
 const months = [
   {year:2026, month:2, name:"March"},
   {year:2026, month:3, name:"April"},
@@ -463,10 +529,30 @@ function setFilter(kid, btn) {
   });
 }
 
+// Normalize events: multi-day events use startDate/endDate, single use date
+function getEventDate(ev) { return ev.date || ev.startDate; }
+function eventMatchesDate(ev, dateStr) {
+  if (ev.date) return ev.date === dateStr;
+  if (ev.startDate && ev.endDate) {
+    const d = new Date(dateStr + 'T12:00:00');
+    const s = new Date(ev.startDate + 'T12:00:00');
+    const e = new Date(ev.endDate + 'T12:00:00');
+    return d >= s && d <= e;
+  }
+  return false;
+}
+
 function openModal(ev) {
-  const d = new Date(ev.date + 'T12:00:00');
+  const dateStr = getEventDate(ev);
+  const d = new Date(dateStr + 'T12:00:00');
   document.getElementById('modal-title').textContent = ev.title;
-  document.getElementById('modal-date').textContent = d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  let dateLabel = d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  if (ev.startDate && ev.endDate && ev.startDate !== ev.endDate) {
+    const s = new Date(ev.startDate+'T12:00:00');
+    const e = new Date(ev.endDate+'T12:00:00');
+    dateLabel = s.toLocaleDateString('en-US',{month:'long',day:'numeric'}) + ' – ' + e.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  }
+  document.getElementById('modal-date').textContent = dateLabel;
   document.getElementById('modal-loc').textContent = ev.location;
   document.getElementById('modal-kid').textContent = ev.kid.charAt(0).toUpperCase() + ev.kid.slice(1);
   document.getElementById('modal').classList.add('open');
@@ -482,14 +568,19 @@ function buildStats() {
   const strip = document.getElementById('stats-strip');
   strip.innerHTML = `
     <div class="stat-item"><div class="stat-num">${total}</div><div class="stat-lbl">Total Events</div></div>
-    ${kids.map(k => `<div class="stat-item"><div class="stat-num" style="color:var(--${k})">${events.filter(e=>e.kid===k).length}</div><div class="stat-lbl">${k.charAt(0).toUpperCase()+k.slice(1)}'s Games</div></div>`).join('')}
+    ${kids.map(k => `<div class="stat-item"><div class="stat-num" style="color:var(--${k})">${events.filter(e=>e.kid.toLowerCase()===k).length}</div><div class="stat-lbl">${k.charAt(0).toUpperCase()+k.slice(1)}'s Events</div></div>`).join('')}
   `;
+  // Update player card counts
+  kids.forEach(k => {
+    const el = document.getElementById('count-' + k);
+    if (el) el.textContent = events.filter(e => e.kid.toLowerCase() === k).length + ' events';
+  });
 }
 
 function buildNextUp() {
   const today = new Date(); today.setHours(0,0,0,0);
   const upcoming = events
-    .map(e => ({...e, d: new Date(e.date+'T12:00:00')}))
+    .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
     .filter(e => e.d >= today)
     .sort((a,b) => a.d - b.d);
   const next = upcoming[0];
@@ -517,7 +608,7 @@ function buildCalendars() {
 
   // Upcoming list first
   const sortedEvents = [...events]
-    .map(e => ({...e, d: new Date(e.date+'T12:00:00')}))
+    .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
     .filter(e => e.d >= today)
     .sort((a,b) => a.d - b.d);
 
@@ -526,9 +617,10 @@ function buildCalendars() {
     <div class="upcoming-list">`;
   sortedEvents.forEach(ev => {
     const d = ev.d;
+    const kidLC = ev.kid.toLowerCase();
     upcomingHTML += `
-      <div class="upcoming-item" data-kid="${ev.kid}" onclick='openModal(${JSON.stringify(ev)})'>
-        <div class="ev-color-bar ${ev.kid}"></div>
+      <div class="upcoming-item" data-kid="${kidLC}" onclick='openModal(${JSON.stringify(ev)})'>
+        <div class="ev-color-bar ${kidLC}"></div>
         <div class="ev-date-block">
           <div class="ev-month">${MONTH_SHORT[d.getMonth()]}</div>
           <div class="ev-day">${d.getDate()}</div>
@@ -537,7 +629,7 @@ function buildCalendars() {
           <div class="ev-name">${ev.title}</div>
           <div class="ev-loc">📍 ${ev.location}</div>
         </div>
-        <div class="ev-player-badge ${ev.kid}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
+        <div class="ev-player-badge ${kidLC}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
       </div>`;
   });
   upcomingHTML += `</div></div>`;
@@ -546,7 +638,17 @@ function buildCalendars() {
   // Calendar months
   months.forEach(m => {
     const monthEvents = events.filter(e => {
-      const [y,mo] = e.date.split('-').map(Number);
+      const dateStr = getEventDate(e);
+      if (!dateStr) return false;
+      const [y,mo] = dateStr.split('-').map(Number);
+      // Also catch multi-day events that span into this month
+      if (e.startDate && e.endDate) {
+        const s = new Date(e.startDate+'T12:00:00');
+        const endD = new Date(e.endDate+'T12:00:00');
+        const mStart = new Date(m.year, m.month, 1);
+        const mEnd = new Date(m.year, m.month+1, 0);
+        return s <= mEnd && endD >= mStart;
+      }
       return y === m.year && mo === m.month+1;
     });
 
@@ -580,7 +682,7 @@ function buildCalendars() {
 
     for (let d = 1; d <= daysInMonth; d++) {
       const dateStr = `${m.year}-${String(m.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const dayEvents = events.filter(e => e.date === dateStr);
+      const dayEvents = events.filter(e => eventMatchesDate(e, dateStr));
       const isToday = new Date(m.year, m.month, d).getTime() === today.getTime();
 
       const cell = document.createElement('div');
@@ -593,7 +695,7 @@ function buildCalendars() {
 
       dayEvents.forEach(ev => {
         const chip = document.createElement('div');
-        chip.className = `ev-chip ${ev.kid}`;
+        chip.className = `ev-chip ${ev.kid.toLowerCase()}`;
         chip.title = ev.title;
         // Short label
         const short = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
