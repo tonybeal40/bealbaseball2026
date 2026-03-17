@@ -385,13 +385,46 @@
     .player-card.breyer .player-card-count { color: var(--breyer); filter: brightness(1.6); }
     .player-card.beckham .player-card-count { color: var(--beckham); filter: brightness(1.4); }
     .player-card.saylor .player-card-count { color: var(--saylor); filter: brightness(1.4); }
+    .player-card-next { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
 
-
+    @media (max-width: 600px) {
       .cal-grid { gap: 2px; }
       .cal-day { min-height: 60px; padding: 4px; }
       .ev-chip { font-size: 0.6rem; padding: 2px 4px; }
       .header-title h1 { font-size: 1.1rem; }
       .stats-inner { gap: 16px; }
+    }
+
+    /* ── THIS WEEK ── */
+    .this-week-section { margin-bottom: 28px; }
+    .week-day-group { margin-bottom: 14px; }
+    .week-day-label { font-size: 0.78rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+    .week-ev-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 4px; cursor: pointer; transition: box-shadow 0.2s; font-size: 0.85rem; }
+    .week-ev-row:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .week-ev-row.hidden { display: none; }
+    .week-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .week-time { color: var(--muted); font-size: 0.78rem; min-width: 60px; }
+    .week-title { flex: 1; font-weight: 600; }
+    .no-week-events { color: var(--muted); font-size: 0.88rem; padding: 12px; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
+
+    /* ── CONFLICT DETECTOR ── */
+    .cal-day.has-conflict { border-left: 4px solid #f59e0b; }
+    .conflict-badge { font-size: 0.6rem; font-weight: 700; color: #f59e0b; margin-bottom: 2px; }
+
+    /* ── PAST EVENTS ── */
+    .ev-chip.past { opacity: 0.4; filter: grayscale(0.5); }
+    .cal-day.all-past { opacity: 0.65; }
+
+    /* ── PRINT ── */
+    @media print {
+      .header-btns, .filter-bar, .stats-strip, #next-up, .players-hero,
+      .this-week-section, .upcoming-section, .legend-bar, footer { display: none !important; }
+      header { position: static; box-shadow: none; }
+      main { padding: 0; }
+      .month-section { page-break-after: always; }
+      .cal-day { background: #fff !important; border: 1px solid #999 !important; min-height: 70px; box-shadow: none !important; opacity: 1 !important; }
+      .ev-chip { font-size: 8px !important; opacity: 1 !important; filter: none !important; }
+      body::before { content: "Beal Family Baseball 2026 — Printed " attr(data-print-date); display: block; text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 16px; }
     }
   </style>
 </head>
@@ -423,6 +456,7 @@
         <div class="player-card-name">Breyer</div>
         <div class="player-card-team">FHC Varsity + Midland Scout</div>
         <div class="player-card-count" id="count-breyer">— events</div>
+        <div class="player-card-next" id="next-breyer"></div>
       </div>
     </div>
     <div class="player-card beckham" onclick="setFilter('beckham', document.querySelector('[data-kid=beckham]'))">
@@ -431,6 +465,7 @@
         <div class="player-card-name">Beckham</div>
         <div class="player-card-team">Midland 13U Culberson</div>
         <div class="player-card-count" id="count-beckham">— events</div>
+        <div class="player-card-next" id="next-beckham"></div>
       </div>
     </div>
     <div class="player-card saylor" onclick="setFilter('saylor', document.querySelector('[data-kid=saylor]'))">
@@ -439,6 +474,7 @@
         <div class="player-card-name">Saylor</div>
         <div class="player-card-team">Midland 2033 Brown 10U</div>
         <div class="player-card-count" id="count-saylor">— events</div>
+        <div class="player-card-next" id="next-saylor"></div>
       </div>
     </div>
   </div>
@@ -498,6 +534,7 @@
     <div class="modal-row"><span class="icon">🕐</span><span id="modal-time"></span></div>
     <div class="modal-row"><span class="icon">📍</span><span id="modal-loc"></span></div>
     <div class="modal-row"><span class="icon">👤</span><span id="modal-kid"></span> — <span id="modal-team"></span></div>
+    <button class="modal-close" style="background:#16a34a;margin-bottom:8px" onclick="downloadICS()">📅 Add to Calendar</button>
     <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Close</button>
   </div>
 </div>
@@ -517,6 +554,7 @@ const DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 let currentFilter = "all";
+let currentModalEvent = null;
 
 function setFilter(kid, btn) {
   currentFilter = kid;
@@ -528,6 +566,13 @@ function setFilter(kid, btn) {
   document.querySelectorAll('.upcoming-item').forEach(el => {
     el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
   });
+  document.querySelectorAll('.week-ev-row').forEach(el => {
+    el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
+  });
+  document.querySelectorAll('.week-day-group').forEach(grp => {
+    grp.style.display = grp.querySelectorAll('.week-ev-row:not(.hidden)').length ? '' : 'none';
+  });
+  history.replaceState(null, '', kid === 'all' ? location.pathname : '?kid=' + kid);
 }
 
 // Normalize events: multi-day events use startDate/endDate, single use date
@@ -544,6 +589,7 @@ function eventMatchesDate(ev, dateStr) {
 }
 
 function openModal(ev) {
+  currentModalEvent = ev;
   const dateStr = getEventDate(ev);
   const d = new Date(dateStr + 'T12:00:00');
   document.getElementById('modal-title').textContent = ev.title;
@@ -565,7 +611,47 @@ function closeModal(e) {
   if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open');
 }
 
+function downloadICS() {
+  const ev = currentModalEvent;
+  if (!ev) return;
+  const isMultiDay = ev.startDate && ev.endDate && ev.startDate !== ev.endDate;
+  let dtstart, dtend;
+  if (isMultiDay) {
+    dtstart = 'DTSTART;VALUE=DATE:' + ev.startDate.replace(/-/g,'');
+    const endD = new Date(ev.endDate + 'T12:00:00');
+    endD.setDate(endD.getDate() + 1);
+    dtend = 'DTEND;VALUE=DATE:' + endD.getFullYear() + String(endD.getMonth()+1).padStart(2,'0') + String(endD.getDate()).padStart(2,'0');
+  } else {
+    const ds = getEventDate(ev).replace(/-/g,'');
+    const tm = ev.time && ev.time.match(/(\d+):(\d+)\s*(AM|PM)/i);
+    if (tm) {
+      let h = parseInt(tm[1]), mn = parseInt(tm[2]);
+      if (tm[3].toUpperCase()==='PM' && h!==12) h+=12;
+      if (tm[3].toUpperCase()==='AM' && h===12) h=0;
+      const fmt = (n) => String(n).padStart(2,'0');
+      dtstart = 'DTSTART:' + ds + 'T' + fmt(h) + fmt(mn) + '00';
+      dtend   = 'DTEND:'   + ds + 'T' + fmt(h+2) + fmt(mn) + '00';
+    } else {
+      dtstart = 'DTSTART;VALUE=DATE:' + ds;
+      dtend   = 'DTEND;VALUE=DATE:'   + ds;
+    }
+  }
+  const ics = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BealBaseball//2026//EN',
+    'BEGIN:VEVENT', dtstart, dtend,
+    'SUMMARY:' + ev.title,
+    'LOCATION:' + (ev.location || ''),
+    'DESCRIPTION:' + (ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)) + ' - ' + (ev.team || ''),
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+  a.download = ev.title.replace(/[^a-z0-9]/gi,'_') + '.ics';
+  a.click();
+}
+
 function buildStats() {
+  const today = new Date(); today.setHours(0,0,0,0);
   const total = events.length;
   const kids = ['breyer','beckham','saylor'];
   const strip = document.getElementById('stats-strip');
@@ -573,10 +659,26 @@ function buildStats() {
     <div class="stat-item"><div class="stat-num">${total}</div><div class="stat-lbl">Total Events</div></div>
     ${kids.map(k => `<div class="stat-item"><div class="stat-num" style="color:var(--${k})">${events.filter(e=>e.kid.toLowerCase()===k).length}</div><div class="stat-lbl">${k.charAt(0).toUpperCase()+k.slice(1)}'s Events</div></div>`).join('')}
   `;
-  // Update player card counts
   kids.forEach(k => {
     const el = document.getElementById('count-' + k);
-    if (el) el.textContent = events.filter(e => e.kid.toLowerCase() === k).length + ' events';
+    const nextEl = document.getElementById('next-' + k);
+    const count = events.filter(e => e.kid.toLowerCase() === k).length;
+    if (el) el.textContent = count + ' events';
+    if (nextEl) {
+      const kidFuture = events
+        .filter(e => e.kid.toLowerCase() === k)
+        .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
+        .filter(e => e.d >= today)
+        .sort((a,b) => a.d - b.d);
+      if (!kidFuture.length) {
+        nextEl.textContent = 'Season Complete';
+      } else {
+        const diff = Math.round((kidFuture[0].d - today) / 86400000);
+        if (diff === 0) nextEl.textContent = 'Next: Today!';
+        else if (diff === 1) nextEl.textContent = 'Next: Tomorrow';
+        else nextEl.textContent = `Next: ${MONTH_SHORT[kidFuture[0].d.getMonth()]} ${kidFuture[0].d.getDate()}`;
+      }
+    }
   });
 }
 
@@ -608,13 +710,47 @@ function buildNextUp() {
 function buildCalendars() {
   const today = new Date(); today.setHours(0,0,0,0);
   const main = document.getElementById('main-content');
+  const DOW_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  // Upcoming list first
+  // Upcoming list (future events only)
   const sortedEvents = [...events]
     .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
     .filter(e => e.d >= today)
     .sort((a,b) => a.d - b.d);
 
+  // ── This Week section ──
+  let thisWeekHTML = `<div class="this-week-section"><div class="section-title">📅 This Week</div>`;
+  const weekDays = [];
+  for (let i = 0; i <= 6; i++) {
+    const d = new Date(today); d.setDate(today.getDate() + i);
+    const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const dayEvs = events.filter(e => eventMatchesDate(e, ds));
+    if (dayEvs.length) weekDays.push({d, dayEvs, i});
+  }
+  if (!weekDays.length) {
+    const nextEv = sortedEvents[0];
+    thisWeekHTML += `<div class="no-week-events">No events this week${nextEv ? ` — next up is <strong>${nextEv.title}</strong>` : ''}</div>`;
+  } else {
+    weekDays.forEach(({d, dayEvs, i}) => {
+      const lbl = i===0 ? `Today - ${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`
+                : i===1 ? `Tomorrow - ${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`
+                        : `${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`;
+      thisWeekHTML += `<div class="week-day-group"><div class="week-day-label">${lbl}</div>`;
+      dayEvs.forEach(ev => {
+        const kLC = ev.kid.toLowerCase();
+        thisWeekHTML += `<div class="week-ev-row" data-kid="${kLC}" onclick='openModal(${JSON.stringify(ev)})'>
+          <span class="week-dot" style="background:var(--${kLC})"></span>
+          <span class="week-time">${ev.time || ''}</span>
+          <span class="week-title">${ev.title}</span>
+          <span class="ev-player-badge ${kLC}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</span>
+        </div>`;
+      });
+      thisWeekHTML += `</div>`;
+    });
+  }
+  thisWeekHTML += `</div>`;
+
+  // ── Upcoming list ──
   let upcomingHTML = `<div class="upcoming-section">
     <div class="section-title">📋 Upcoming Schedule</div>
     <div class="upcoming-list">`;
@@ -636,15 +772,15 @@ function buildCalendars() {
       </div>`;
   });
   upcomingHTML += `</div></div>`;
-  main.innerHTML = upcomingHTML;
 
-  // Calendar months
+  main.innerHTML = thisWeekHTML + upcomingHTML;
+
+  // ── Calendar months ──
   months.forEach(m => {
     const monthEvents = events.filter(e => {
       const dateStr = getEventDate(e);
       if (!dateStr) return false;
       const [y,mo] = dateStr.split('-').map(Number);
-      // Also catch multi-day events that span into this month
       if (e.startDate && e.endDate) {
         const s = new Date(e.startDate+'T12:00:00');
         const endD = new Date(e.endDate+'T12:00:00');
@@ -666,7 +802,6 @@ function buildCalendars() {
     const grid = document.createElement('div');
     grid.className = 'cal-grid';
 
-    // Day-of-week headers
     DAYS.forEach(d => {
       const dow = document.createElement('div');
       dow.className = 'cal-dow';
@@ -687,9 +822,26 @@ function buildCalendars() {
       const dateStr = `${m.year}-${String(m.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       const dayEvents = events.filter(e => eventMatchesDate(e, dateStr));
       const isToday = new Date(m.year, m.month, d).getTime() === today.getTime();
+      const cellDate = new Date(m.year, m.month, d);
+      const isPastDay = cellDate < today;
+
+      // Conflict: 2+ different kids
+      const kidsOnDay = [...new Set(dayEvents.map(e => e.kid.toLowerCase()))];
+      const hasConflict = kidsOnDay.length >= 2;
 
       const cell = document.createElement('div');
-      cell.className = `cal-day${isToday ? ' today' : ''}${dayEvents.length ? ' has-event' : ''}`;
+      let cls = 'cal-day';
+      if (isToday) cls += ' today';
+      if (dayEvents.length) cls += ' has-event';
+      if (hasConflict) cls += ' has-conflict';
+      cell.className = cls;
+
+      if (hasConflict) {
+        const badge = document.createElement('div');
+        badge.className = 'conflict-badge';
+        badge.textContent = '⚠️ conflict';
+        cell.appendChild(badge);
+      }
 
       const num = document.createElement('div');
       num.className = 'day-num';
@@ -698,14 +850,15 @@ function buildCalendars() {
 
       dayEvents.forEach(ev => {
         const chip = document.createElement('div');
-        chip.className = `ev-chip ${ev.kid.toLowerCase()}`;
+        chip.className = `ev-chip ${ev.kid.toLowerCase()}${isPastDay ? ' past' : ''}`;
         chip.title = ev.title;
-        // Short label
-        const short = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
-        chip.textContent = short;
+        chip.textContent = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
         chip.onclick = () => openModal(ev);
         cell.appendChild(chip);
       });
+
+      // All-past cell
+      if (dayEvents.length && isPastDay) cell.classList.add('all-past');
 
       grid.appendChild(cell);
     }
@@ -718,6 +871,18 @@ function buildCalendars() {
 buildStats();
 buildNextUp();
 buildCalendars();
+
+// Set print date attribute
+document.body.setAttribute('data-print-date', new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'}));
+
+// Apply URL ?kid= filter on load
+(function() {
+  const kid = new URLSearchParams(location.search).get('kid');
+  if (kid && ['breyer','beckham','saylor','all'].includes(kid)) {
+    const tab = document.querySelector(`[data-kid="${kid}"]`);
+    if (tab) setFilter(kid, tab);
+  }
+})();
 </script>
 </body>
 </html>
