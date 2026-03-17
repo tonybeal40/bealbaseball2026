@@ -1,33 +1,618 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Beal Family Baseball System</title>
-<link rel="stylesheet" href="styles.css">
-<script src="calendar-data.js"></script>
-<script src="calendar.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚾ Beal Family Baseball 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230b2a44'/><text y='48' x='32' font-size='40' text-anchor='middle'>⚾</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0b2a44;
+      --navy2:  #0f3460;
+      --gold:   #f0b429;
+      --breyer: #1a56a0;
+      --beckham:#2e9cca;
+      --saylor: #e05c94;
+      --bg:     #f0f4f8;
+      --card:   #ffffff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: #fff;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-title .ball { font-size: 2.2rem; }
+    .header-title h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header-title .sub { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    .header-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 8px; font-size: 0.8rem;
+      font-weight: 700; text-decoration: none; cursor: pointer;
+      border: none; transition: all 0.2s;
+    }
+    .btn-gold  { background: var(--gold); color: var(--navy); }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+
+    /* ── PLAYER FILTER TABS ── */
+    .filter-bar {
+      background: #fff;
+      border-bottom: 2px solid var(--border);
+      padding: 0 24px;
+    }
+    .filter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .filter-tab {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      color: var(--muted);
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .filter-tab .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .filter-tab.active, .filter-tab:hover { color: var(--navy); }
+    .filter-tab.active { border-bottom-color: var(--navy); }
+    .filter-tab[data-kid="breyer"].active   { border-bottom-color: var(--breyer); color: var(--breyer); }
+    .filter-tab[data-kid="beckham"].active  { border-bottom-color: var(--beckham); color: var(--beckham); }
+    .filter-tab[data-kid="saylor"].active   { border-bottom-color: var(--saylor); color: var(--saylor); }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--navy);
+      color: #fff;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 900; color: var(--gold); }
+    .stat-lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+
+    /* ── NEXT UP BANNER ── */
+    #next-up {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      padding: 0 24px;
+    }
+    .next-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .next-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .next-title { font-size: 1.1rem; font-weight: 800; }
+    .next-sub   { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+    .next-days  { margin-left: auto; text-align: right; }
+    .next-days .num { font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .next-days .lbl { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .month-section { margin-bottom: 40px; }
+    .month-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .month-header h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .month-header .event-count {
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── CALENDAR GRID ── */
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+    .cal-dow {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 6px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cal-day {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-height: 90px;
+      padding: 6px;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .cal-day:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .cal-day.empty { background: transparent; border-color: transparent; }
+    .cal-day.today {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+    .cal-day.has-event { background: #fafbff; }
+    .day-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .cal-day.today .day-num {
+      background: var(--gold);
+      color: var(--navy);
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    /* ── EVENT CHIPS ── */
+    .ev-chip {
+      display: block;
+      border-radius: 5px;
+      padding: 3px 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .ev-chip:hover { opacity: 0.85; }
+    .ev-chip.breyer  { background: var(--breyer); }
+    .ev-chip.beckham { background: var(--beckham); }
+    .ev-chip.saylor  { background: var(--saylor); }
+
+    /* hidden when filtered */
+    .ev-chip.hidden { display: none; }
+
+    /* ── UPCOMING LIST ── */
+    .upcoming-section {
+      margin-top: 32px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .upcoming-list { display: flex; flex-direction: column; gap: 8px; }
+    .upcoming-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: box-shadow 0.2s;
+    }
+    .upcoming-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .upcoming-item.hidden { display: none; }
+    .ev-color-bar { width: 4px; height: 44px; border-radius: 4px; flex-shrink: 0; }
+    .ev-color-bar.breyer  { background: var(--breyer); }
+    .ev-color-bar.beckham { background: var(--beckham); }
+    .ev-color-bar.saylor  { background: var(--saylor); }
+    .ev-date-block { text-align: center; min-width: 44px; }
+    .ev-date-block .ev-month { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--muted); }
+    .ev-date-block .ev-day   { font-size: 1.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .ev-info { flex: 1; }
+    .ev-info .ev-name { font-weight: 700; font-size: 0.9rem; }
+    .ev-info .ev-loc  { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .ev-player-badge {
+      padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
+      color: #fff; white-space: nowrap;
+    }
+    .ev-player-badge.breyer  { background: var(--breyer); }
+    .ev-player-badge.beckham { background: var(--beckham); }
+    .ev-player-badge.saylor  { background: var(--saylor); }
+
+    /* ── LEGEND ── */
+    .legend-bar {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      background: var(--card);
+      border-top: 2px solid var(--border);
+      padding: 14px 24px;
+      margin-top: 32px;
+    }
+    .legend-bar .leg {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.8rem; font-weight: 600; color: var(--text);
+    }
+    .leg-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 16px;
+      font-size: 0.78rem;
+      margin-top: 40px;
+    }
+    footer span { color: var(--gold); font-weight: 700; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+    .modal-row { display: flex; gap: 8px; align-items: flex-start; margin: 8px 0; font-size: 0.9rem; }
+    .modal-row .icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .modal-close {
+      margin-top: 20px; width: 100%;
+      padding: 10px; border-radius: 8px; border: none;
+      background: var(--navy); color: #fff;
+      font-weight: 700; cursor: pointer; font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .cal-grid { gap: 2px; }
+      .cal-day { min-height: 60px; padding: 4px; }
+      .ev-chip { font-size: 0.6rem; padding: 2px 4px; }
+      .header-title h1 { font-size: 1.1rem; }
+      .stats-inner { gap: 16px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-<h1>⚾ Beal Family Baseball System</h1>
-<div class="buttons">
-<a href="beal-family-baseball.ics" download class="btn">Add to Google / Outlook Calendar</a>
-<button onclick="window.print()" class="btn">Print Calendar</button>
-<a href="beal-family-baseball.ics" download class="btn">Download Calendar File</a>
-</div>
+  <div class="header-inner">
+    <div class="header-title">
+      <span class="ball">⚾</span>
+      <div>
+        <div class="sub">Beal Family</div>
+        <h1>Baseball 2026</h1>
+      </div>
+    </div>
+    <div class="header-btns">
+      <a href="beal-family-baseball.ics" download class="btn btn-gold">📅 Add to Calendar</a>
+      <button onclick="window.print()" class="btn btn-ghost">🖨️ Print</button>
+    </div>
+  </div>
 </header>
 
-<div id="calendar-container"></div>
+<!-- FILTER TABS -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-tab active" data-kid="all" onclick="setFilter('all',this)">
+      <span class="dot" style="background:#0b2a44"></span> All Players
+    </button>
+    <button class="filter-tab" data-kid="breyer" onclick="setFilter('breyer',this)">
+      <span class="dot" style="background:var(--breyer)"></span> Breyer
+    </button>
+    <button class="filter-tab" data-kid="beckham" onclick="setFilter('beckham',this)">
+      <span class="dot" style="background:var(--beckham)"></span> Beckham
+    </button>
+    <button class="filter-tab" data-kid="saylor" onclick="setFilter('saylor',this)">
+      <span class="dot" style="background:var(--saylor)"></span> Saylor
+    </button>
+  </div>
+</div>
 
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner" id="stats-strip">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- NEXT UP -->
+<div id="next-up"></div>
+
+<!-- MAIN -->
+<main id="main-content">
+  <!-- filled by JS -->
+</main>
+
+<!-- LEGEND -->
+<div class="legend-bar">
+  <div class="leg"><div class="leg-dot" style="background:var(--breyer)"></div> Breyer — Francis Howell Central</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Indoor/Tournament</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--gold);border:1px solid #ccc"></div> Today</div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-<p>Color Key: 
-<span class="legend breyer">Breyer (Navy)</span>
-<span class="legend beckham">Beckham (Light Blue)</span>
-<span class="legend saylor">Saylor (Pink)</span>
-</p>
+  <span>Beal Family Baseball 2026</span> · Go get 'em! ⚾
 </footer>
 
+<!-- EVENT MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <h3 id="modal-title"></h3>
+    <div class="modal-row"><span class="icon">📅</span><span id="modal-date"></span></div>
+    <div class="modal-row"><span class="icon">📍</span><span id="modal-loc"></span></div>
+    <div class="modal-row"><span class="icon">👤</span><span id="modal-kid"></span></div>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Close</button>
+  </div>
+</div>
+
+<script src="calendar-data.js"></script>
+<script>
+const months = [
+  {year:2026, month:2, name:"March"},
+  {year:2026, month:3, name:"April"},
+  {year:2026, month:4, name:"May"},
+  {year:2026, month:5, name:"June"},
+  {year:2026, month:6, name:"July"},
+];
+
+const DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+let currentFilter = "all";
+
+function setFilter(kid, btn) {
+  currentFilter = kid;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.ev-chip').forEach(el => {
+    el.classList.toggle('hidden', kid !== 'all' && !el.classList.contains(kid));
+  });
+  document.querySelectorAll('.upcoming-item').forEach(el => {
+    el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
+  });
+}
+
+function openModal(ev) {
+  const d = new Date(ev.date + 'T12:00:00');
+  document.getElementById('modal-title').textContent = ev.title;
+  document.getElementById('modal-date').textContent = d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('modal-loc').textContent = ev.location;
+  document.getElementById('modal-kid').textContent = ev.kid.charAt(0).toUpperCase() + ev.kid.slice(1);
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open');
+}
+
+function buildStats() {
+  const total = events.length;
+  const kids = ['breyer','beckham','saylor'];
+  const strip = document.getElementById('stats-strip');
+  strip.innerHTML = `
+    <div class="stat-item"><div class="stat-num">${total}</div><div class="stat-lbl">Total Events</div></div>
+    ${kids.map(k => `<div class="stat-item"><div class="stat-num" style="color:var(--${k})">${events.filter(e=>e.kid===k).length}</div><div class="stat-lbl">${k.charAt(0).toUpperCase()+k.slice(1)}'s Games</div></div>`).join('')}
+  `;
+}
+
+function buildNextUp() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const upcoming = events
+    .map(e => ({...e, d: new Date(e.date+'T12:00:00')}))
+    .filter(e => e.d >= today)
+    .sort((a,b) => a.d - b.d);
+  const next = upcoming[0];
+  if (!next) return;
+  const diff = Math.round((next.d - today) / 86400000);
+  const label = diff === 0 ? 'TODAY!' : diff === 1 ? 'TOMORROW' : `IN ${diff} DAYS`;
+  document.getElementById('next-up').innerHTML = `
+    <div class="next-card">
+      <div>
+        <div class="next-badge">⚾ Next Up</div>
+        <div class="next-title" style="margin-top:6px">${next.title}</div>
+        <div class="next-sub">📍 ${next.location}</div>
+      </div>
+      <div class="next-days">
+        <div class="num">${diff === 0 ? '🔥' : diff}</div>
+        <div class="lbl">${label}</div>
+      </div>
+    </div>
+  `;
+}
+
+function buildCalendars() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const main = document.getElementById('main-content');
+
+  // Upcoming list first
+  const sortedEvents = [...events]
+    .map(e => ({...e, d: new Date(e.date+'T12:00:00')}))
+    .filter(e => e.d >= today)
+    .sort((a,b) => a.d - b.d);
+
+  let upcomingHTML = `<div class="upcoming-section">
+    <div class="section-title">📋 Upcoming Schedule</div>
+    <div class="upcoming-list">`;
+  sortedEvents.forEach(ev => {
+    const d = ev.d;
+    upcomingHTML += `
+      <div class="upcoming-item" data-kid="${ev.kid}" onclick='openModal(${JSON.stringify(ev)})'>
+        <div class="ev-color-bar ${ev.kid}"></div>
+        <div class="ev-date-block">
+          <div class="ev-month">${MONTH_SHORT[d.getMonth()]}</div>
+          <div class="ev-day">${d.getDate()}</div>
+        </div>
+        <div class="ev-info">
+          <div class="ev-name">${ev.title}</div>
+          <div class="ev-loc">📍 ${ev.location}</div>
+        </div>
+        <div class="ev-player-badge ${ev.kid}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
+      </div>`;
+  });
+  upcomingHTML += `</div></div>`;
+  main.innerHTML = upcomingHTML;
+
+  // Calendar months
+  months.forEach(m => {
+    const monthEvents = events.filter(e => {
+      const [y,mo] = e.date.split('-').map(Number);
+      return y === m.year && mo === m.month+1;
+    });
+
+    const sec = document.createElement('div');
+    sec.className = 'month-section';
+
+    const hdr = document.createElement('div');
+    hdr.className = 'month-header';
+    hdr.innerHTML = `<h2>${m.name} 2026</h2>${monthEvents.length ? `<span class="event-count">${monthEvents.length} event${monthEvents.length>1?'s':''}</span>` : ''}`;
+    sec.appendChild(hdr);
+
+    const grid = document.createElement('div');
+    grid.className = 'cal-grid';
+
+    // Day-of-week headers
+    DAYS.forEach(d => {
+      const dow = document.createElement('div');
+      dow.className = 'cal-dow';
+      dow.textContent = d;
+      grid.appendChild(dow);
+    });
+
+    const firstDay = new Date(m.year, m.month, 1).getDay();
+    const daysInMonth = new Date(m.year, m.month+1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'cal-day empty';
+      grid.appendChild(blank);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateStr = `${m.year}-${String(m.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const dayEvents = events.filter(e => e.date === dateStr);
+      const isToday = new Date(m.year, m.month, d).getTime() === today.getTime();
+
+      const cell = document.createElement('div');
+      cell.className = `cal-day${isToday ? ' today' : ''}${dayEvents.length ? ' has-event' : ''}`;
+
+      const num = document.createElement('div');
+      num.className = 'day-num';
+      num.textContent = d;
+      cell.appendChild(num);
+
+      dayEvents.forEach(ev => {
+        const chip = document.createElement('div');
+        chip.className = `ev-chip ${ev.kid}`;
+        chip.title = ev.title;
+        // Short label
+        const short = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
+        chip.textContent = short;
+        chip.onclick = () => openModal(ev);
+        cell.appendChild(chip);
+      });
+
+      grid.appendChild(cell);
+    }
+
+    sec.appendChild(grid);
+    main.appendChild(sec);
+  });
+}
+
+buildStats();
+buildNextUp();
+buildCalendars();
+</script>
 </body>
 </html>
