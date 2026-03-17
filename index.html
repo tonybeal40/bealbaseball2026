@@ -584,7 +584,9 @@ function setFilter(kid, btn) {
   document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.ev-chip').forEach(el => {
-    el.classList.toggle('hidden', kid !== 'all' && !el.classList.contains(kid));
+    const chipKid = [...el.classList].find(c => c !== 'ev-chip' && c !== 'hidden' && c !== 'past');
+    const matches = kid === 'all' || (chipKid && chipKid.startsWith(kid));
+    el.classList.toggle('hidden', !matches);
   });
   document.querySelectorAll('.upcoming-item').forEach(el => {
     el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
