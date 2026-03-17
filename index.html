@@ -428,15 +428,20 @@
     .cal-day.all-past { opacity: 0.65; }
 
     /* ── PRINT ── */
+    @page { size: landscape; margin: 0.5in; }
     @media print {
       .header-btns, .filter-bar, .stats-strip, #next-up, .players-hero,
       .this-week-section, .upcoming-section, .legend-bar, footer { display: none !important; }
-      header { position: static; box-shadow: none; }
-      main { padding: 0; }
-      .month-section { page-break-after: always; }
-      .cal-day { background: #fff !important; border: 1px solid #999 !important; min-height: 70px; box-shadow: none !important; opacity: 1 !important; }
-      .ev-chip { font-size: 8px !important; opacity: 1 !important; filter: none !important; }
-      body::before { content: "Beal Family Baseball 2026 — Printed " attr(data-print-date); display: block; text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 16px; }
+      header { position: static; box-shadow: none; background: none !important; color: #000 !important; padding: 0 0 8px 0; }
+      header .sub, header h1 { color: #000 !important; }
+      main { padding: 0; max-width: 100%; }
+      .month-section { page-break-after: always; break-after: page; }
+      .cal-grid { gap: 2px; }
+      .cal-day { background: #fff !important; border: 1px solid #aaa !important; min-height: 80px; box-shadow: none !important; opacity: 1 !important; }
+      .ev-chip { font-size: 7px !important; opacity: 1 !important; filter: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ev-chip.past { opacity: 1 !important; filter: none !important; }
+      .month-header h2 { font-size: 1.1rem; }
+      body::before { content: "⚾ Beal Family Baseball 2026 — " attr(data-print-date); display: block; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 12px; border-bottom: 2px solid #0b2a44; padding-bottom: 8px; }
     }
   </style>
 </head>
