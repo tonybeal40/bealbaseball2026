@@ -111,7 +111,7 @@ const BEAL_EVENTS = [
   { kid: "Breyer", team: "Midland Scout Team", date: "2026-06-02", title: "Outdoor Practice", time: "11:00 AM", location: "TBD" },
   { kid: "Breyer", team: "Midland Scout Team", date: "2026-06-03", title: "Indoor Practice", time: "9:00 AM", location: "TBD" },
   { kid: "Breyer", team: "Midland Scout Team", startDate: "2026-06-04", endDate: "2026-06-07", title: "Play 9 Local", time: "8:00 AM", location: "St. Louis area" },
-  { kid: "Breyer", team: "Midland Scout Team", startDate: "2026-06-09", endDate: "2026-06-13", title: "Tournament", time: "8:00 AM", location: "Chicago, IL" },
+  { kid: "Breyer", team: "Midland Scout Team", startDate: "2026-06-09", endDate: "2026-06-13", title: "Perfect Game Tournament", time: "8:00 AM", location: "Chicago, IL" },
   { kid: "Breyer", team: "Midland Scout Team", date: "2026-06-16", title: "Outdoor Practice", time: "11:00 AM", location: "TBD" },
   { kid: "Breyer", team: "Midland Scout Team", date: "2026-06-17", title: "Indoor Practice", time: "9:00 AM", location: "TBD" },
   { kid: "Breyer", team: "Midland Scout Team", startDate: "2026-06-18", endDate: "2026-06-21", title: "PBR KC Midwest Premier Super 1", time: "8:00 AM", location: "Kansas City" },
