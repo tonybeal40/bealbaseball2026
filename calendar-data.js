@@ -60,6 +60,8 @@ const BEAL_EVENTS = [
   { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-05-28", title: "Practice", time: "5:00 PM", location: "TBD" },
 
   { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-06-03", title: "Practice", time: "5:00 PM", location: "TBD" },
+  { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-06-04", title: "Practice", time: "5:00 PM", location: "TBD" },
+  { kid: "Saylor", team: "Midland 2033 Brown 10U", startDate: "2026-06-05", endDate: "2026-06-07", title: "Tournament", time: "All Day", location: "TBD" },
   { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-06-08", title: "@ Midwest Intensity Damron 10U", time: "6:00 PM", location: "Chesterfield, MO" },
   { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-06-08", title: "vs St. Louis Chaos", time: "7:30 PM", location: "Chesterfield, MO" },
   { kid: "Saylor", team: "Midland 2033 Brown 10U", date: "2026-06-10", title: "Practice", time: "5:00 PM", location: "TBD" },
