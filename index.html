@@ -4,997 +4,505 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>⚾ Beal Family Baseball 2026</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230b2a44'/><text y='48' x='32' font-size='40' text-anchor='middle'>⚾</text></svg>" />
+  <title>Tony Beal · Outbound Campaign Specialist</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230f172a'/><text y='46' x='32' font-size='36' text-anchor='middle'>🎯</text></svg>" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0b2a44;
-      --navy2:  #0f3460;
-      --gold:   #f0b429;
-      --breyer: #1a56a0;
-      --breyer-varsity: #1a56a0;
-      --breyer-jv:      #6366f1;
-      --breyer-midland: #0d9488;
-      --beckham:#2e9cca;
-      --saylor: #e05c94;
-      --bg:     #f0f4f8;
-      --card:   #ffffff;
-      --text:   #1e293b;
-      --muted:  #64748b;
-      --border: #e2e8f0;
-      --radius: 12px;
+      --navy:    #0f172a;
+      --navy2:   #1e293b;
+      --blue:    #2563eb;
+      --blue2:   #1d4ed8;
+      --accent:  #38bdf8;
+      --green:   #10b981;
+      --gold:    #f59e0b;
+      --bg:      #f8fafc;
+      --card:    #ffffff;
+      --text:    #0f172a;
+      --muted:   #64748b;
+      --border:  #e2e8f0;
+      --radius:  14px;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
+      line-height: 1.6;
     }
 
-    /* ── HEADER ── */
-    header {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1e3a5f 100%);
       color: #fff;
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      padding: 64px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(37,99,235,0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 6px;
+      background: rgba(56,189,248,0.15);
+      border: 1px solid rgba(56,189,248,0.4);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p.subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #94a3b8;
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 12px;
+      justify-content: center;
     }
-    .header-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .header-title .ball { font-size: 2.2rem; }
-    .header-title h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
-    .header-title .sub { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-
-    .header-btns { display: flex; gap: 8px; flex-wrap: wrap; }
     .btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px; border-radius: 8px; font-size: 0.8rem;
-      font-weight: 700; text-decoration: none; cursor: pointer;
-      border: none; transition: all 0.2s;
-    }
-    .btn-gold  { background: var(--gold); color: var(--navy); }
-    .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
-    .btn:hover { transform: translateY(-1px); opacity: 0.9; }
-
-    /* ── PLAYER FILTER TABS ── */
-    .filter-bar {
-      background: #fff;
-      border-bottom: 2px solid var(--border);
-      padding: 0 24px;
-    }
-    .filter-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-    }
-    .filter-tab {
-      padding: 14px 20px;
-      font-weight: 700;
-      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
       cursor: pointer;
       border: none;
-      background: none;
-      border-bottom: 3px solid transparent;
-      color: var(--muted);
-      transition: all 0.2s;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 7px;
     }
-    .filter-tab .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-    }
-    .filter-tab.active, .filter-tab:hover { color: var(--navy); }
-    .filter-tab.active { border-bottom-color: var(--navy); }
-    .filter-tab[data-kid="breyer"].active   { border-bottom-color: var(--breyer); color: var(--breyer); }
-    .filter-tab[data-kid="beckham"].active  { border-bottom-color: var(--beckham); color: var(--beckham); }
-    .filter-tab[data-kid="saylor"].active   { border-bottom-color: var(--saylor); color: var(--saylor); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue2); }
+    .btn-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.35); }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.06); }
 
-    /* ── STATS STRIP ── */
-    .stats-strip {
-      background: var(--navy);
-      color: #fff;
-    }
-    .stats-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 12px 24px;
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .stat-item { text-align: center; }
-    .stat-num { font-size: 1.5rem; font-weight: 900; color: var(--gold); }
-    .stat-lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
-
-    /* ── NEXT UP BANNER ── */
-    #next-up {
-      max-width: 1200px;
-      margin: 20px auto 0;
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
       padding: 0 24px;
     }
-    .next-card {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .next-badge {
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-    .next-title { font-size: 1.1rem; font-weight: 800; }
-    .next-sub   { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
-    .next-days  { margin-left: auto; text-align: right; }
-    .next-days .num { font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; }
-    .next-days .lbl { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
-
-    /* ── MAIN LAYOUT ── */
-    main {
-      max-width: 1200px;
+    .stats-inner {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 24px;
-      overflow-x: hidden;
-    }
-    body { overflow-x: hidden; }
-
-    .month-section { margin-bottom: 40px; }
-    .month-header {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 0;
     }
-    .month-header h2 {
-      font-size: 1.3rem;
+    .stat {
+      text-align: center;
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2rem;
       font-weight: 800;
-      color: var(--navy);
+      color: var(--blue);
+      display: block;
     }
-    .month-header .event-count {
-      background: var(--navy);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 20px;
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
     }
 
-    /* ── CALENDAR GRID ── */
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 3px;
-      width: 100%;
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    .cal-dow {
-      text-align: center;
-      font-size: 0.7rem;
-      font-weight: 700;
+    section { padding: 64px 0; }
+    h2.section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+    p.section-sub {
       color: var(--muted);
-      padding: 6px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-bottom: 36px;
+      font-size: 1rem;
     }
-    .cal-day {
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(37,99,235,.08);
+      border: 1px solid rgba(37,99,235,.18);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    /* ── THREE PRIORITIES ── */
+    .priorities { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .priority-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .priority-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.09); transform: translateY(-3px); }
+    .priority-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .priority-card:nth-child(1)::before { background: var(--blue); }
+    .priority-card:nth-child(2)::before { background: var(--green); }
+    .priority-card:nth-child(3)::before { background: var(--gold); }
+    .priority-num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      opacity: .06;
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      line-height: 1;
+    }
+    .priority-icon { font-size: 2rem; margin-bottom: 12px; }
+    .priority-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .priority-card p { font-size: .92rem; color: var(--muted); }
+
+    /* ── COVER LETTER ── */
+    .letter-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 44px;
+      max-width: 760px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,.05);
+    }
+    .letter-card p { font-size: .97rem; color: #334155; margin-bottom: 14px; }
+    .letter-card p:last-child { margin-bottom: 0; }
+    .letter-sig { margin-top: 20px; font-weight: 700; color: var(--text); }
+
+    /* ── TOOLS GRID ── */
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
-      min-height: 90px;
-      max-height: 130px;
-      padding: 6px;
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-      position: relative;
-    }
-    .cal-day:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
-    .cal-day.empty { background: transparent; border-color: transparent; }
-    .cal-day.today {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 2px var(--gold);
-    }
-    .cal-day.has-event { background: #fafbff; }
-    .day-num {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .cal-day.today .day-num {
-      background: var(--gold);
-      color: var(--navy);
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem;
-    }
-
-    /* ── EVENT CHIPS ── */
-    .ev-chip {
-      display: block;
-      border-radius: 5px;
-      padding: 3px 6px;
-      font-size: 0.68rem;
+      padding: 8px 14px;
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 3px;
-      line-height: 1.3;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      color: #fff;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      color: var(--text);
+      transition: border-color .15s, box-shadow .15s;
     }
-    .ev-chip:hover { opacity: 0.85; }
-    .ev-chip.breyer          { background: var(--breyer-varsity); }
-    .ev-chip.breyer-varsity  { background: var(--breyer-varsity); }
-    .ev-chip.breyer-jv       { background: var(--breyer-jv); }
-    .ev-chip.breyer-midland  { background: var(--breyer-midland); }
-    .ev-chip.beckham { background: var(--beckham); }
-    .ev-chip.saylor  { background: var(--saylor); }
+    .tool-chip:hover { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    .tool-chip .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .tool-chip .dot.green { background: var(--green); }
+    .tool-chip .dot.gold  { background: var(--gold); }
 
-    /* hidden when filtered */
-    .ev-chip.hidden { display: none; }
-
-    /* ── UPCOMING LIST ── */
-    .upcoming-section {
-      margin-top: 32px;
+    /* ── CONVERSATION ── */
+    .convo { display: flex; flex-direction: column; gap: 16px; max-width: 700px; margin: 0 auto; }
+    .msg { display: flex; gap: 12px; align-items: flex-start; }
+    .msg.me { flex-direction: row-reverse; }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
     }
-    .section-title {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .upcoming-list { display: flex; flex-direction: column; gap: 8px; }
-    .upcoming-item {
+    .avatar.tony { background: var(--blue); }
+    .avatar.zo   { background: #7c3aed; }
+    .bubble {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      transition: box-shadow 0.2s;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: .9rem;
+      max-width: 82%;
+      color: var(--text);
     }
-    .upcoming-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    .upcoming-item.hidden { display: none; }
-    .ev-color-bar { width: 4px; height: 44px; border-radius: 4px; flex-shrink: 0; }
-    .ev-color-bar.breyer          { background: var(--breyer-varsity); }
-    .ev-color-bar.breyer-varsity  { background: var(--breyer-varsity); }
-    .ev-color-bar.breyer-jv       { background: var(--breyer-jv); }
-    .ev-color-bar.breyer-midland  { background: var(--breyer-midland); }
-    .ev-color-bar.beckham { background: var(--beckham); }
-    .ev-color-bar.saylor  { background: var(--saylor); }
-    .ev-date-block { text-align: center; min-width: 44px; }
-    .ev-date-block .ev-month { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--muted); }
-    .ev-date-block .ev-day   { font-size: 1.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
-    .ev-info { flex: 1; }
-    .ev-info .ev-name { font-weight: 700; font-size: 0.9rem; }
-    .ev-info .ev-loc  { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
-    .ev-player-badge {
-      padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
-      color: #fff; white-space: nowrap;
-    }
-    .ev-player-badge.breyer          { background: var(--breyer-varsity); }
-    .ev-player-badge.breyer-varsity  { background: var(--breyer-varsity); }
-    .ev-player-badge.breyer-jv       { background: var(--breyer-jv); }
-    .ev-player-badge.breyer-midland  { background: var(--breyer-midland); }
-    .ev-player-badge.beckham { background: var(--beckham); }
-    .ev-player-badge.saylor  { background: var(--saylor); }
+    .msg.me .bubble { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .msg-name { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+    .msg.me .msg-name { text-align: right; color: rgba(255,255,255,.7); }
+    .msg-time { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-    /* ── LEGEND ── */
-    .legend-bar {
-      display: flex; gap: 16px; flex-wrap: wrap;
+    /* ── JOB DETAILS ── */
+    .job-card {
       background: var(--card);
-      border-top: 2px solid var(--border);
-      padding: 14px 24px;
-      margin-top: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
-    .legend-bar .leg {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 0.8rem; font-weight: 600; color: var(--text);
+    @media (max-width: 600px) { .job-card { grid-template-columns: 1fr; } }
+    .job-detail { display: flex; flex-direction: column; gap: 4px; }
+    .job-detail .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+    .job-detail .value { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .job-detail .value.green { color: var(--green); }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .skill-tag {
+      background: rgba(37,99,235,.07);
+      color: var(--blue);
+      border: 1px solid rgba(37,99,235,.18);
+      font-size: 12px; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px;
     }
-    .leg-dot { width: 12px; height: 12px; border-radius: 50%; }
 
     /* ── FOOTER ── */
     footer {
       background: var(--navy);
-      color: rgba(255,255,255,0.5);
+      color: #94a3b8;
       text-align: center;
-      padding: 16px;
-      font-size: 0.78rem;
-      margin-top: 40px;
+      padding: 32px 24px;
+      font-size: 13px;
     }
-    footer span { color: var(--gold); font-weight: 700; }
+    footer strong { color: #fff; }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px;
-      max-width: 420px;
-      width: 90%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .modal h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
-    .modal-row { display: flex; gap: 8px; align-items: flex-start; margin: 8px 0; font-size: 0.9rem; }
-    .modal-row .icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
-    .modal-close {
-      margin-top: 20px; width: 100%;
-      padding: 10px; border-radius: 8px; border: none;
-      background: var(--navy); color: #fff;
-      font-weight: 700; cursor: pointer; font-size: 0.9rem;
-    }
-
-    /* Player Cards Hero */
-    .players-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-      padding: 28px 20px;
-    }
-    .players-inner {
-      max-width: 800px; margin: 0 auto;
-      display: flex; gap: 20px; justify-content: center;
-      flex-wrap: wrap;
-    }
-    .player-card {
-      background: rgba(255,255,255,0.07);
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 20px 24px;
-      display: flex; align-items: center; gap: 14px;
-      cursor: pointer; transition: transform 0.2s, background 0.2s;
-      min-width: 180px;
-    }
-    .player-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); }
-    .player-card img {
-      width: 60px; height: 60px; border-radius: 50%;
-      object-fit: cover; border: 3px solid;
-    }
-    .player-card.breyer img { border-color: var(--breyer); }
-    .player-card.beckham img { border-color: var(--beckham); }
-    .player-card.saylor img { border-color: var(--saylor); }
-    .player-card-info { color: #fff; }
-    .player-card-name { font-size: 1.1rem; font-weight: 800; }
-    .player-card-team { font-size: 0.72rem; opacity: 0.75; margin-top: 2px; line-height: 1.3; }
-    .player-card-count { font-size: 1.4rem; font-weight: 900; margin-top: 4px; }
-    .player-card.breyer .player-card-count { color: var(--breyer); filter: brightness(1.6); }
-    .player-card.beckham .player-card-count { color: var(--beckham); filter: brightness(1.4); }
-    .player-card.saylor .player-card-count { color: var(--saylor); filter: brightness(1.4); }
-    .player-card-next { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
-
-    @media (max-width: 768px) {
-      main { padding: 8px; overflow-x: hidden; }
-      .cal-grid { gap: 1px; }
-      .cal-day { min-height: 52px; max-height: 100px; padding: 3px; border-radius: 4px; }
-      .ev-chip { font-size: 0.58rem; padding: 1px 3px; margin-bottom: 2px; }
-      .day-num { font-size: 0.7rem; margin-bottom: 2px; }
-      .cal-dow { font-size: 0.6rem; padding: 4px 0; }
-      .header-title h1 { font-size: 1.1rem; }
-      .stats-inner { gap: 12px; padding: 10px 16px; }
-      .stat-num { font-size: 1.2rem; }
-      .players-inner { gap: 12px; }
-      .player-card { padding: 14px 16px; min-width: 140px; }
-      .player-card img { width: 48px; height: 48px; }
-      .month-header h2 { font-size: 1.1rem; }
-      .next-card { padding: 14px 16px; }
-    }
-    @media (max-width: 420px) {
-      main { padding: 6px; }
-      .cal-day { min-height: 38px; max-height: 80px; padding: 2px; }
-      .ev-chip { font-size: 0.5rem; padding: 1px 2px; }
-      .day-num { font-size: 0.62rem; }
-      .cal-dow { font-size: 0.55rem; }
-      .player-card-name { font-size: 0.95rem; }
-      .player-card-team { font-size: 0.65rem; }
-    }
-
-    /* ── THIS WEEK ── */
-    .this-week-section { margin-bottom: 28px; }
-    .week-day-group { margin-bottom: 14px; }
-    .week-day-label { font-size: 0.78rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
-    .week-ev-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 4px; cursor: pointer; transition: box-shadow 0.2s; font-size: 0.85rem; }
-    .week-ev-row:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .week-ev-row.hidden { display: none; }
-    .week-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .week-time { color: var(--muted); font-size: 0.78rem; min-width: 60px; }
-    .week-title { flex: 1; font-weight: 600; }
-    .no-week-events { color: var(--muted); font-size: 0.88rem; padding: 12px; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
-
-    /* ── CONFLICT DETECTOR ── */
-    .cal-day.has-conflict { border-left: 4px solid #f59e0b; }
-    .conflict-badge { font-size: 0.6rem; font-weight: 700; color: #f59e0b; margin-bottom: 2px; }
-
-    /* ── PAST EVENTS ── */
-    .ev-chip.past { opacity: 0.4; filter: grayscale(0.5); }
-    .cal-day.all-past { opacity: 0.65; }
-
-    /* ── PRINT ── */
-    @page { size: landscape; margin: 0.4in; }
-    @media print {
-      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      .header-btns, .filter-bar, .stats-strip, #next-up, .players-hero,
-      .this-week-section, .upcoming-section, .legend-bar, footer { display: none !important; }
-      header { position: static; box-shadow: none; background: none !important; padding: 0 0 6px 0; }
-      header .sub { color: #888 !important; }
-      header h1 { color: #000 !important; font-size: 1rem; }
-      main { padding: 0; max-width: 100%; }
-      .month-section { page-break-after: always; break-after: page; margin-bottom: 0; }
-      .month-section:last-child { page-break-after: avoid; break-after: avoid; }
-      .cal-grid { gap: 2px; }
-      .cal-dow { font-size: 0.65rem; padding: 3px 0; }
-      .cal-day { background: #fff !important; border: 1px solid #bbb !important; min-height: 72px; padding: 3px; box-shadow: none !important; opacity: 1 !important; border-radius: 3px; }
-      .cal-day.today { border: 2px solid #f0b429 !important; }
-      .cal-day.has-conflict { border-left: 3px solid #f59e0b !important; }
-      .cal-day.all-past { opacity: 1 !important; }
-      .day-num { font-size: 0.7rem; margin-bottom: 2px; }
-      .ev-chip { font-size: 6.5px !important; padding: 1px 3px !important; margin-bottom: 2px; opacity: 1 !important; filter: none !important; border-radius: 3px; }
-      .ev-chip.past { opacity: 1 !important; filter: none !important; }
-      .month-header { margin-bottom: 6px; }
-      .month-header h2 { font-size: 1rem; color: #000; }
-      .month-header .event-count { background: #0b2a44; color: #fff; font-size: 0.65rem; }
-      /* Print legend at bottom */
-      .print-legend { display: flex !important; gap: 14px; flex-wrap: wrap; margin-top: 8px; padding-top: 6px; border-top: 1px solid #ccc; font-size: 8px; }
-      .print-legend span { display: inline-flex; align-items: center; gap: 4px; }
-      .print-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-      body::before { content: "⚾  Beal Family Baseball 2026  ·  " attr(data-print-date); display: block; text-align: center; font-size: 11px; font-weight: bold; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #ccc; letter-spacing: 0.5px; }
+    @media (max-width: 640px) {
+      .letter-card { padding: 24px 20px; }
+      .job-card { padding: 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="header-title">
-      <span class="ball">⚾</span>
-      <div>
-        <div class="sub">Beal Family</div>
-        <h1>Baseball 2026</h1>
-      </div>
-    </div>
-    <div class="header-btns">
-      <a href="beal-family-baseball.ics" download class="btn btn-gold">📅 Add to Calendar</a>
-      <button onclick="window.print()" class="btn btn-ghost">🖨️ Print</button>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🎯 Upwork Proposal · FinServ Agency</div>
+  <h1>Outbound That Builds <span>Real Pipeline</span></h1>
+  <p class="subtitle">Tony Beal · Cold Email &amp; LinkedIn Outbound Specialist · AI-Powered Campaign Optimization</p>
+  <div class="hero-cta">
+    <a href="mailto:tony@bealbusiness.com" class="btn btn-primary">📬 Let's Connect</a>
+    <a href="#cover-letter" class="btn btn-outline">Read My Proposal ↓</a>
   </div>
-</header>
+</section>
 
-<!-- PLAYER HEROES -->
-<div class="players-hero">
-  <div class="players-inner">
-    <div class="player-card breyer" onclick="setFilter('breyer', document.querySelector('[data-kid=breyer]'))">
-      <div style="position:relative;flex-shrink:0">
-        <img src="breyer.png" alt="Breyer" />
-        <img src="fhc-logo.png" alt="FHC" style="position:absolute;bottom:-6px;right:-6px;width:28px;height:28px;border-radius:6px;border:2px solid #fff;object-fit:contain;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)" />
-      </div>
-      <div class="player-card-info">
-        <div class="player-card-name">Breyer</div>
-        <div class="player-card-team">FHC Varsity + Midland Scout</div>
-        <div class="player-card-count" id="count-breyer">— events</div>
-        <div class="player-card-next" id="next-breyer"></div>
-      </div>
-    </div>
-    <div class="player-card beckham" onclick="setFilter('beckham', document.querySelector('[data-kid=beckham]'))">
-      <div style="position:relative;flex-shrink:0">
-        <img src="beckham.png" alt="Beckham" />
-        <img src="baseball-logo.png" alt="Midland" style="position:absolute;bottom:-6px;right:-6px;width:28px;height:28px;border-radius:6px;border:2px solid #fff;object-fit:contain;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)" />
-      </div>
-      <div class="player-card-info">
-        <div class="player-card-name">Beckham</div>
-        <div class="player-card-team">Midland 13U Culberson</div>
-        <div class="player-card-count" id="count-beckham">— events</div>
-        <div class="player-card-next" id="next-beckham"></div>
-      </div>
-    </div>
-    <div class="player-card saylor" onclick="setFilter('saylor', document.querySelector('[data-kid=saylor]'))">
-      <div style="position:relative;flex-shrink:0">
-        <img src="saylor.png" alt="Saylor" />
-        <img src="baseball-logo.png" alt="Midland" style="position:absolute;bottom:-6px;right:-6px;width:28px;height:28px;border-radius:6px;border:2px solid #fff;object-fit:contain;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)" />
-      </div>
-      <div class="player-card-info">
-        <div class="player-card-name">Saylor</div>
-        <div class="player-card-team">Midland 2033 Brown 10U</div>
-        <div class="player-card-count" id="count-saylor">— events</div>
-        <div class="player-card-next" id="next-saylor"></div>
-      </div>
-    </div>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><span class="stat-num">$75</span><span class="stat-label">Hourly Rate</span></div>
+    <div class="stat"><span class="stat-num">B2B</span><span class="stat-label">FinServ Focus</span></div>
+    <div class="stat"><span class="stat-num">AI+</span><span class="stat-label">Personalization</span></div>
+    <div class="stat"><span class="stat-num">Async</span><span class="stat-label">Remote Ready</span></div>
   </div>
 </div>
 
-<!-- FILTER TABS -->
-<div class="filter-bar">
-  <div class="filter-inner">
-    <button class="filter-tab active" data-kid="all" onclick="setFilter('all',this)">
-      <span class="dot" style="background:#0b2a44"></span> All Players
-    </button>
-    <button class="filter-tab" data-kid="breyer" onclick="setFilter('breyer',this)">
-      <span class="dot" style="background:var(--breyer)"></span> Breyer
-    </button>
-    <button class="filter-tab" data-kid="beckham" onclick="setFilter('beckham',this)">
-      <span class="dot" style="background:var(--beckham)"></span> Beckham
-    </button>
-    <button class="filter-tab" data-kid="saylor" onclick="setFilter('saylor',this)">
-      <span class="dot" style="background:var(--saylor)"></span> Saylor
-    </button>
+<!-- THREE PRIORITIES -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div class="tag">Day-One Focus</div>
+    <h2 class="section-title">Three Priorities for Your FinServ Agency</h2>
+    <p class="section-sub">The moment I start, here's exactly where I focus to generate qualified pipeline fast.</p>
+    <div class="priorities">
+      <div class="priority-card">
+        <div class="priority-num">1</div>
+        <div class="priority-icon">🎯</div>
+        <h3>Clean Lead Lists &amp; Tight Segmentation</h3>
+        <p>Garbage in, garbage out. I build precise lists with strong intent signals before a single message goes out — no spray-and-pray.</p>
+      </div>
+      <div class="priority-card">
+        <div class="priority-num">2</div>
+        <div class="priority-icon">✍️</div>
+        <h3>Message Quality That Sounds Human</h3>
+        <p>AI-assisted personalization at scale, but with human judgment applied at every step. Your prospects can tell the difference.</p>
+      </div>
+      <div class="priority-card">
+        <div class="priority-num">3</div>
+        <div class="priority-icon">📈</div>
+        <h3>Fast Campaign Feedback Loops</h3>
+        <p>Reply rates, meetings booked, bounce rates, LinkedIn engagement — I track what matters and iterate quickly, not on gut feel.</p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- STATS STRIP -->
-<div class="stats-strip">
-  <div class="stats-inner" id="stats-strip">
-    <!-- filled by JS -->
+<!-- COVER LETTER -->
+<section id="cover-letter" style="background: #f1f5f9;">
+  <div class="container">
+    <div class="tag">Cover Letter</div>
+    <h2 class="section-title" style="text-align:center;">My Proposal to Zohray &amp; Kelly</h2>
+    <p class="section-sub" style="text-align:center;">Cold Email &amp; LinkedIn Outbound Pro · FinServ Marketing Agency</p>
+    <div class="letter-card">
+      <p>This role is directly aligned with the work I do: building outbound systems that combine clean targeting, LinkedIn outreach, cold email, AI-assisted personalization, CRM thinking, and campaign optimization.</p>
+      <p>I've built and managed B2B outbound workflows using tools like Apollo, LinkedIn Sales Navigator, ChatGPT, CRM systems, and AI-driven lead generation processes. My strength is not just sending messages — it is building the <strong>system behind the outreach</strong>: list quality, segmentation, buyer intent, messaging angles, follow-up logic, and performance improvement.</p>
+      <p>I understand that outbound only works when the targeting, offer, message, and timing are all aligned. AI can help scale personalization, but it still needs human judgment — or it turns into noise fast.</p>
+      <p>I'm comfortable working async, moving quickly, and improving campaigns based on data instead of guessing. I can help manage the day-to-day execution while also thinking strategically about how to improve results over time.</p>
+      <p>I'd be happy to help build, launch, and optimize outbound campaigns that create qualified conversations for your clients.</p>
+      <p class="letter-sig">— Tony Beal</p>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- NEXT UP -->
-<div id="next-up"></div>
+<!-- TOOLS & PLATFORMS -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div class="tag">Tech Stack</div>
+    <h2 class="section-title">Tools &amp; Platforms</h2>
+    <p class="section-sub">Hands-on experience across the full outbound stack.</p>
+    <div class="tools-grid">
+      <div class="tool-chip"><span class="dot blue"></span>Apollo</div>
+      <div class="tool-chip"><span class="dot blue"></span>LinkedIn Sales Navigator</div>
+      <div class="tool-chip"><span class="dot green"></span>SmartLead</div>
+      <div class="tool-chip"><span class="dot green"></span>HeyReach</div>
+      <div class="tool-chip"><span class="dot green"></span>Clay</div>
+      <div class="tool-chip"><span class="dot green"></span>WealthReach</div>
+      <div class="tool-chip"><span class="dot gold"></span>ChatGPT / AI Personalization</div>
+      <div class="tool-chip"><span class="dot gold"></span>CRM Systems</div>
+      <div class="tool-chip"><span class="dot blue"></span>RB2B</div>
+      <div class="tool-chip"><span class="dot blue"></span>A/B Testing</div>
+      <div class="tool-chip"><span class="dot green"></span>Email Deliverability</div>
+      <div class="tool-chip"><span class="dot gold"></span>Workflow Automation</div>
+    </div>
+  </div>
+</section>
 
-<!-- MAIN -->
-<main id="main-content">
-  <!-- filled by JS -->
-</main>
+<!-- CONVERSATION THREAD -->
+<section style="background: #f1f5f9;">
+  <div class="container">
+    <div class="tag">Upwork Message Thread</div>
+    <h2 class="section-title" style="text-align:center;">The Conversation</h2>
+    <p class="section-sub" style="text-align:center;">Tuesday, May 26 · Meeting confirmed for Wednesday at 4 PM EST</p>
+    <div class="convo">
 
-<!-- LEGEND -->
-<div class="legend-bar">
-  <div class="leg"><div class="leg-dot" style="background:#1a56a0"></div> Breyer — FHC Varsity</div>
-  <div class="leg"><div class="leg-dot" style="background:#6366f1"></div> Breyer — FHC JV</div>
-  <div class="leg"><div class="leg-dot" style="background:#0d9488"></div> Breyer — Midland Scout</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--beckham)"></div> Beckham — Midland 13U</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--saylor)"></div> Saylor — Midland 10U</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--gold);border:1px solid #ccc"></div> Today</div>
-  <div class="leg"><div class="leg-dot" style="background:#f59e0b;border-radius:2px"></div> ⚠️ Conflict day</div>
-</div>
+      <div class="msg me">
+        <div>
+          <div class="msg-name">Tony Beal · 3:14 PM</div>
+          <div class="bubble">This role is directly aligned with the work I do. I've built outbound systems that combine clean targeting, LinkedIn outreach, cold email, AI-assisted personalization, and campaign optimization. I'd be happy to help build, launch, and optimize outbound campaigns that create qualified conversations for your clients.</div>
+        </div>
+        <div class="avatar tony">TB</div>
+      </div>
 
-<!-- PRINT LEGEND (only shows when printing) -->
-<div class="print-legend" style="display:none">
-  <span><span class="dot" style="background:#1a56a0"></span> Breyer FHC Varsity</span>
-  <span><span class="dot" style="background:#6366f1"></span> Breyer FHC JV</span>
-  <span><span class="dot" style="background:#0d9488"></span> Breyer Midland Scout</span>
-  <span><span class="dot" style="background:#2e9cca"></span> Beckham Midland 13U</span>
-  <span><span class="dot" style="background:#e05c94"></span> Saylor Midland 10U</span>
-  <span><span class="dot" style="background:#f0b429;border:1px solid #ccc"></span> Today</span>
-  <span><span class="dot" style="background:#f59e0b;border-radius:2px"></span> ⚠️ Conflict</span>
-</div>
+      <div class="msg">
+        <div class="avatar zo">ZB</div>
+        <div>
+          <div class="msg-name">Zohray Brennan · 3:14 PM</div>
+          <div class="bubble">Hi Tony — Thank you for applying, it's so great to meet you! Do you have time to chat tomorrow about the role?</div>
+        </div>
+      </div>
+
+      <div class="msg me">
+        <div>
+          <div class="msg-name">Tony Beal · 3:28 PM</div>
+          <div class="bubble">Hi Zo — Great to meet you as well! Yes, I'd be happy to chat tomorrow. I'm available in the afternoon. Let me know what time works best for you. Looking forward to learning more about the role.</div>
+        </div>
+        <div class="avatar tony">TB</div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar zo">ZB</div>
+        <div>
+          <div class="msg-name">Zohray Brennan · 3:29 PM</div>
+          <div class="bubble">That's great — how is 4p EST tomorrow?</div>
+        </div>
+      </div>
+
+      <div class="msg me">
+        <div>
+          <div class="msg-name">Tony Beal · 3:33 PM</div>
+          <div class="bubble">4 PM EST tomorrow works great for me. Before we connect, is there anything specific you'd like me to prepare or review so I can make the conversation as useful as possible? Looking forward to it!</div>
+        </div>
+        <div class="avatar tony">TB</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOB DETAILS -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div class="tag">Job Posting</div>
+    <h2 class="section-title">Role Overview</h2>
+    <p class="section-sub">Cold Email &amp; LinkedIn Outbound Pro · Posted May 21, 2026</p>
+    <div class="job-card">
+      <div class="job-detail">
+        <span class="label">Hourly Range</span>
+        <span class="value">$50 – $75 / hr</span>
+      </div>
+      <div class="job-detail">
+        <span class="label">My Proposed Rate</span>
+        <span class="value green">$75 / hr</span>
+      </div>
+      <div class="job-detail">
+        <span class="label">Hours / Week</span>
+        <span class="value">Less than 30 hrs</span>
+      </div>
+      <div class="job-detail">
+        <span class="label">Duration</span>
+        <span class="value">6+ months (scales with performance)</span>
+      </div>
+      <div class="job-detail">
+        <span class="label">Work Style</span>
+        <span class="value">Remote · Async-friendly</span>
+      </div>
+      <div class="job-detail">
+        <span class="label">Category</span>
+        <span class="value">Lead Generation · FinServ</span>
+      </div>
+      <div class="job-detail" style="grid-column: 1 / -1;">
+        <span class="label">Required Skills</span>
+        <div class="skills-list">
+          <span class="skill-tag">List Building</span>
+          <span class="skill-tag">Lead Generation</span>
+          <span class="skill-tag">Prospect List</span>
+          <span class="skill-tag">Outbound Sales</span>
+          <span class="skill-tag">Cold Email</span>
+          <span class="skill-tag">LinkedIn Outreach</span>
+          <span class="skill-tag">AI Personalization</span>
+          <span class="skill-tag">Deliverability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <span>Beal Family Baseball 2026</span> · Go get 'em! ⚾
+  <strong>Tony Beal</strong> · Outbound Campaign Specialist · FinServ B2B<br />
+  <span style="margin-top:6px;display:block;">Built for Zohray Brennan &amp; Kelly Waltrich · Interview: Wednesday, May 27 @ 4 PM EST</span>
 </footer>
 
-<!-- EVENT MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModal(event)">
-  <div class="modal" id="modal-box">
-    <h3 id="modal-title"></h3>
-    <div class="modal-row"><span class="icon">📅</span><span id="modal-date"></span></div>
-    <div class="modal-row"><span class="icon">🕐</span><span id="modal-time"></span></div>
-    <div class="modal-row"><span class="icon">📍</span><span id="modal-loc"></span></div>
-    <div class="modal-row"><span class="icon">👤</span><span id="modal-kid"></span> — <span id="modal-team"></span></div>
-    <button class="modal-close" style="background:#16a34a;margin-bottom:8px" onclick="downloadICS()">📅 Add to Calendar</button>
-    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Close</button>
-  </div>
-</div>
-
-<script src="calendar-data.js"></script>
-<script>
-const events = typeof BEAL_EVENTS !== 'undefined' ? BEAL_EVENTS : [];
-
-// Returns CSS color class for an event (handles Breyer's 3 sub-teams)
-function kidClass(ev) {
-  if (ev.kid.toLowerCase() !== 'breyer') return ev.kid.toLowerCase();
-  const t = (ev.team || '').toLowerCase();
-  if (t.includes('jv'))      return 'breyer-jv';
-  if (t.includes('midland')) return 'breyer-midland';
-  return 'breyer-varsity';
-}
-const months = [
-  {year:2026, month:2, name:"March"},
-  {year:2026, month:3, name:"April"},
-  {year:2026, month:4, name:"May"},
-  {year:2026, month:5, name:"June"},
-  {year:2026, month:6, name:"July"},
-];
-
-const DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-let currentFilter = "all";
-let currentModalEvent = null;
-
-function setFilter(kid, btn) {
-  currentFilter = kid;
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.ev-chip').forEach(el => {
-    const chipKid = [...el.classList].find(c => c !== 'ev-chip' && c !== 'hidden' && c !== 'past');
-    const matches = kid === 'all' || (chipKid && chipKid.startsWith(kid));
-    el.classList.toggle('hidden', !matches);
-  });
-  document.querySelectorAll('.upcoming-item').forEach(el => {
-    el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
-  });
-  document.querySelectorAll('.week-ev-row').forEach(el => {
-    el.classList.toggle('hidden', kid !== 'all' && el.dataset.kid !== kid);
-  });
-  document.querySelectorAll('.week-day-group').forEach(grp => {
-    grp.style.display = grp.querySelectorAll('.week-ev-row:not(.hidden)').length ? '' : 'none';
-  });
-  // Hide month sections that have no events for this kid
-  document.querySelectorAll('.month-section').forEach(sec => {
-    if (kid === 'all') { sec.style.display = ''; return; }
-    sec.style.display = sec.dataset['has' + kid.charAt(0).toUpperCase() + kid.slice(1)] === '1' ? '' : 'none';
-  });
-  history.replaceState(null, '', kid === 'all' ? location.pathname : '?kid=' + kid);
-}
-
-// Normalize events: multi-day events use startDate/endDate, single use date
-function getEventDate(ev) { return ev.date || ev.startDate; }
-function eventMatchesDate(ev, dateStr) {
-  if (ev.date) return ev.date === dateStr;
-  if (ev.startDate && ev.endDate) {
-    const d = new Date(dateStr + 'T12:00:00');
-    const s = new Date(ev.startDate + 'T12:00:00');
-    const e = new Date(ev.endDate + 'T12:00:00');
-    return d >= s && d <= e;
-  }
-  return false;
-}
-
-function openModal(ev) {
-  currentModalEvent = ev;
-  const dateStr = getEventDate(ev);
-  const d = new Date(dateStr + 'T12:00:00');
-  document.getElementById('modal-title').textContent = ev.title;
-  let dateLabel = d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  if (ev.startDate && ev.endDate && ev.startDate !== ev.endDate) {
-    const s = new Date(ev.startDate+'T12:00:00');
-    const e = new Date(ev.endDate+'T12:00:00');
-    dateLabel = s.toLocaleDateString('en-US',{month:'long',day:'numeric'}) + ' – ' + e.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  }
-  document.getElementById('modal-date').textContent = dateLabel;
-  document.getElementById('modal-loc').textContent = ev.location;
-  document.getElementById('modal-kid').textContent = ev.kid.charAt(0).toUpperCase() + ev.kid.slice(1);
-  document.getElementById('modal-team').textContent = ev.team || '';
-  document.getElementById('modal-time').textContent = ev.time || '';
-  document.getElementById('modal').classList.add('open');
-}
-
-function closeModal(e) {
-  if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open');
-}
-
-function downloadICS() {
-  const ev = currentModalEvent;
-  if (!ev) return;
-  const isMultiDay = ev.startDate && ev.endDate && ev.startDate !== ev.endDate;
-  let dtstart, dtend;
-  if (isMultiDay) {
-    dtstart = 'DTSTART;VALUE=DATE:' + ev.startDate.replace(/-/g,'');
-    const endD = new Date(ev.endDate + 'T12:00:00');
-    endD.setDate(endD.getDate() + 1);
-    dtend = 'DTEND;VALUE=DATE:' + endD.getFullYear() + String(endD.getMonth()+1).padStart(2,'0') + String(endD.getDate()).padStart(2,'0');
-  } else {
-    const ds = getEventDate(ev).replace(/-/g,'');
-    const tm = ev.time && ev.time.match(/(\d+):(\d+)\s*(AM|PM)/i);
-    if (tm) {
-      let h = parseInt(tm[1]), mn = parseInt(tm[2]);
-      if (tm[3].toUpperCase()==='PM' && h!==12) h+=12;
-      if (tm[3].toUpperCase()==='AM' && h===12) h=0;
-      const fmt = (n) => String(n).padStart(2,'0');
-      dtstart = 'DTSTART:' + ds + 'T' + fmt(h) + fmt(mn) + '00';
-      dtend   = 'DTEND:'   + ds + 'T' + fmt(h+2) + fmt(mn) + '00';
-    } else {
-      dtstart = 'DTSTART;VALUE=DATE:' + ds;
-      dtend   = 'DTEND;VALUE=DATE:'   + ds;
-    }
-  }
-  const ics = [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BealBaseball//2026//EN',
-    'BEGIN:VEVENT', dtstart, dtend,
-    'SUMMARY:' + ev.title,
-    'LOCATION:' + (ev.location || ''),
-    'DESCRIPTION:' + (ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)) + ' - ' + (ev.team || ''),
-    'END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
-  a.download = ev.title.replace(/[^a-z0-9]/gi,'_') + '.ics';
-  a.click();
-}
-
-function buildStats() {
-  const today = new Date(); today.setHours(0,0,0,0);
-  const total = events.length;
-  const kids = ['breyer','beckham','saylor'];
-  const strip = document.getElementById('stats-strip');
-  strip.innerHTML = `
-    <div class="stat-item"><div class="stat-num">${total}</div><div class="stat-lbl">Total Events</div></div>
-    ${kids.map(k => `<div class="stat-item"><div class="stat-num" style="color:var(--${k})">${events.filter(e=>e.kid.toLowerCase()===k).length}</div><div class="stat-lbl">${k.charAt(0).toUpperCase()+k.slice(1)}'s Events</div></div>`).join('')}
-  `;
-  kids.forEach(k => {
-    const el = document.getElementById('count-' + k);
-    const nextEl = document.getElementById('next-' + k);
-    const count = events.filter(e => e.kid.toLowerCase() === k).length;
-    if (el) el.textContent = count + ' events';
-    if (nextEl) {
-      const kidFuture = events
-        .filter(e => e.kid.toLowerCase() === k)
-        .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
-        .filter(e => e.d >= today)
-        .sort((a,b) => a.d - b.d);
-      if (!kidFuture.length) {
-        nextEl.textContent = 'Season Complete';
-      } else {
-        const diff = Math.round((kidFuture[0].d - today) / 86400000);
-        if (diff === 0) nextEl.textContent = 'Next: Today!';
-        else if (diff === 1) nextEl.textContent = 'Next: Tomorrow';
-        else nextEl.textContent = `Next: ${MONTH_SHORT[kidFuture[0].d.getMonth()]} ${kidFuture[0].d.getDate()}`;
-      }
-    }
-  });
-}
-
-function buildNextUp() {
-  const today = new Date(); today.setHours(0,0,0,0);
-  const upcoming = events
-    .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
-    .filter(e => e.d >= today)
-    .sort((a,b) => a.d - b.d);
-  const next = upcoming[0];
-  if (!next) return;
-  const diff = Math.round((next.d - today) / 86400000);
-  const label = diff === 0 ? 'TODAY!' : diff === 1 ? 'TOMORROW' : `IN ${diff} DAYS`;
-  document.getElementById('next-up').innerHTML = `
-    <div class="next-card">
-      <div>
-        <div class="next-badge">⚾ Next Up</div>
-        <div class="next-title" style="margin-top:6px">${next.title}</div>
-        <div class="next-sub">📍 ${next.location}</div>
-      </div>
-      <div class="next-days">
-        <div class="num">${diff === 0 ? '🔥' : diff}</div>
-        <div class="lbl">${label}</div>
-      </div>
-    </div>
-  `;
-}
-
-function buildCalendars() {
-  const today = new Date(); today.setHours(0,0,0,0);
-  const main = document.getElementById('main-content');
-  const DOW_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
-  // Upcoming list (future events only)
-  const sortedEvents = [...events]
-    .map(e => ({...e, d: new Date(getEventDate(e)+'T12:00:00')}))
-    .filter(e => e.d >= today)
-    .sort((a,b) => a.d - b.d);
-
-  // ── This Week section ──
-  let thisWeekHTML = `<div class="this-week-section"><div class="section-title">📅 This Week</div>`;
-  const weekDays = [];
-  for (let i = 0; i <= 6; i++) {
-    const d = new Date(today); d.setDate(today.getDate() + i);
-    const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-    const dayEvs = events.filter(e => eventMatchesDate(e, ds));
-    if (dayEvs.length) weekDays.push({d, dayEvs, i});
-  }
-  if (!weekDays.length) {
-    const nextEv = sortedEvents[0];
-    thisWeekHTML += `<div class="no-week-events">No events this week${nextEv ? ` — next up is <strong>${nextEv.title}</strong>` : ''}</div>`;
-  } else {
-    weekDays.forEach(({d, dayEvs, i}) => {
-      const lbl = i===0 ? `Today - ${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`
-                : i===1 ? `Tomorrow - ${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`
-                        : `${DOW_FULL[d.getDay()]} ${MONTH_SHORT[d.getMonth()]} ${d.getDate()}`;
-      thisWeekHTML += `<div class="week-day-group"><div class="week-day-label">${lbl}</div>`;
-      dayEvs.forEach(ev => {
-        const kLC = ev.kid.toLowerCase();
-        const kClass = kidClass(ev);
-        const dotColors = {'breyer-varsity':'#1a56a0','breyer-jv':'#6366f1','breyer-midland':'#0d9488','beckham':'#2e9cca','saylor':'#e05c94'};
-        const dotColor = dotColors[kClass] || '#1a56a0';
-        thisWeekHTML += `<div class="week-ev-row" data-kid="${kLC}" onclick='openModal(${JSON.stringify(ev)})'>
-          <span class="week-dot" style="background:${dotColor}"></span>
-          <span class="week-time">${ev.time || ''}</span>
-          <span class="week-title">${ev.title}</span>
-          <span class="ev-player-badge ${kClass}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)} · ${ev.team||''}</span>
-        </div>`;
-      });
-      thisWeekHTML += `</div>`;
-    });
-  }
-  thisWeekHTML += `</div>`;
-
-  // ── Upcoming list ──
-  let upcomingHTML = `<div class="upcoming-section">
-    <div class="section-title">📋 Upcoming Schedule</div>
-    <div class="upcoming-list">`;
-  sortedEvents.forEach(ev => {
-    const d = ev.d;
-    const kidLC = ev.kid.toLowerCase();
-    const kClass = kidClass(ev);
-    upcomingHTML += `
-      <div class="upcoming-item" data-kid="${kidLC}" onclick='openModal(${JSON.stringify(ev)})'>
-        <div class="ev-color-bar ${kClass}"></div>
-        <div class="ev-date-block">
-          <div class="ev-month">${MONTH_SHORT[d.getMonth()]}</div>
-          <div class="ev-day">${d.getDate()}</div>
-        </div>
-        <div class="ev-info">
-          <div class="ev-name">${ev.title}</div>
-          <div class="ev-loc">📍 ${ev.location} · ${ev.team || ''}</div>
-        </div>
-        <div class="ev-player-badge ${kClass}">${ev.kid.charAt(0).toUpperCase()+ev.kid.slice(1)}</div>
-      </div>`;
-  });
-  upcomingHTML += `</div></div>`;
-
-  main.innerHTML = thisWeekHTML + upcomingHTML;
-
-  // ── Calendar months ──
-  months.forEach(m => {
-    const monthEvents = events.filter(e => {
-      const dateStr = getEventDate(e);
-      if (!dateStr) return false;
-      const [y,mo] = dateStr.split('-').map(Number);
-      if (e.startDate && e.endDate) {
-        const s = new Date(e.startDate+'T12:00:00');
-        const endD = new Date(e.endDate+'T12:00:00');
-        const mStart = new Date(m.year, m.month, 1);
-        const mEnd = new Date(m.year, m.month+1, 0);
-        return s <= mEnd && endD >= mStart;
-      }
-      return y === m.year && mo === m.month+1;
-    });
-
-    const sec = document.createElement('div');
-    sec.className = 'month-section';
-
-    const hdr = document.createElement('div');
-    hdr.className = 'month-header';
-    hdr.innerHTML = `<h2>${m.name} 2026</h2>${monthEvents.length ? `<span class="event-count">${monthEvents.length} event${monthEvents.length>1?'s':''}</span>` : ''}`;
-    sec.appendChild(hdr);
-
-    const grid = document.createElement('div');
-    grid.className = 'cal-grid';
-
-    DAYS.forEach(d => {
-      const dow = document.createElement('div');
-      dow.className = 'cal-dow';
-      dow.textContent = d;
-      grid.appendChild(dow);
-    });
-
-    const firstDay = new Date(m.year, m.month, 1).getDay();
-    const daysInMonth = new Date(m.year, m.month+1, 0).getDate();
-
-    for (let i = 0; i < firstDay; i++) {
-      const blank = document.createElement('div');
-      blank.className = 'cal-day empty';
-      grid.appendChild(blank);
-    }
-
-    for (let d = 1; d <= daysInMonth; d++) {
-      const dateStr = `${m.year}-${String(m.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const dayEvents = events.filter(e => eventMatchesDate(e, dateStr));
-      const isToday = new Date(m.year, m.month, d).getTime() === today.getTime();
-      const cellDate = new Date(m.year, m.month, d);
-      const isPastDay = cellDate < today;
-
-      // Conflict: 2+ different kids
-      const kidsOnDay = [...new Set(dayEvents.map(e => e.kid.toLowerCase()))];
-      const hasConflict = kidsOnDay.length >= 2;
-
-      const cell = document.createElement('div');
-      let cls = 'cal-day';
-      if (isToday) cls += ' today';
-      if (dayEvents.length) cls += ' has-event';
-      if (hasConflict) cls += ' has-conflict';
-      cell.className = cls;
-
-      if (hasConflict) {
-        const badge = document.createElement('div');
-        badge.className = 'conflict-badge';
-        badge.textContent = '⚠️ conflict';
-        cell.appendChild(badge);
-      }
-
-      const num = document.createElement('div');
-      num.className = 'day-num';
-      num.textContent = d;
-      cell.appendChild(num);
-
-      const maxChips = window.innerWidth < 420 ? 2 : window.innerWidth < 768 ? 3 : 4;
-      dayEvents.forEach((ev, idx) => {
-        if (idx === maxChips && dayEvents.length > maxChips) {
-          const more = document.createElement('div');
-          more.className = 'ev-chip ev-more';
-          more.textContent = `+${dayEvents.length - maxChips} more`;
-          more.style.cssText = 'background:#64748b;cursor:default;';
-          cell.appendChild(more);
-          return;
-        }
-        if (idx > maxChips) return;
-        const chip = document.createElement('div');
-        chip.className = `ev-chip ${kidClass(ev)}${isPastDay ? ' past' : ''}`;
-        chip.title = ev.title;
-        chip.textContent = ev.title.replace(/^(Breyer|Beckham|Saylor)\s+[–-]\s+/i,'');
-        chip.onclick = () => openModal(ev);
-        cell.appendChild(chip);
-      });
-
-      // All-past cell
-      if (dayEvents.length && isPastDay) cell.classList.add('all-past');
-
-      grid.appendChild(cell);
-    }
-
-    sec.appendChild(grid);
-    // Add a data attribute so filter can hide months with no matching events
-    sec.dataset.hasBreyer = monthEvents.some(e=>e.kid.toLowerCase()==='breyer') ? '1' : '0';
-    sec.dataset.hasBeckham = monthEvents.some(e=>e.kid.toLowerCase()==='beckham') ? '1' : '0';
-    sec.dataset.hasSaylor = monthEvents.some(e=>e.kid.toLowerCase()==='saylor') ? '1' : '0';
-    main.appendChild(sec);
-  });
-}
-
-buildStats();
-buildNextUp();
-buildCalendars();
-
-// Set print date attribute
-document.body.setAttribute('data-print-date', new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'}));
-
-// Apply URL ?kid= filter on load
-(function() {
-  const kid = new URLSearchParams(location.search).get('kid');
-  if (kid && ['breyer','beckham','saylor','all'].includes(kid)) {
-    const tab = document.querySelector(`[data-kid="${kid}"]`);
-    if (tab) setFilter(kid, tab);
-  }
-})();
-</script>
 </body>
 </html>
