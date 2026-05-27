@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>🎯 Intention.ly — Tony Beal Outbound Fit Brief</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0b2a44;
+      --navy2:  #0f3460;
+      --teal:   #0891b2;
+      --teal2:  #06b6d4;
+      --gold:   #f59e0b;
+      --green:  #059669;
+      --purple: #7c3aed;
+      --red:    #dc2626;
+      --bg:     #f0f4f8;
+      --card:   #ffffff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 50%, var(--teal) 100%);
+      color: #fff;
+      padding: 28px 24px 20px;
+      position: relative;
+    }
+    .header-inner { max-width: 1100px; margin: 0 auto; }
+    .header-kicker {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--teal2); margin-bottom: 8px;
+    }
+    .header-headline {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900; line-height: 1.2; margin-bottom: 6px;
+    }
+    .header-sub {
+      font-size: 0.95rem; color: rgba(255,255,255,0.75); max-width: 680px;
+      line-height: 1.5; margin-bottom: 16px;
+    }
+    .header-cta {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      font-weight: 800; font-size: 0.85rem;
+      padding: 10px 20px; border-radius: 8px; text-decoration: none;
+      margin-right: 10px; margin-bottom: 8px;
+    }
+    .header-cta.ghost {
+      background: rgba(255,255,255,0.12); color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .header-meta {
+      margin-top: 16px;
+      display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .header-meta-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.65);
+    }
+    .header-meta-item strong { color: rgba(255,255,255,0.9); }
+
+    /* ── STICKY NAV ── */
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      border-bottom: 2px solid var(--teal);
+      overflow-x: auto;
+    }
+    .sticky-nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 0;
+    }
+    .nav-btn {
+      padding: 12px 16px; font-size: 0.78rem; font-weight: 700;
+      color: rgba(255,255,255,0.6); background: none; border: none;
+      cursor: pointer; white-space: nowrap; text-transform: uppercase;
+      letter-spacing: 0.5px; transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 3px solid transparent;
+      text-decoration: none; display: inline-block;
+    }
+    .nav-btn:hover, .nav-btn.active { color: var(--teal2); border-bottom-color: var(--teal2); }
+
+    /* ── MAIN ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 48px; scroll-margin-top: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .section-title { font-size: 1.2rem; font-weight: 900; color: var(--navy); }
+    .section-subtitle { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .card-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 640px) {
+      .card-2col { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ACCENT CARDS ── */
+    .card.accent-teal  { border-left: 4px solid var(--teal); }
+    .card.accent-gold  { border-left: 4px solid var(--gold); }
+    .card.accent-green { border-left: 4px solid var(--green); }
+    .card.accent-purple{ border-left: 4px solid var(--purple); }
+    .card.accent-red   { border-left: 4px solid var(--red); }
+    .card.accent-navy  { border-left: 4px solid var(--navy); }
+
+    .card-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--muted); margin-bottom: 6px;
+    }
+    .card-value { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .card-desc { font-size: 0.83rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+    /* ── HERO STAT STRIP ── */
+    .stat-strip {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-radius: var(--radius); padding: 20px 24px;
+      display: flex; gap: 0; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .stat-item {
+      text-align: center; padding: 8px 24px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .stat-lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+    /* ── TABLE ── */
+    .match-table {
+      width: 100%; border-collapse: collapse; font-size: 0.875rem;
+    }
+    .match-table th {
+      background: var(--navy); color: #fff;
+      padding: 10px 14px; text-align: left;
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .match-table th:first-child { border-radius: 8px 0 0 0; }
+    .match-table th:last-child  { border-radius: 0 8px 0 0; }
+    .match-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .match-table tr:last-child td { border-bottom: none; }
+    .match-table tr:nth-child(even) td { background: #f8fafc; }
+    .match-table .need { font-weight: 700; color: var(--navy); }
+    .match-table .proof { color: var(--text); }
+    .check { color: var(--green); font-weight: 700; margin-right: 4px; }
+
+    /* ── PILLS ── */
+    .pill-group { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .pill {
+      padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+      display: inline-block;
+    }
+    .pill-navy   { background: #e0e9f5; color: var(--navy); }
+    .pill-teal   { background: #e0f5fa; color: var(--teal); }
+    .pill-gold   { background: #fef3c7; color: #92400e; }
+    .pill-green  { background: #d1fae5; color: #065f46; }
+    .pill-purple { background: #ede9fe; color: var(--purple); }
+    .pill-red    { background: #fee2e2; color: var(--red); }
+
+    /* ── NUMBERED STEPS ── */
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 18px;
+      transition: box-shadow 0.2s;
+    }
+    .step:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      font-weight: 900; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-weight: 800; font-size: 0.95rem; color: var(--navy); margin-bottom: 5px; }
+    .step-desc  { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── MESSAGE BLOCK ── */
+    .message-block {
+      background: #f8fafc; border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: var(--radius); padding: 16px 18px;
+      font-size: 0.875rem; line-height: 1.7;
+      color: var(--text); margin-top: 10px;
+      white-space: pre-wrap;
+    }
+    .message-block.gold   { border-left-color: var(--gold); }
+    .message-block.green  { border-left-color: var(--green); }
+    .message-block.purple { border-left-color: var(--purple); }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 8px; padding: 6px 12px;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .copy-btn.copied { background: var(--green); }
+
+    /* ── ICP CARDS ── */
+    .icp-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px;
+    }
+    .icp-title {
+      font-size: 0.95rem; font-weight: 800; color: var(--navy);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
+    }
+    .icp-badge {
+      font-size: 0.65rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; background: var(--teal); color: #fff;
+    }
+    .icp-pain { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
+    .icp-angle {
+      font-size: 0.82rem; line-height: 1.6;
+      background: #f0f9ff; border-left: 3px solid var(--teal);
+      padding: 8px 12px; border-radius: 4px; color: var(--text);
+    }
+    .icp-angle-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal); margin-bottom: 4px; }
+
+    /* ── PERSONA CARDS ── */
+    .persona-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .persona-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+    }
+    .persona-name { font-weight: 800; font-size: 1rem; color: var(--navy); }
+    .persona-role { font-size: 0.75rem; color: var(--muted); margin-bottom: 10px; }
+    .persona-relevance {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px; margin-bottom: 8px;
+    }
+    .rel-high { background: #d1fae5; color: #065f46; }
+    .rel-med  { background: #fef3c7; color: #92400e; }
+    .persona-pain { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+    .persona-angle-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal); margin-bottom: 4px; }
+    .persona-angle { font-size: 0.8rem; line-height: 1.5; color: var(--text); }
+
+    /* ── TOOL CHIPS ── */
+    .tool-row {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; margin-bottom: 8px;
+    }
+    .tool-icon { font-size: 1.3rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .tool-name { font-weight: 800; font-size: 0.9rem; min-width: 120px; }
+    .tool-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; flex: 1; }
+    .tool-tag {
+      font-size: 0.68rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; white-space: nowrap;
+    }
+
+    /* ── DAY PLAN ── */
+    .day-plan { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+    .day-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .day-num-badge {
+      display: inline-block; background: var(--navy); color: #fff;
+      font-size: 0.7rem; font-weight: 800; padding: 3px 10px;
+      border-radius: 20px; margin-bottom: 8px;
+    }
+    .day-task { font-size: 0.83rem; color: var(--text); line-height: 1.5; font-weight: 600; }
+
+    /* ── STORYBRAND ── */
+    .sb-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .sb-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 18px;
+    }
+    .sb-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .sb-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .sb-content { font-size: 0.83rem; line-height: 1.6; color: var(--text); }
+
+    /* ── TALKING POINTS ── */
+    .tp-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px;
+    }
+    .tp-q {
+      font-weight: 800; font-size: 0.9rem; color: var(--navy);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .tp-q::before {
+      content: "Q";
+      background: var(--navy); color: #fff;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.72rem; font-weight: 900;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .tp-a {
+      font-size: 0.875rem; line-height: 1.7; color: var(--text);
+      background: #f8fafc; border-left: 4px solid var(--teal);
+      padding: 12px 14px; border-radius: 4px;
+    }
+
+    /* ── WHAT/WHY/WHEN/HOW ── */
+    .wwwh-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 700px) {
+      .wwwh-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .wwwh-grid { grid-template-columns: 1fr; }
+    }
+    .wwwh-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+      text-align: center;
+    }
+    .wwwh-letter {
+      font-size: 2rem; font-weight: 900;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .wwwh-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 8px; color: var(--muted);
+    }
+    .wwwh-text { font-size: 0.82rem; line-height: 1.5; color: var(--text); }
+
+    /* ── PROOF ASSET ── */
+    .proof-banner {
+      background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+      border-radius: var(--radius); padding: 22px 26px; color: #fff;
+      margin-bottom: 16px;
+    }
+    .proof-headline { font-size: 1.1rem; font-weight: 900; margin-bottom: 6px; }
+    .proof-sub { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .proof-stats { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 14px; }
+    .proof-stat-num { font-size: 1.5rem; font-weight: 900; color: #6ee7b7; }
+    .proof-stat-lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); }
+
+    /* ── ALERT BANNER ── */
+    .alert {
+      border-radius: var(--radius); padding: 14px 18px;
+      margin-bottom: 18px; font-size: 0.875rem;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .alert-body { flex: 1; line-height: 1.5; }
+    .alert-gold   { background: #fef3c7; border: 1px solid #f59e0b; }
+    .alert-teal   { background: #e0f2fe; border: 1px solid var(--teal); }
+    .alert-green  { background: #d1fae5; border: 1px solid var(--green); }
+
+    /* ── SERVICE MAP ── */
+    .service-map {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .service-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 14px;
+      text-align: center; font-size: 0.83rem; font-weight: 700;
+      color: var(--navy); transition: box-shadow 0.2s;
+    }
+    .service-chip:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .service-chip .icon { font-size: 1.4rem; display: block; margin-bottom: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.5);
+      text-align: center; padding: 20px;
+      font-size: 0.78rem; margin-top: 40px;
+    }
+    footer strong { color: var(--gold); }
+
+    /* ── COLLAPSIBLE ── */
+    details { margin-bottom: 10px; }
+    details summary {
+      cursor: pointer; padding: 12px 16px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+      list-style: none; display: flex; align-items: center;
+      justify-content: space-between;
+      transition: background 0.2s;
+    }
+    details summary:hover { background: #f8fafc; }
+    details summary::after { content: "＋"; font-size: 1rem; color: var(--muted); }
+    details[open] summary::after { content: "－"; }
+    details[open] summary { border-radius: 8px 8px 0 0; border-bottom: none; }
+    details .details-body {
+      padding: 16px; background: var(--card);
+      border: 1px solid var(--border); border-top: none;
+      border-radius: 0 0 8px 8px;
+      font-size: 0.85rem; line-height: 1.7; color: var(--text);
+    }
+
+    /* ── LIST STYLES ── */
+    ul.checklist { list-style: none; padding: 0; }
+    ul.checklist li {
+      padding: 5px 0 5px 22px; position: relative;
+      font-size: 0.875rem; line-height: 1.5; color: var(--text);
+      border-bottom: 1px solid #f1f5f9;
+    }
+    ul.checklist li:last-child { border-bottom: none; }
+    ul.checklist li::before {
+      content: "→"; position: absolute; left: 0;
+      color: var(--teal); font-weight: 700;
+    }
+
+    ul.bullets { padding-left: 18px; }
+    ul.bullets li {
+      font-size: 0.875rem; line-height: 1.7; color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    h4 { font-size: 0.9rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; margin-top: 14px; }
+    h4:first-child { margin-top: 0; }
+
+    p { font-size: 0.875rem; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+    strong { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="header-inner">
+    <div class="header-kicker">🎯 Target Account Brief — Prepared by Tony Beal</div>
+    <div class="header-headline">Intention.ly Outbound Fit: LinkedIn GTM Systems for Financial Services Growth</div>
+    <div class="header-sub">How Tony can support AI-assisted outbound execution across Sales Navigator, SmartLead, HeyReach, Clay-style enrichment, CRM tracking, and campaign optimization.</div>
+    <div>
+      <a class="header-cta" href="#talking-points">📞 Interview Talking Points</a>
+      <a class="header-cta ghost" href="#outreach">✉️ DM Templates</a>
+      <a class="header-cta ghost" href="#proof-asset">🏆 Proof Asset</a>
+    </div>
+    <div class="header-meta">
+      <div class="header-meta-item">🏢 <strong>Company:</strong> Intention.ly — Philadelphia, PA</div>
+      <div class="header-meta-item">🎯 <strong>Goal:</strong> Turn campaign activity into qualified conversations &amp; repeatable outbound systems</div>
+      <div class="header-meta-item">📅 <strong>Status:</strong> Active outbound / Hiring opportunity</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ STICKY NAV ══════════ -->
+<nav class="sticky-nav">
+  <div class="sticky-nav-inner">
+    <a class="nav-btn" href="#summary">Summary</a>
+    <a class="nav-btn" href="#snapshot">Snapshot</a>
+    <a class="nav-btn" href="#storybrand">StoryBrand</a>
+    <a class="nav-btn" href="#why-tony">Why Tony</a>
+    <a class="nav-btn" href="#icp-map">ICPs</a>
+    <a class="nav-btn" href="#gtm-workflow">GTM Workflow</a>
+    <a class="nav-btn" href="#messages">Messages</a>
+    <a class="nav-btn" href="#personas">Personas</a>
+    <a class="nav-btn" href="#tool-stack">Tools</a>
+    <a class="nav-btn" href="#first-7">First 7 Days</a>
+    <a class="nav-btn" href="#proof-asset">Proof Asset</a>
+    <a class="nav-btn" href="#outreach">DM Templates</a>
+    <a class="nav-btn" href="#talking-points">Talking Points</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══════════ ALERT ══════════ -->
+  <div class="alert alert-gold" style="margin-top:8px">
+    <div class="alert-icon">⚡</div>
+    <div class="alert-body"><strong>Bottom Line:</strong> This is not a "maybe." This is a very real fit. But your message has to be premium. They already know marketing. You win by showing you understand financial-services GTM execution — not generic lead gen. Do NOT pitch: <em>"I can help you get leads."</em> Pitch: <em>"I can help operationalize LinkedIn-led pipeline systems."</em></div>
+  </div>
+
+  <!-- ══════════ SECTION 1: EXECUTIVE SUMMARY ══════════ -->
+  <section class="section" id="summary">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0f2fe">📋</div>
+      <div>
+        <div class="section-title">Executive Summary</div>
+        <div class="section-subtitle">The 60-second pitch frame</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-item">
+        <div class="stat-num">100+</div>
+        <div class="stat-lbl">Top Firms Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12K+</div>
+        <div class="stat-lbl">LinkedIn Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">11–50</div>
+        <div class="stat-lbl">Team Size</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">9</div>
+        <div class="stat-lbl">Service Categories</div>
+      </div>
+    </div>
+
+    <div class="card accent-teal">
+      <p>Intention.ly is a financial-services growth consultancy and marketing agency built around strategy, execution, and measurable growth. Their positioning is strong: they do not sell random marketing deliverables — they sell <strong>growth engine design</strong>.</p>
+      <p>The strongest opportunity is not to pitch generic lead generation. It is to show how Tony can support their <strong>outbound execution layer</strong>: Sales Navigator targeting, AI-assisted personalization, SmartLead, HeyReach, Clay-style enrichment, CRM movement, LinkedIn follow-up, and campaign optimization.</p>
+      <p style="margin-bottom:0">Tony's best proof asset is the <strong>physician-focused LinkedIn GTM operating system built for Mark</strong>, which mirrors Intention.ly's world: financial services, niche targeting, relationship-based outreach, AI-assisted systems, CRM tracking, and a private execution website.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 2: COMPANY SNAPSHOT ══════════ -->
+  <section class="section" id="snapshot">
+    <div class="section-header">
+      <div class="section-icon" style="background:#ede9fe">🏢</div>
+      <div>
+        <div class="section-title">Company Snapshot</div>
+        <div class="section-subtitle">Know them before you call them</div>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-bottom:18px">
+      <div class="card accent-navy">
+        <div class="card-label">Positioning</div>
+        <div class="card-value">"Where the Industry Goes to Grow"</div>
+        <div class="card-desc">Growth consultancy and marketing agency for the financial services industry</div>
+      </div>
+      <div class="card accent-navy">
+        <div class="card-label">Location</div>
+        <div class="card-value">Philadelphia, PA</div>
+        <div class="card-desc">Also: Omaha + King of Prussia offices listed on website</div>
+      </div>
+      <div class="card accent-navy">
+        <div class="card-label">Clients Served</div>
+        <div class="card-value">100+ top firms</div>
+        <div class="card-desc">Fintechs, custodians, RIAs, broker-dealers, asset managers</div>
+      </div>
+      <div class="card accent-navy">
+        <div class="card-label">Core Promise</div>
+        <div class="card-value">Measurable growth</div>
+        <div class="card-desc">Strategy, marketing, sales, operations, technology, AI, branding, HubSpot, content, advisor recruitment, GTM execution</div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:24px; border-top: 1px solid var(--border); padding-top:18px; margin-bottom:14px">
+      <div class="section-title" style="font-size:1rem">Service Map</div>
+    </div>
+    <div class="service-map">
+      <div class="service-chip"><span class="icon">📣</span>Marketing</div>
+      <div class="service-chip"><span class="icon">🎨</span>Branding</div>
+      <div class="service-chip"><span class="icon">📡</span>Communications</div>
+      <div class="service-chip"><span class="icon">🤖</span>AI Services</div>
+      <div class="service-chip"><span class="icon">👔</span>Advisor Recruitment</div>
+      <div class="service-chip"><span class="icon">🧑‍💼</span>Talent Acquisition</div>
+      <div class="service-chip"><span class="icon">🎪</span>Events</div>
+      <div class="service-chip"><span class="icon">🔗</span>HubSpot Services</div>
+      <div class="service-chip"><span class="icon">🏗️</span>Advisor Brand Builder</div>
+    </div>
+
+    <div class="alert alert-teal" style="margin-top:18px">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body"><strong>LinkedIn Tone:</strong> Bold, direct, financial-services fluent, human, sometimes edgy, story-driven, anti-generic, growth-focused. Their page says: "direct, no-BS approach, a touch of swagger, and deep industry expertise." <strong>Your message should match that energy.</strong></div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 3: STORYBRAND ══════════ -->
+  <section class="section" id="storybrand">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7">📖</div>
+      <div>
+        <div class="section-title">StoryBrand Analysis</div>
+        <div class="section-subtitle">How Intention.ly talks to their own customers</div>
+      </div>
+    </div>
+
+    <div class="sb-grid">
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#0891b2"></span> The Character (Customer)</div>
+        <div class="sb-content">A growth-minded financial services firm tired of generic marketing. Includes fintechs, RIAs, broker-dealers, custodians, asset managers, breakaway advisors, fast-growing advisory firms, acquiring enterprises, firms recruiting advisors, firms implementing HubSpot.</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#dc2626"></span> External Problem</div>
+        <div class="sb-content">Disconnected growth systems. Marketing, sales, operations, CRM, content, advisor recruiting, and AI are NOT working together. Intention.ly explicitly says marketing alone won't get firms to their goals.</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#f59e0b"></span> Internal Problem</div>
+        <div class="sb-content">Clients feel like they're doing "marketing activity" but not creating real growth. Tired of wasted campaigns, slow agency onboarding, generic messaging, weak differentiation, poor CRM adoption, unclear pipeline attribution.</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#7c3aed"></span> Philosophical Problem</div>
+        <div class="sb-content">Financial services firms should NOT lose market share because their growth engine is fragmented, generic, or slow. Intention.ly attacks the "sea of sameness" and positions bold differentiation as necessary to win.</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#059669"></span> The Guide (Intention.ly)</div>
+        <div class="sb-content">Financial-services specialization, 100+ top firms served, deep industry relationships, cross-functional growth specialists, AI Lab and vetted martech tools, HubSpot expertise, case studies. "Home court advantage" = faster onboarding.</div>
+      </div>
+      <div class="sb-card">
+        <div class="sb-label"><span class="sb-dot" style="background:#0b2a44"></span> Success</div>
+        <div class="sb-content">Measurable pipeline growth, revenue increases, stronger market position, better brand clarity, better lead generation, integrated growth systems, better AI adoption, smoother HubSpot usage, advisor recruiting edge.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px; background:#fef2f2; border-color:#fca5a5">
+      <div class="card-label" style="color:#dc2626">⚠️ Failure State (What Clients Risk Without Intention.ly)</div>
+      <div class="pill-group" style="margin-top:6px">
+        <span class="pill pill-red">Invisible in crowded market</span>
+        <span class="pill pill-red">Losing advisors to better stories</span>
+        <span class="pill pill-red">Wasting AI spend</span>
+        <span class="pill pill-red">Underusing HubSpot</span>
+        <span class="pill pill-red">Content that doesn't move pipeline</span>
+        <span class="pill pill-red">No measurable outcomes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 4: WHY TONY FITS ══════════ -->
+  <section class="section" id="why-tony">
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5">✅</div>
+      <div>
+        <div class="section-title">Why Tony Fits</div>
+        <div class="section-subtitle">This role requires more than cold email execution</div>
+      </div>
+    </div>
+
+    <div class="alert alert-green" style="margin-bottom:16px">
+      <div class="alert-icon">🔑</div>
+      <div class="alert-body">Tony fits because this role requires someone who understands <strong>LinkedIn Sales Navigator targeting, relationship-based outreach, financial-services-adjacent messaging, AI-assisted personalization, campaign execution, data hygiene, CRM movement, multi-channel follow-up, and client-specific operating systems.</strong></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th>Intention.ly Need</th>
+            <th>Tony Proof</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="need">AI-assisted outbound</td>
+            <td class="proof"><span class="check">✓</span>Built AI-supported research, messaging, and behavior systems</td>
+          </tr>
+          <tr>
+            <td class="need">LinkedIn outreach</td>
+            <td class="proof"><span class="check">✓</span>Built Sales Navigator-led physician outreach workflows</td>
+          </tr>
+          <tr>
+            <td class="need">Financial-services fluency</td>
+            <td class="proof"><span class="check">✓</span>Built a financial advisor GTM system around physician retirement-planning conversations</td>
+          </tr>
+          <tr>
+            <td class="need">Campaign execution</td>
+            <td class="proof"><span class="check">✓</span>Created lists, messaging, follow-up logic, CRM stages, and reporting</td>
+          </tr>
+          <tr>
+            <td class="need">Agency support</td>
+            <td class="proof"><span class="check">✓</span>Can work async, document workflows, and improve campaigns without constant hand-holding</td>
+          </tr>
+          <tr>
+            <td class="need">Data hygiene</td>
+            <td class="proof"><span class="check">✓</span>Built segmented physician database and verified outreach lists</td>
+          </tr>
+          <tr>
+            <td class="need">CRM thinking</td>
+            <td class="proof"><span class="check">✓</span>Built pipeline movement logic and dashboard reporting</td>
+          </tr>
+          <tr>
+            <td class="need">Human messaging</td>
+            <td class="proof"><span class="check">✓</span>Created Socratic, non-spammy LinkedIn messages</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-label">🔥 Your Hammer Line</div>
+      <p style="font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:0; line-height:1.6">"I recently built a physician-focused LinkedIn/Sales Navigator outreach operating system for a financial advisor, including a 21K+ public-data prospect database, target segmentation, Socratic LinkedIn messaging, CRM tracking, dashboard reporting, and a private GTM command-center website."</p>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 5: CAMPAIGN HYPOTHESIS ══════════ -->
+  <section class="section" id="hypothesis">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0f2fe">🧪</div>
+      <div>
+        <div class="section-title">Campaign Hypothesis</div>
+        <div class="section-subtitle">The strategic frame for your pitch</div>
+      </div>
+    </div>
+    <div class="card accent-teal">
+      <p style="font-size:1rem; font-weight:800; color:var(--navy); margin-bottom:12px">Hypothesis: Intention.ly's strongest outbound opportunity is not more volume. It is more precise campaign architecture.</p>
+      <div class="card-grid" style="gap:10px">
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">Clearer ICP Segmentation</div>
+          <div class="card-desc">Build campaigns around real buyer signals, not just titles</div>
+        </div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">Stronger Trigger Events</div>
+          <div class="card-desc">Job changes, rebrands, hiring surges, AI announcements, acquisitions</div>
+        </div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">Better Sales Navigator Logic</div>
+          <div class="card-desc">Smarter filters = higher relevance before first message is sent</div>
+        </div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">AI-Personalization That Sounds Human</div>
+          <div class="card-desc">Research-backed first lines, not merge-field spam</div>
+        </div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">Safe SmartLead/HeyReach Pacing</div>
+          <div class="card-desc">Volume that doesn't tank deliverability or LinkedIn score</div>
+        </div>
+        <div style="background:#f0f9ff; border-radius:8px; padding:12px">
+          <div class="card-label">CRM Tracking on Conversations</div>
+          <div class="card-desc">Not just sends — track replies, context, next steps, pipeline value</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 6: ICP MAP ══════════ -->
+  <section class="section" id="icp-map">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7">🗺️</div>
+      <div>
+        <div class="section-title">ICP Map — Who Intention.ly Serves</div>
+        <div class="section-subtitle">Your campaign intelligence on their buyers</div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="icp-card">
+        <div class="icp-title">Breakaway Advisors <span class="icp-badge">Advisor Brand Builder</span></div>
+        <div class="icp-pain">Leaving a larger firm. Needs new identity fast, brand clarity, website/collateral, credibility, compliant messaging — all under time pressure.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">Most breakaway advisors don't need more marketing noise. They need a credible brand foundation fast enough to support the move before momentum leaks.</div>
+      </div>
+
+      <div class="icp-card">
+        <div class="icp-title">Fast-Evolving Firms <span class="icp-badge">Growth Momentum</span></div>
+        <div class="icp-pain">Outgrown old positioning. Messaging no longer matches business maturity. Team has changed, audience has changed, digital presence feels behind.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">Your firm may have evolved faster than your brand. That gap quietly hurts trust before a prospect ever books a call.</div>
+      </div>
+
+      <div class="icp-card">
+        <div class="icp-title">Acquiring Enterprises <span class="icp-badge">Scale</span></div>
+        <div class="icp-pain">Multiple acquired firms. Inconsistent messaging, brand chaos. Needs speed and governance. Need centralized process for rebranding.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">Every acquisition adds brand complexity. The firms that win make rebranding scalable instead of reinventing the wheel each time.</div>
+      </div>
+
+      <div class="icp-card">
+        <div class="icp-title">RIAs / BDs Recruiting Advisors <span class="icp-badge">Advisor Recruitment</span></div>
+        <div class="icp-pain">Advisor shortage, consolidation, recruiting competition, weak culture story, can't differentiate beyond payout.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">Top advisors are not only comparing payouts. They're comparing story, culture, independence, support, and whether your firm feels like the right next chapter.</div>
+      </div>
+
+      <div class="icp-card">
+        <div class="icp-title">Financial Firms Underusing HubSpot <span class="icp-badge">HubSpot Services</span></div>
+        <div class="icp-pain">Bought HubSpot but underusing it. Data is messy. Workflows don't match sales process. Lead scoring is weak. Reporting unclear. Marketing and sales don't trust the CRM.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">HubSpot is not the problem. The problem is usually that the CRM was never built around the actual lifecycle of your firm.</div>
+      </div>
+
+      <div class="icp-card">
+        <div class="icp-title">AI-Curious Financial Firms <span class="icp-badge">AI Lab</span></div>
+        <div class="icp-pain">Firms want AI but don't know what is safe, useful, or measurable. Generic AI tools don't understand financial services compliance needs.</div>
+        <div class="icp-angle-label">Outbound Angle</div>
+        <div class="icp-angle">AI is not valuable just because it's installed. It has to be integrated into the firm's actual growth workflow — safely and measurably.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 7: GTM WORKFLOW ══════════ -->
+  <section class="section" id="gtm-workflow">
+    <div class="section-header">
+      <div class="section-icon" style="background:#ede9fe">⚙️</div>
+      <div>
+        <div class="section-title">LinkedIn GTM Workflow</div>
+        <div class="section-subtitle">5-step outbound operating system for Intention.ly campaigns</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Segment the Market</div>
+          <div class="step-desc">Build campaign lists around: breakaway advisors, RIA executives, broker-dealer leaders, fintech marketing leaders, HubSpot-underusing financial firms, firms recruiting advisors, firms launching new brands/products, firms posting about growth / recruiting / AI / rebrands.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Build Sales Navigator Searches</div>
+          <div class="step-desc">
+            <strong>Industry:</strong> Financial Services, Investment Management, Wealth Management, Fintech<br>
+            <strong>Titles:</strong> Founder, CEO, President, CMO, Chief Growth Officer, Head of Marketing, Head of Advisor Recruiting, Chief Strategy Officer, COO<br>
+            <strong>Company size:</strong> 11–50, 51–200, 201–500<br>
+            <strong>Geography:</strong> United States<br>
+            <strong>Signals:</strong> Posted on LinkedIn recently · Changed jobs in past 90 days · Company growth signals<br>
+            <strong>Keywords:</strong> RIA, wealth management, advisor recruiting, breakaway advisor, fintech, HubSpot, rebrand, succession, acquisition, advisor growth
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Create Message Buckets</div>
+          <div class="step-desc">
+            <div class="pill-group" style="margin-top:6px">
+              <span class="pill pill-teal">Bucket 1: Advisor Brand Builder</span>
+              <span class="pill pill-teal">Bucket 2: Advisor Recruitment</span>
+              <span class="pill pill-teal">Bucket 3: HubSpot Optimization</span>
+              <span class="pill pill-teal">Bucket 4: AI Readiness / AI Lab</span>
+              <span class="pill pill-teal">Bucket 5: GTM Launch / Rebrand</span>
+              <span class="pill pill-teal">Bucket 6: Content + Thought Leadership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Connect LinkedIn + Email (Multi-Touch)</div>
+          <div class="step-desc">LinkedIn should not operate alone. Full sequence:<br>
+            <strong>LinkedIn profile view → connection request → soft follow-up → email follow-up (SmartLead) → content touch → manual comment on relevant post → CRM update → reply classification → next step task</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Measure What Matters</div>
+          <div class="step-desc">
+            <div class="pill-group">
+              <span class="pill pill-navy">Connection request sent</span>
+              <span class="pill pill-navy">Connection accepted</span>
+              <span class="pill pill-navy">Reply</span>
+              <span class="pill pill-green">Positive reply</span>
+              <span class="pill pill-green">Meeting booked</span>
+              <span class="pill pill-navy">Client campaign</span>
+              <span class="pill pill-gold">Message theme</span>
+              <span class="pill pill-gold">Objection</span>
+              <span class="pill pill-navy">Next step</span>
+              <span class="pill pill-green">Pipeline value</span>
+              <span class="pill pill-purple">Campaign learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 8: MESSAGE ANGLES ══════════ -->
+  <section class="section" id="messages">
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5">💬</div>
+      <div>
+        <div class="section-title">Message Angles</div>
+        <div class="section-subtitle">Campaign-specific outreach frames for each service bucket</div>
+      </div>
+    </div>
+
+    <details open>
+      <summary>🏗️ Advisor Brand Builder Angle</summary>
+      <div class="details-body">
+        <p><strong>Problem:</strong> Advisors need brand clarity fast, but traditional branding is slow and expensive.</p>
+        <div class="message-block">Saw the Advisor Brand Builder work. The strongest angle I see is speed with human judgment — not AI as a shortcut.
+
+For breakaway advisors and fast-evolving firms, the pain is not just needing a logo or website. It's needing a credible story fast enough to support a real business transition.
+
+I'd be interested in helping build LinkedIn-led outbound campaigns around that exact moment.</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>👔 Advisor Recruitment Angle</summary>
+      <div class="details-body">
+        <p><strong>Problem:</strong> Firms are losing advisors to competitors with better stories.</p>
+        <div class="message-block green">Your advisor recruitment positioning stood out because it's not just "hire more advisors." It's about helping firms tell a better story so right-fit advisors can see themselves there.
+
+That's a strong LinkedIn campaign angle because advisor movement is emotional, not just financial.
+
+I'd be interested in helping build segmented outreach around advisor recruiting, firm culture, and values-fit messaging.</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>🔗 HubSpot Angle</summary>
+      <div class="details-body">
+        <p><strong>Problem:</strong> HubSpot is powerful but overwhelming.</p>
+        <div class="message-block gold">Your HubSpot page makes a smart point: HubSpot is not valuable just because it's installed. It has to match the firm's actual lifecycle.
+
+That's also where outbound usually breaks. Leads come in, but the CRM doesn't tell the team what to do next.
+
+I'd be interested in helping support campaigns where LinkedIn/email outreach connects cleanly to CRM movement and reporting.</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>🤖 AI Services Angle</summary>
+      <div class="details-body">
+        <p><strong>Problem:</strong> Firms want AI but don't know what is safe, useful, or measurable.</p>
+        <div class="message-block purple">Your AI services page stood out because it frames AI as integrated systems, not random tools.
+
+That's exactly how I think about outbound. AI should improve research, personalization, segmentation, and feedback loops without turning messages into generic automation.
+
+I'd be interested in helping execute that layer across LinkedIn and email campaigns.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ══════════ SECTION 9: TARGET PERSONAS ══════════ -->
+  <section class="section" id="personas">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce7f3">👥</div>
+      <div>
+        <div class="section-title">Target Personas Inside Intention.ly</div>
+        <div class="section-subtitle">Who to reach, why, and how</div>
+      </div>
+    </div>
+
+    <div class="persona-grid">
+      <div class="persona-card" style="border-top:3px solid var(--teal)">
+        <div class="persona-name">Kelly Waltrich</div>
+        <div class="persona-role">Listed employee — connected to Upwork outbound role</div>
+        <span class="persona-relevance rel-high">🔥 High Relevance</span>
+        <div class="persona-pain">Needs contractors who can execute without hand-holding. Wants clean AI-assisted outbound. Needs fast campaign support. Needs someone who understands financial services tone. Does NOT want spammy LinkedIn or email automation.</div>
+        <div class="persona-angle-label">Message Frame</div>
+        <div class="persona-angle">I saw the outbound role and the Intention.ly positioning. What stood out is that your agency already understands growth strategy — but this role is really about disciplined execution across LinkedIn, email, AI personalization, and campaign feedback loops.</div>
+      </div>
+
+      <div class="persona-card" style="border-top:3px solid var(--teal)">
+        <div class="persona-name">Zohray Brennan</div>
+        <div class="persona-role">Intention.ly LinkedIn employee</div>
+        <span class="persona-relevance rel-high">🔥 High Relevance</span>
+        <div class="persona-pain">Likely involved in hiring or campaign operations. Values execution discipline over volume promises.</div>
+        <div class="persona-angle-label">Message Frame</div>
+        <div class="persona-angle">I'm not approaching this as a cold email role. I'm approaching it as a multi-channel outbound operating system: clean segments, Sales Navigator logic, AI-personalized messages, SmartLead/HeyReach execution, and weekly optimization.</div>
+      </div>
+
+      <div class="persona-card" style="border-top:3px solid var(--purple)">
+        <div class="persona-name">Joe Steuter</div>
+        <div class="persona-role">Advisor Brand Builder / FinovateSpring demos</div>
+        <span class="persona-relevance rel-med">⭐ Medium Relevance</span>
+        <div class="persona-pain">Product / client strategy / Advisor Brand Builder positioning.</div>
+        <div class="persona-angle-label">Message Frame</div>
+        <div class="persona-angle">Advisor Brand Builder looks like a strong AI-assisted brand creation platform. The outbound opportunity is building stronger Sales Navigator-led campaigns around breakaway advisors, fast-evolving firms, and acquiring enterprises.</div>
+      </div>
+
+      <div class="persona-card" style="border-top:3px solid var(--gold)">
+        <div class="persona-name">Jess Flynn / Tina Powell</div>
+        <div class="persona-role">Thought leadership, community, content, brand</div>
+        <span class="persona-relevance rel-med">⭐ Medium Relevance</span>
+        <div class="persona-pain">LinkedIn content and voice are strong. The growth lever is connecting content to better outbound segmentation and attribution.</div>
+        <div class="persona-angle-label">Message Frame</div>
+        <div class="persona-angle">Intention.ly's content already has strong voice. The next growth lever is connecting that voice to better outbound segmentation, campaign attribution, and LinkedIn-led relationship workflows.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 10: TOOL STACK ══════════ -->
+  <section class="section" id="tool-stack">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7">🔧</div>
+      <div>
+        <div class="section-title">Tool Stack Map</div>
+        <div class="section-subtitle">How each tool fits the outbound operating system</div>
+      </div>
+    </div>
+
+    <div class="tool-row">
+      <div class="tool-icon">🔍</div>
+      <div class="tool-name">Sales Navigator</div>
+      <div class="tool-desc">Targeting, lead logic, ICP filters, signal-based search. Tony's strength: building the RIGHT search before any message is sent.</div>
+      <span class="pill pill-navy tool-tag">Discovery</span>
+    </div>
+    <div class="tool-row">
+      <div class="tool-icon">🎭</div>
+      <div class="tool-name">Clay</div>
+      <div class="tool-desc">Enrichment and workflow layer. Clean lists, enrich account/contact data, create personalization fields, prepare campaigns for SmartLead or HeyReach.</div>
+      <span class="pill pill-teal tool-tag">Enrichment</span>
+    </div>
+    <div class="tool-row">
+      <div class="tool-icon">📧</div>
+      <div class="tool-name">SmartLead</div>
+      <div class="tool-desc">Email sending and sequencing layer. Tony's value: what goes INTO SmartLead is strong — clean segments, relevant messaging, smart follow-ups, safe pacing, feedback loops around replies/bounces/meetings.</div>
+      <span class="pill pill-green tool-tag">Email Exec</span>
+    </div>
+    <div class="tool-row">
+      <div class="tool-icon">🔗</div>
+      <div class="tool-name">HeyReach</div>
+      <div class="tool-desc">LinkedIn execution layer. Sales Navigator targeting, connection strategy, message logic, controlled/relevant automation — not spammy.</div>
+      <span class="pill pill-purple tool-tag">LinkedIn Exec</span>
+    </div>
+    <div class="tool-row">
+      <div class="tool-icon">🤖</div>
+      <div class="tool-name">AI (Research + Personalization)</div>
+      <div class="tool-desc">Improve research, personalization, segmentation, and feedback loops. Makes messages sound human, not like merge-field templates.</div>
+      <span class="pill pill-gold tool-tag">Intelligence</span>
+    </div>
+    <div class="tool-row">
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">CRM (HubSpot / Tracking)</div>
+      <div class="tool-desc">Track conversations (not just sends). Pipeline movement logic, reply classification, dashboard reporting, next-step tasks.</div>
+      <span class="pill pill-navy tool-tag">CRM</span>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 11: FIRST 7 DAYS ══════════ -->
+  <section class="section" id="first-7">
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5">📅</div>
+      <div>
+        <div class="section-title">First 7 Days Execution Plan</div>
+        <div class="section-subtitle">What you'd do if you started tomorrow</div>
+      </div>
+    </div>
+
+    <div class="day-plan">
+      <div class="day-card">
+        <div class="day-num-badge">Day 1</div>
+        <div class="day-task">Audit active campaign structure, ICP, lists, message angles, tools, and current reporting</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 2</div>
+        <div class="day-task">Build or clean campaign segmentation by client, ICP, persona, and buying signal</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 3</div>
+        <div class="day-task">Review SmartLead campaign structure, email sequence, deliverability basics, and reply categories</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 4</div>
+        <div class="day-task">Review HeyReach/Sales Navigator workflow, connection logic, safe pacing, and LinkedIn messaging</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 5</div>
+        <div class="day-task">Build AI-assisted personalization fields and campaign notes for priority segments</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 6</div>
+        <div class="day-task">Create A/B testing plan for subject lines, CTAs, first lines, and LinkedIn follow-ups</div>
+      </div>
+      <div class="day-card">
+        <div class="day-num-badge">Day 7</div>
+        <div class="day-task">Deliver campaign optimization summary with next actions, metrics, and SOP updates</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 12: PROOF ASSET ══════════ -->
+  <section class="section" id="proof-asset">
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5">🏆</div>
+      <div>
+        <div class="section-title">Proof Asset — Mark Physician GTM System</div>
+        <div class="section-subtitle">Your most relevant work for this conversation</div>
+      </div>
+    </div>
+
+    <div class="proof-banner">
+      <div class="proof-headline">🎯 Physician-Focused LinkedIn / Sales Navigator GTM Operating System</div>
+      <div class="proof-sub">Built for a financial advisor targeting physicians for retirement planning conversations. This directly mirrors Intention.ly's world: financial services, niche targeting, relationship-based outreach, AI-assisted systems, CRM tracking, and a private command-center website.</div>
+      <div class="proof-stats">
+        <div>
+          <div class="proof-stat-num">21K+</div>
+          <div class="proof-stat-lbl">Public-data prospect database</div>
+        </div>
+        <div>
+          <div class="proof-stat-num">100%</div>
+          <div class="proof-stat-lbl">Target segmentation built</div>
+        </div>
+        <div>
+          <div class="proof-stat-num">1</div>
+          <div class="proof-stat-lbl">Private GTM command-center website</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card accent-green">
+        <div class="card-label">Public-Data Prospecting</div>
+        <div class="card-value">21K+ physician database</div>
+        <div class="card-desc">Built segmented prospect database using public data sources, verified and organized for outreach</div>
+      </div>
+      <div class="card accent-green">
+        <div class="card-label">Sales Navigator Workflow</div>
+        <div class="card-value">LinkedIn targeting system</div>
+        <div class="card-desc">Built ICP search filters, lead logic, and connection workflow for niche market</div>
+      </div>
+      <div class="card accent-green">
+        <div class="card-label">Socratic LinkedIn Messaging</div>
+        <div class="card-value">Human, non-spammy messages</div>
+        <div class="card-desc">Conversation-starting messages built around questions, not pitches — relationship-first approach</div>
+      </div>
+      <div class="card accent-green">
+        <div class="card-label">CRM Tracking + Reporting</div>
+        <div class="card-value">Pipeline movement logic</div>
+        <div class="card-desc">Dashboard reporting, stage tracking, AI prompt behavior system</div>
+      </div>
+      <div class="card accent-green">
+        <div class="card-label">AI Behavior System</div>
+        <div class="card-value">Research + personalization</div>
+        <div class="card-desc">AI-assisted research, messaging, and behavior systems built for the financial advisor context</div>
+      </div>
+      <div class="card accent-green">
+        <div class="card-label">Private GTM Website</div>
+        <div class="card-value">Command-center site</div>
+        <div class="card-desc">Client-specific strategy website serving as a private campaign command center</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 13: OUTREACH MESSAGES ══════════ -->
+  <section class="section" id="outreach">
+    <div class="section-header">
+      <div class="section-icon" style="background:#ede9fe">✉️</div>
+      <div>
+        <div class="section-title">DM Templates — Kelly &amp; Zohray</div>
+        <div class="section-subtitle">Ready to use — click copy to grab any message</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px; border-top:3px solid var(--teal)">
+      <h4>📩 Full Version — To Kelly or Zohray</h4>
+      <div class="message-block" id="msg-full">Hi Kelly,
+
+I applied for the outbound role and wanted to send a quick note here because Intention.ly's work is directly aligned with the type of system I've been building.
+
+I recently built a LinkedIn/Sales Navigator GTM operating system for a financial advisor targeting physicians. It included a 21K+ public-data prospect database, Sales Navigator workflow, Socratic LinkedIn messaging, CRM tracking, dashboard reporting, and a private strategy command center.
+
+What stood out about your role is that it's not just cold email. It's the full execution layer: Clay, SmartLead, HeyReach, AI personalization, list quality, messaging, and campaign optimization.
+
+That's the kind of outbound system I like building.
+
+Would be glad to compare notes if helpful</div>
+      <button class="copy-btn" onclick="copyMsg('msg-full', this)">📋 Copy Message</button>
+    </div>
+
+    <div class="card" style="margin-bottom:16px; border-top:3px solid var(--gold)">
+      <h4>📩 Short Version — To Kelly or Zohray</h4>
+      <div class="message-block gold" id="msg-short">Hi Kelly,
+
+I applied for the outbound role and wanted to connect here too.
+
+The role stood out because it's not just cold email. It's the full outbound operating system: LinkedIn, email, AI personalization, SmartLead, HeyReach, list quality, messaging, and campaign optimization.
+
+I recently built a physician-focused LinkedIn/Sales Navigator GTM system for a financial advisor with a 21K+ prospect database, CRM tracking, dashboard reporting, and a private command-center site.
+
+Would be glad to compare notes if helpful</div>
+      <button class="copy-btn" onclick="copyMsg('msg-short', this)">📋 Copy Message</button>
+    </div>
+
+    <div class="card" style="border-top:3px solid var(--purple)">
+      <h4>📩 To Joe Steuter — Advisor Brand Builder Angle</h4>
+      <div class="message-block purple" id="msg-joe">Hi Joe,
+
+Advisor Brand Builder looks like a strong AI-assisted brand creation platform. The outbound opportunity I see is building stronger Sales Navigator-led campaigns around breakaway advisors, fast-evolving firms, and acquiring enterprises.
+
+These are high-trigger moments — the pain is real, the urgency is high, and the right message at the right time lands.
+
+I recently built a physician-focused outbound GTM system for a financial advisor with a 21K+ prospect database, Sales Navigator workflow, and a private strategy command center.
+
+Happy to connect if there's a fit.</div>
+      <button class="copy-btn" onclick="copyMsg('msg-joe', this)">📋 Copy Message</button>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 14: TALKING POINTS ══════════ -->
+  <section class="section" id="talking-points">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fee2e2">📞</div>
+      <div>
+        <div class="section-title">Interview Talking Points</div>
+        <div class="section-subtitle">What to say when they ask — ready answers for today's call</div>
+      </div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask about SmartLead</div>
+      <div class="tp-a">I understand SmartLead as the email sending and sequencing layer. My value is making sure what goes <em>into</em> SmartLead is strong: clean segments, relevant messaging, smart follow-ups, safe pacing, and feedback loops around replies, bounces, and meetings.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask about HeyReach</div>
+      <div class="tp-a">I understand HeyReach as the LinkedIn execution layer. My strength is Sales Navigator targeting, connection strategy, message logic, and making sure LinkedIn automation is controlled, relevant, and not spammy.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask about Clay</div>
+      <div class="tp-a">I see Clay as the enrichment and workflow layer. I'd use it to clean lists, enrich account/contact data, create personalization fields, and prepare campaigns for SmartLead or HeyReach.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask what you would do first</div>
+      <div class="tp-a">First I'd audit one active campaign end-to-end: source list, ICP, segmentation, message logic, email sequence, LinkedIn touches, CRM tracking, campaign metrics, and reply quality. Then I'd identify the highest-leverage fixes before scaling anything.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask why you're different from other contractors</div>
+      <div class="tp-a">Most outbound contractors focus on volume. I focus on architecture. I've already built a physician-focused LinkedIn GTM system for a financial advisor with a 21K+ prospect database, Socratic messaging, CRM tracking, and a private command-center site. That's the same type of system Intention.ly needs for its agency campaigns — just applied to your client ICPs.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask about your financial services background</div>
+      <div class="tp-a">I don't come from inside financial services — I come from the execution side. But I've been deep inside financial advisor GTM for long enough to understand advisor-to-client language, retirement planning conversation frames, HubSpot's role in financial services workflows, and why "sea of sameness" messaging fails. That operational fluency is what matters here.</div>
+    </div>
+
+    <div class="tp-card">
+      <div class="tp-q">If they ask about async work / agency support</div>
+      <div class="tp-a">I work async by default. That means documentation, SOPs, and clear handoffs — not constant check-ins. I like building systems that run without me, then optimizing them based on what the data shows.</div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECTION 15: WHAT/WHY/WHEN/HOW ══════════ -->
+  <section class="section" id="wwwh">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7">🧭</div>
+      <div>
+        <div class="section-title">What / Why / When / How</div>
+        <div class="section-subtitle">The four-word frame for the pitch</div>
+      </div>
+    </div>
+
+    <div class="wwwh-grid">
+      <div class="wwwh-card">
+        <div class="wwwh-letter" style="color:var(--teal)">W</div>
+        <div class="wwwh-label">What</div>
+        <div class="wwwh-text">A LinkedIn + email outbound execution support system for Intention.ly's agency campaigns.</div>
+      </div>
+      <div class="wwwh-card">
+        <div class="wwwh-letter" style="color:var(--gold)">W</div>
+        <div class="wwwh-label">Why</div>
+        <div class="wwwh-text">They already have strategy, brand, AI, and financial-services expertise. The likely need is day-to-day campaign execution, optimization, list hygiene, personalization, and tool workflow across Clay, SmartLead, HeyReach, and CRM.</div>
+      </div>
+      <div class="wwwh-card">
+        <div class="wwwh-letter" style="color:var(--green)">W</div>
+        <div class="wwwh-label">When</div>
+        <div class="wwwh-text">Now. They're hiring for outbound help and their LinkedIn/content already supports AI, Advisor Brand Builder, HubSpot, advisor recruitment, and growth engine design.</div>
+      </div>
+      <div class="wwwh-card">
+        <div class="wwwh-letter" style="color:var(--purple)">H</div>
+        <div class="wwwh-label">How</div>
+        <div class="wwwh-text">Position Tony as an execution operator: Sales Navigator targeting, lead segmentation, AI-assisted personalization, SmartLead email sequencing, HeyReach LinkedIn execution, CRM movement, reporting, weekly campaign optimization, GTM command-center documentation.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FINAL CTA ══════════ -->
+  <div class="card" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); color:#fff; text-align:center; padding:32px 24px; border:none">
+    <div style="font-size:1.5rem; margin-bottom:8px">🎯</div>
+    <div style="font-size:1.1rem; font-weight:900; margin-bottom:10px">Goal: Turn Campaign Activity Into Qualified Conversations</div>
+    <div style="font-size:0.875rem; color:rgba(255,255,255,0.75); max-width:560px; margin:0 auto; line-height:1.7">
+      Cleaner attribution. Repeatable outbound systems. Financial-services-fluent execution that Intention.ly's clients can actually feel.
+    </div>
+    <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+      <a href="#talking-points" class="header-cta">📞 Prep for Call</a>
+      <a href="#outreach" class="header-cta ghost">✉️ Send the DM</a>
+      <a href="#proof-asset" class="header-cta ghost">🏆 Lead with Mark</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Tony Beal</strong> — Outbound GTM Execution · LinkedIn/Sales Navigator · SmartLead · HeyReach · AI-Assisted Systems<br>
+  <span style="color:rgba(255,255,255,0.35); font-size:0.72rem; margin-top:4px; display:block">Private brief — beal-outbound-campaign.netlify.app/intentionally</span>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navBtns  = document.querySelectorAll('.nav-btn');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navBtns.forEach(b => b.classList.remove('active'));
+        const active = document.querySelector(`.nav-btn[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => observer.observe(s));
+
+  // Copy button
+  function copyMsg(id, btn) {
+    const text = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Message';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
